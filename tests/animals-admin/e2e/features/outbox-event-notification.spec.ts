@@ -99,8 +99,8 @@ test.describe('Notification outbox event', { tag: '@mongodb' }, () => {
       const tradeLines = data.specifiedConsignment.includedConsignmentItem?.[0].includedTradeLineItem ?? [];
       expect(tradeLines).toHaveLength(1);
       const [line] = tradeLines;
-      expect(line.description).toEqual(['Cow']);
-      expect(line.commonName).toBe('Cow');
+      expect(line.description).toEqual([answers.species.commodity.lineDescription]);
+      expect(line.commonName).toBe(answers.species.commodity.gbnAgCommonName);
       expect(line.scientificName).toBe(answers.species.display);
       expect(line.specifiedLineTradeDelivery?.[0].productUnitQuantity.content).toBe(answers.noOfAnimals);
       expect(line.physicalReferencedLogisticsPackage?.[0].itemQuantity).toBe(answers.noOfPackages);
