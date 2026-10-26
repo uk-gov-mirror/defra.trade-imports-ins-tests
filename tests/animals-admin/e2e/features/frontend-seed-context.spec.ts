@@ -84,13 +84,16 @@ test.describe('Frontend seed context', { tag: '@mongodb' }, () => {
 
         const [doc] = await collection.find({ referenceNumber }).toArray();
         const { notification } = doc;
-        const [complement] = notification.commodity.commodityComplement;
-        const [species] = complement.species;
+        const commodities = notification.commodities ?? [];
+        expect(commodities).toHaveLength(1);
+        const cow = commodities[0];
+        const [species] = cow.species;
 
         expect(doc.status).toBe('DRAFT');
         expect(notification.origin.countryCode).toBe(answers.countryCode.value);
+        expect(cow.name).toBe(answers.species.commodity.display);
         expect(species.earTag).toBe(answers.earTag);
-        expect(complement.totalNoOfAnimals).toBe(answers.noOfAnimals);
+        expect(cow.totalNoOfAnimals).toBe(answers.noOfAnimals);
         expect(notification.reasonForImport).toBe(answers.importReason.value);
         expect(notification.additionalDetails.unweanedAnimals).toBe(answers.unweanedAnimals.toLowerCase());
         // Each party is a copy of the record picked, with no link back to the book.

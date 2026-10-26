@@ -510,13 +510,23 @@ export class AnimalsJourney {
 
   async answerCowAndCatIdentification(answers: NotificationAnswers = MANDATORY_ANSWERS): Promise<void> {
     await this.openIdentificationFromOverview();
-    await this.pages.page.getByRole('heading', { name: 'Enter details for Bos taurus' }).waitFor(pageLoadWait);
-    await this.animalsPages.animalIdentification.earTag.fill(answers.earTag);
-    await this.animalsPages.animalIdentification.saveAndContinue.click();
-    await this.pages.page.getByRole('heading', { name: 'Enter details for Felis catus' }).waitFor(pageLoadWait);
-    await this.animalsPages.animalIdentification.passportNumber.fill('UK-CAT-1');
-    await this.animalsPages.animalIdentification.microchip.fill('900987654321098');
-    await this.animalsPages.animalIdentification.saveAndContinue.click();
+    const { animalIdentification: identification } = this.animalsPages;
+    const page = this.pages.page;
+
+    await identification.speciesCard('Bos taurus').getByLabel('Ear tag', { exact: true }).fill(answers.earTag);
+
+    const catCard = identification.speciesCard('Felis catus');
+    await catCard.getByRole('button', { name: /Save and (add another|finish)/ }).click();
+    await page.getByRole('heading', { name: /Enter details for Felis catus/ }).waitFor(pageLoadWait);
+    await identification.passportNumber.fill('UK-CAT-1');
+    await identification.microchip.fill('900987654321098');
+    await page.getByLabel('Name or organisation name').fill('Pet Owner');
+    await page.getByLabel('Address line 1').fill('1 Farm Lane');
+    await page.getByLabel('Town or city').fill('Skipton');
+    await page.getByLabel('Postcode or Zip code').fill('BD23 1UD');
+    await identification.saveAndFinish.click();
+
+    await identification.saveAndContinue.click();
     await this.animalsPages.overview.heading.waitFor(pageLoadWait);
   }
 
