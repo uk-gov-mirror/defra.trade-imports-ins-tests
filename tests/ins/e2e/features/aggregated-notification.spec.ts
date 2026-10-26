@@ -60,8 +60,8 @@ test.describe('Aggregated notification store', { tag: ['@compose', '@mongodb', '
       expect(draftDoc.referenceNumber).toBe(referenceNumber);
       expect(draftDoc.status).toBe('DRAFT');
       expect(draftDoc.originCountry).toBe(MANDATORY_ANSWERS.countryCode.value);
-      // The journey selects the 'Bos taurus' species, which the frontend resolves to commodity.name 'Cow'.
-      expect(draftDoc.commodity).toBe(MANDATORY_ANSWERS.species.commodity.display);
+      // INS upsert reads the first GBN-AG trade line description, then commonName.
+      expect(draftDoc.commodity).toBe(MANDATORY_ANSWERS.species.commodity.lineDescription);
       expect(draftDoc.arrivalDate).toBeInstanceOf(Date);
       expect(draftDoc.arrivalDate.getTime()).toBeGreaterThan(Date.now());
       expect(draftDoc.lastUpdated).toBeInstanceOf(Date);
@@ -84,7 +84,7 @@ test.describe('Aggregated notification store', { tag: ['@compose', '@mongodb', '
       expect(submittedDoc.referenceNumber).toBe(referenceNumber);
       expect(submittedDoc.status).toBe('SUBMITTED');
       expect(submittedDoc.originCountry).toBe(MANDATORY_ANSWERS.countryCode.value);
-      expect(submittedDoc.commodity).toBe(MANDATORY_ANSWERS.species.commodity.display);
+      expect(submittedDoc.commodity).toBe(MANDATORY_ANSWERS.species.commodity.lineDescription);
       expect(submittedDoc.arrivalDate).toBeInstanceOf(Date);
       expect(submittedDoc.arrivalDate.getTime()).toBeGreaterThan(Date.now());
       expect(submittedDoc.lastUpdated).toBeInstanceOf(Date);
