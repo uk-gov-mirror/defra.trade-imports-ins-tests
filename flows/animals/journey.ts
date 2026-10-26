@@ -496,6 +496,53 @@ export class AnimalsJourney {
     await this.confirmDeclaration();
   }
 
+  private static readonly COW_AND_CAT_SPECIES = ['Bos taurus', 'Felis catus'] as const;
+
+  async answerCowAndCatCommodity(answers: NotificationAnswers = MANDATORY_ANSWERS): Promise<void> {
+    await this.animalsPages.overview.task('What are you importing?').click();
+    await this.chooseSpeciesAndOpenCommodityDetails([...AnimalsJourney.COW_AND_CAT_SPECIES]);
+    await this.animalsPages.consignmentDetails.fillEveryAnimalCount(String(answers.noOfAnimals));
+    if (answers.noOfPackages !== undefined) {
+      await this.animalsPages.consignmentDetails.fillEveryPackageCount(String(answers.noOfPackages));
+    }
+    await this.saveCountsAndReturnToOverview();
+  }
+
+  async answerCowAndCatIdentification(answers: NotificationAnswers = MANDATORY_ANSWERS): Promise<void> {
+    await this.openIdentificationFromOverview();
+    await this.pages.page
+      .getByRole('heading', { name: 'Enter details for Bos taurus' })
+      .waitFor(pageLoadWait);
+    await this.animalsPages.animalIdentification.earTag.fill(answers.earTag);
+    await this.animalsPages.animalIdentification.saveAndContinue.click();
+    await this.pages.page
+      .getByRole('heading', { name: 'Enter details for Felis catus' })
+      .waitFor(pageLoadWait);
+    await this.animalsPages.animalIdentification.passportNumber.fill('UK-CAT-1');
+    await this.animalsPages.animalIdentification.microchip.fill('900987654321098');
+    await this.animalsPages.animalIdentification.saveAndContinue.click();
+    await this.animalsPages.overview.heading.waitFor(pageLoadWait);
+  }
+
+  async completeAnswerSectionsCowAndCat(answers: NotificationAnswers = ALL_ANSWERS): Promise<void> {
+    assertConsistentAnswers(answers);
+    await this.answerOrigin(answers);
+    await this.answerCowAndCatCommodity(answers);
+    await this.answerCowAndCatIdentification(answers);
+    await this.answerReasonAndAdditionalDetails(answers);
+    await this.answerAddresses(answers);
+    await this.answerTransport(answers);
+    await this.answerContact(answers);
+    await this.answerAccompanyingDocument(answers);
+  }
+
+  async submitNotificationWithCowAndCat(answers: NotificationAnswers = ALL_ANSWERS): Promise<void> {
+    await this.startNotification();
+    await this.completeAnswerSectionsCowAndCat(answers);
+    await this.fromOverviewToDeclaration();
+    await this.confirmDeclaration();
+  }
+
   async walkOpeningRunToRolesAndAddressesWithoutCph(): Promise<string> {
     const pages = this.animalsPages;
     const referenceNumber = await this.createNotificationAtOrigin();

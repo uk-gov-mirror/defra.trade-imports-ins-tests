@@ -51,4 +51,10 @@ export class AnimalsConsignmentDetailsPage extends NotificationPage {
       await box.fill(count);
     }
   }
+
+  async fillEveryPackageCount(count: string): Promise<void> {
+    for (const box of await this.numberOfPackages.all()) {
+      await box.fill(count);
+    }
+  }
 }
