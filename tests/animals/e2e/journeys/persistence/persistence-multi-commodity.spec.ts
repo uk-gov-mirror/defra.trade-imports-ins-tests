@@ -27,22 +27,16 @@ test.describe('Notification persistence — multiple commodities', { tag: '@mong
 
       const cow = commodities.find((entry) => entry.name === 'Cow');
       const cat = commodities.find((entry) => entry.name === 'Cat');
-      expect(cow).toBeDefined();
-      expect(cat).toBeDefined();
-      if (!cow || !cat) {
-        return;
-      }
+      expect(cow, 'Cow commodity line').toBeDefined();
+      expect(cat, 'Cat commodity line').toBeDefined();
 
       expect(cow.commodityCode).toBe('0102');
       expect(cat.commodityCode).toBe('01061900');
 
       const cowSpecies = cow.species.find((line) => line.text === 'Bos taurus');
       const catSpecies = cat.species.find((line) => line.text === 'Felis catus');
-      expect(cowSpecies).toBeDefined();
-      expect(catSpecies).toBeDefined();
-      if (!cowSpecies || !catSpecies) {
-        return;
-      }
+      expect(cowSpecies, 'Bos taurus species line').toBeDefined();
+      expect(catSpecies, 'Felis catus species line').toBeDefined();
 
       expect(cowSpecies.earTag ?? cowSpecies.animalIdentifiers?.[0]?.earTag).toBe(answers.earTag);
       expect(catSpecies.passport ?? catSpecies.animalIdentifiers?.[0]?.passport).toBe('UK-CAT-1');
