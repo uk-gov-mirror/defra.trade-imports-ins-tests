@@ -510,14 +510,10 @@ export class AnimalsJourney {
 
   async answerCowAndCatIdentification(answers: NotificationAnswers = MANDATORY_ANSWERS): Promise<void> {
     await this.openIdentificationFromOverview();
-    await this.pages.page
-      .getByRole('heading', { name: 'Enter details for Bos taurus' })
-      .waitFor(pageLoadWait);
+    await this.pages.page.getByRole('heading', { name: 'Enter details for Bos taurus' }).waitFor(pageLoadWait);
     await this.animalsPages.animalIdentification.earTag.fill(answers.earTag);
     await this.animalsPages.animalIdentification.saveAndContinue.click();
-    await this.pages.page
-      .getByRole('heading', { name: 'Enter details for Felis catus' })
-      .waitFor(pageLoadWait);
+    await this.pages.page.getByRole('heading', { name: 'Enter details for Felis catus' }).waitFor(pageLoadWait);
     await this.animalsPages.animalIdentification.passportNumber.fill('UK-CAT-1');
     await this.animalsPages.animalIdentification.microchip.fill('900987654321098');
     await this.animalsPages.animalIdentification.saveAndContinue.click();
