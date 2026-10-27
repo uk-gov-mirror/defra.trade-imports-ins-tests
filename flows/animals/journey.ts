@@ -525,6 +525,8 @@ export class AnimalsJourney {
     await catCard.getByLabel('Address line 1').fill('1 Farm Lane');
     await catCard.getByLabel('Town or city').fill('Skipton');
     await catCard.getByLabel('Postcode or Zip code').fill('BD23 1UD');
+    await catCard.getByLabel('Phone number').fill('+44 1756 555 0192');
+    await catCard.getByLabel('Email address').fill('owner@example.co.uk');
 
     await identification.saveAndContinue.click();
     await this.animalsPages.overview.heading.waitFor(pageLoadWait);
