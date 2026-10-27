@@ -1,4 +1,4 @@
-import { test, expect } from '@fixtures';
+import { test, expect } from '@fixtures/visual';
 import { countryCodes } from '@domain/animals/constants/country-codes';
 
 test.use({ headless: true });

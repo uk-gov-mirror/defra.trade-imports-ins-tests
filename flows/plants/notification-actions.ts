@@ -1,5 +1,7 @@
 import { pageLoadWait, timeouts } from '@config/timeouts';
 import type { PlantsPages, SharedPages } from '@page-objects';
+import { PLANTS_FOR_PLANTING, type PlantsJourney } from '@flows/plants/journey';
+import type { AddressBookApiClient } from '@adapters/http/address-book-api-client';
 
 export class PlantsNotificationActions {
   constructor(
@@ -16,6 +18,21 @@ export class PlantsNotificationActions {
     await this.plantsPages.dashboard.searchForReference(referenceNumber);
     await this.plantsPages.dashboard.amend(referenceNumber).click();
     await this.plantsPages.overview.heading.waitFor(pageLoadWait);
+  }
+
+  async amendCompletedNotification(
+    plantsJourney: PlantsJourney,
+    addressBookApi: AddressBookApiClient,
+    options: { type?: string; days?: number } = {},
+  ): Promise<string> {
+    const { reference } = await plantsJourney.completeNotification(addressBookApi, options);
+    await plantsJourney.submitFromReview();
+    await this.amendNotification(reference);
+    return reference;
+  }
+
+  async amendCompletedPlantsForPlanting(plantsJourney: PlantsJourney, addressBookApi: AddressBookApiClient): Promise<string> {
+    return this.amendCompletedNotification(plantsJourney, addressBookApi, { type: PLANTS_FOR_PLANTING, days: -1 });
   }
 
   /**

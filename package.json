@@ -54,7 +54,7 @@
     "test:docker-compose:ins:security": "export PROFILE=security && npm run _test_docker_compose_security -- tests/ins/ && npm run _zap_run_and_gate",
     "test:docker-compose:ins:security:active": "export PROFILE=security:active ZAP_SCOPE=ins && npm run _test_docker_compose_security_active -- tests/ins/ && npm run _zap_run_and_gate",
     "test:docker-compose:plants": "npm run test:docker-compose -- tests/plants/",
-    "test:visual:update:macos": "npm run _clean && npm run _test_docker_compose -- --grep '@visual' --update-snapshots",
+    "test:visual:update:macos": "npm run _clean && npm run _test_docker_compose -- --grep '@visual' --update-snapshots=changed",
     "test:visual:update:linux": "./bin/update-visual-baselines-linux.sh",
     "report": "allure generate allure-results --single-file --clean",
     "report:publish": "npm run report; ./bin/publish-tests.sh",

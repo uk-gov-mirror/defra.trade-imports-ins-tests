@@ -110,7 +110,7 @@ test.describe('Commodity selection page', { tag: '@duplicated-in-frontend' }, ()
     await expect(animalsPages.commoditySelection.searchBox).toBeFocused();
   });
 
-  test.describe('after a saved selection is cleared with save and return to overview', () => {
+  test.describe('after a saved selection is cleared and save and return to overview is chosen', () => {
     test.beforeEach(async ({ animalsPages }) => {
       await animalsPages.commoditySelection.selectSpecies(['Bos taurus']);
       await animalsPages.commoditySelection.saveAndContinue.click();
@@ -118,17 +118,18 @@ test.describe('Commodity selection page', { tag: '@duplicated-in-frontend' }, ()
       await animalsPages.overview.task('What are you importing?').click();
       await animalsPages.commoditySelection.clearAll.click();
       await animalsPages.commoditySelection.saveAndReturnToOverview.click();
-      await expect(animalsPages.overview.heading).toBeVisible();
     });
 
-    test('shows the commodity task as To do', async ({ animalsPages }) => {
-      await expect(animalsPages.overview.taskStatus('What are you importing?')).toHaveText('To do');
-    });
-
-    test('refuses save and continue with "Select a commodity" on reopening the page', async ({ animalsPages }) => {
-      await animalsPages.overview.task('What are you importing?').click();
-      await animalsPages.commoditySelection.saveAndContinue.click();
+    test('refuses the save with "Select a commodity" and stays on the page', async ({ animalsPages }) => {
+      await expect(animalsPages.commoditySelection.heading).toBeVisible();
       await expect(animalsPages.commoditySelection.errorSummaryLinks).toHaveText([SELECT_COMMODITY_ERROR]);
+      await expect(animalsPages.commoditySelection.selectedSummary).toHaveCount(0);
+    });
+
+    test('keeps the saved selection when the page is reopened', async ({ animalsPages }) => {
+      const referenceNumber = animalsPages.commoditySelection.referenceNumberFromUrl();
+      await animalsPages.overview.openTaskAfterReopening(referenceNumber, 'What are you importing?');
+      await expect(animalsPages.commoditySelection.selectedSummary).toContainText('Bos taurus');
     });
   });
 });

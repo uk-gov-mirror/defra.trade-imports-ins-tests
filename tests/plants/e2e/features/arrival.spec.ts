@@ -183,7 +183,7 @@ test.describe('High-risk plants arrival section', () => {
     );
   });
 
-  test('save and return to overview: when a potato arrival page is blank, saves it and leaves the arrival row incomplete', async ({
+  test('save and return to overview: when a potato arrival page is blank, refuses the save, names each missing answer and leaves the arrival row not started', async ({
     pages,
     plantsPages,
     plantsJourney,
@@ -192,7 +192,13 @@ test.describe('High-risk plants arrival section', () => {
 
     await plantsPages.arrivalDetails.saveAndReturnToOverview.click();
 
-    await expect(pages.page).toHaveURL(plantsPages.overview.expectedUrl(reference));
+    await expect(pages.page).toHaveURL(plantsPages.arrivalDetails.expectedUrl(reference));
+    await expect(plantsPages.arrivalDetails.errorSummaryLinks).toHaveText([
+      'Enter the arrival date',
+      'Enter the expected time of arrival',
+      'Select the proposed place of landing',
+    ]);
+    await plantsPages.overview.open(reference);
     await expect(plantsPages.overview.taskRow(ARRIVAL_TASK_ROW)).toContainText('Not yet started');
   });
 

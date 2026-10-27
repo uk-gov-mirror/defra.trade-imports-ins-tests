@@ -1,4 +1,4 @@
-import { test, expect } from '@fixtures';
+import { test, expect } from '@fixtures/visual';
 import { POTATOES } from '@flows/plants/journey';
 
 test.use({ headless: true });

@@ -29,6 +29,10 @@ export class AnimalsAccompanyingDocumentsPage extends NotificationPage {
     return new DatePicker(this.page, 'accompanyingDocumentDateOfIssue');
   }
 
+  get dateOfIssue(): Locator {
+    return this.page.locator('input[name="accompanyingDocumentDateOfIssue"]');
+  }
+
   get saveAndAddAnother(): Locator {
     return this.page.getByRole('button', { name: 'Save and add another' });
   }
@@ -84,7 +88,7 @@ export class AnimalsAccompanyingDocumentsPage extends NotificationPage {
   async fillDocument(reference: string, issueDate: string, filePath: string, documentType: string = 'ITAHC'): Promise<void> {
     await this.documentReference.fill(reference);
     await this.documentType.selectOption(documentType);
-    await this.page.locator('input[name="accompanyingDocumentDateOfIssue"]').fill(issueDate);
+    await this.dateOfIssue.fill(issueDate);
     await this.fileUpload.setInputFiles(filePath);
   }
 }

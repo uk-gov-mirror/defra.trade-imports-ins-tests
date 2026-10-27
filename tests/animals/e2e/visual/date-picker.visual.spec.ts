@@ -1,4 +1,4 @@
-import { test, expect } from '@fixtures';
+import { test, expect } from '@fixtures/visual';
 import { freezeDatePickersAt } from '@utils/frozen-date-picker';
 
 test.use({ headless: true });

@@ -39,4 +39,14 @@ export class AnimalsOverviewPage extends NotificationPage {
       .filter({ has: this.page.getByRole('link', { name, exact: true }) })
       .locator('.govuk-task-list__status');
   }
+
+  async taskStatusAfterReopening(referenceNumber: string, name: string): Promise<Locator> {
+    await this.open(referenceNumber);
+    return this.taskStatus(name);
+  }
+
+  async openTaskAfterReopening(referenceNumber: string, name: string): Promise<void> {
+    await this.open(referenceNumber);
+    await this.task(name).click();
+  }
 }

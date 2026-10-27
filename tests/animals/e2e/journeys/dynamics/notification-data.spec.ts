@@ -1,6 +1,7 @@
 import { AnimalsDynamicsClient } from '@adapters/http/animals-dynamics-client';
 import { formattedValue } from '@adapters/http/dataverse-client';
 import { animalsDynamics } from '@config/animals-dynamics';
+import { defaultUser } from '@config/users';
 import { ALL_ANSWERS, MANDATORY_ANSWERS } from '@domain/animals/constants/journey-options';
 import type { AnimalsDynamicsImporterNotification } from '@domain/animals/models/dynamics/importer-notification';
 import { test, expect } from '@fixtures';
@@ -26,6 +27,14 @@ const PIMS_COUNTRY_LABELS: Record<string, string> = {
   CH: 'Switzerland',
   GB: 'United Kingdom of Great Britain and Northern Ireland',
   IE: 'Republic of Ireland',
+};
+
+/** PIMS Dynamics' text for each means of transport, which is not the journey's label for it. */
+const PIMS_MEANS_OF_TRANSPORT_LABELS: Record<string, string> = {
+  AIRPLANE: 'Aeroplane',
+  RAILWAY: 'Railway Wagon',
+  ROAD_VEHICLE: 'Road Vehicle',
+  VESSEL: 'Ship',
 };
 
 /** The whole row, so a run shows the real lookups, option-set labels, dates and values to assert against. */
@@ -70,8 +79,10 @@ test.describe('PIMS Dynamics notification data', { tag: '@dynamics' }, () => {
     const [row] = await dynamics.findNotifications(referenceNumber);
     await attachRow(row);
 
-    // Each mandatory answer, in the order MandatoryAnswers declares them.
     expect.soft(row.defraimp_name, 'reference number').toBe(referenceNumber);
+    expect.soft(row.defraimp_submittedbydisplayname, 'submitted by').toBe(defaultUser.displayName);
+
+    // Each mandatory answer, in the order MandatoryAnswers declares them.
     expect.soft(formattedValue(row, '_defraimp_countryoforiginid_value'), 'country of origin').toBe(answers.countryCode.display);
     // answers.requiresRegionCode: not on this row, it is a journey flag.
     // answers.species: [FROM v0.2.0] see 'mandatory answers PIMS Dynamics does not store yet' test (species name and common name).
@@ -131,7 +142,9 @@ test.describe('PIMS Dynamics notification data', { tag: '@dynamics' }, () => {
     // answers.cph: [FROM v0.2.0] see 'mandatory answers PIMS Dynamics does not store yet' test.
     expect.soft(row.defraimp_arrivaldate?.slice(0, 10), 'arrival date').toBe(toIsoDate(answers.arrivalDate));
     expect.soft(row.defraimp_portofentry, 'point of entry').toBe(answers.pointOfEntry.value);
-    expect.soft(row.defraimp_meansoftransporttoentrypointtype, 'means of transport').toBe(answers.meansOfTransport.display);
+    expect
+      .soft(row.defraimp_meansoftransporttoentrypointtype, 'means of transport')
+      .toBe(PIMS_MEANS_OF_TRANSPORT_LABELS[answers.meansOfTransport.value]);
     // answers.transportIdentification: [FROM v0.1.0: NOT MAPPED?] see 'mandatory answers PIMS Dynamics does not store yet' test.
     // answers.transportDocumentReference: [FROM v0.2.0] see 'mandatory answers PIMS Dynamics does not store yet' test.
     expect.soft(row.defraimp_transportercompanyname, 'transporter').toBe(answers.transporter.display);

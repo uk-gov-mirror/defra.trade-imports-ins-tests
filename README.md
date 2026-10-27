@@ -334,6 +334,8 @@ Visual regression tests (tagged `@visual`) guard rendered composition — layout
 
 Baselines are stored alongside their spec files in `*-snapshots/` directories and must be committed. Each platform requires its own baseline — update both when visual changes are intentional.
 
+Visual specs import `test` from `@fixtures/visual`. On macOS it launches Playwright's headless shell with legacy scroll bars (`-AppleShowScrollBars Always`) and connects to it over CDP. Chromium sizes a native `<select>` arrow box from the macOS scroll bar style, and with the default "Show scroll bars: Automatically" setting that style follows whether a mouse is connected: overlay scroll bars on a trackpad alone, legacy ones with a mouse. Overlay scroll bars draw every native select 4px narrower, so a `*-darwin.png` baseline made on a laptop's trackpad failed with a mouse plugged in (704 pixels on the no-JavaScript import reason page), and the other way round. Playwright's own launch refuses an argument that does not start with `-`, so the fixture starts the browser itself. On Linux the fixture is the shared one, unchanged.
+
 Visual specs run headless whatever the project setting, because headed mode uses OS font rendering, which produces pixel differences against a headless baseline.
 
 The origin of import baseline masks the whole status strip, not the notification reference alone. The strip renders from the first request and the reference inside it is minted per run, so an unmasked strip never matches the baseline twice. Masking the full-width strip keeps the masked box a fixed size, which the reference alone is not. The strip's own content is covered by `tests/animals/e2e/features/reference-strip.spec.ts`.

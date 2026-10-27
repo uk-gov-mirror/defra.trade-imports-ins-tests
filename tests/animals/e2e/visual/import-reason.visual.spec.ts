@@ -1,4 +1,4 @@
-import { test, expect } from '@fixtures';
+import { test, expect } from '@fixtures/visual';
 
 test.use({ headless: true });
 

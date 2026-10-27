@@ -15,7 +15,7 @@ test.describe('Task-page exits', { tag: '@duplicated-in-frontend' }, () => {
     await animalsPages.overview.task('Where is this consignment coming from?').click();
     await expect(animalsPages.originOfImport.internalReference).toHaveValue('');
 
-    await animalsPages.originOfImport.internalReference.fill('CommittedRef');
+    await animalsJourney.fillOriginOfImport({ internalReference: 'CommittedRef' });
     await animalsPages.originOfImport.saveAndReturnToOverview.click();
     await expect(animalsPages.overview.heading).toBeVisible();
 

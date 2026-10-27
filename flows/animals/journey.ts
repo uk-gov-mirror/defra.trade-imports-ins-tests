@@ -298,6 +298,10 @@ export class AnimalsJourney {
     await this.animalsPages.transitedCountries.heading.waitFor(pageLoadWait);
     await this.animalsPages.transitedCountries.addCountry(ALL_ANSWERS.transitedCountries[0].display);
     await this.animalsPages.transitedCountries.saveAndContinue.click();
+    await this.openTransporterFromOverview();
+  }
+
+  async openTransporterFromOverview(): Promise<void> {
     await this.animalsPages.overview.heading.waitFor(pageLoadWait);
     await this.animalsPages.overview.task('Transport details').click();
     await this.animalsPages.transporter.heading.waitFor(pageLoadWait);
