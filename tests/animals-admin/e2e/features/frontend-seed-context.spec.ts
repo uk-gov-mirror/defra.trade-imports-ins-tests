@@ -91,7 +91,9 @@ test.describe('Frontend seed context', { tag: '@mongodb' }, () => {
 
         expect(doc.status).toBe('DRAFT');
         expect(notification.origin.countryCode).toBe(answers.countryCode.value);
-        expect(cow.name).toBe(answers.species.commodity.display);
+        expect(cow.name).toBe('Cow');
+        expect(cow.commodityCode).toBe(answers.species.commodityCode);
+        expect(species.text).toBe(answers.species.latinName);
         expect(species.earTag).toBe(answers.earTag);
         expect(cow.totalNoOfAnimals).toBe(answers.noOfAnimals);
         expect(notification.reasonForImport).toBe(answers.importReason.value);
