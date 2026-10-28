@@ -8,7 +8,6 @@ import { skipUnlessComposeEnvironment } from '@utils/playwright/environment';
 
 const aggregateIdFor = (referenceNumber: string): string => `Imports.Notification.GBN-AG.${referenceNumber}`;
 
-/** INS dashboard commodity label — first GBN-AG trade line description for cattle. */
 const INS_DASHBOARD_COMMODITY_LABEL = 'Live bovine animals';
 
 test.describe('Aggregated notification store', { tag: ['@compose', '@mongodb', '@animals-backend'] }, () => {

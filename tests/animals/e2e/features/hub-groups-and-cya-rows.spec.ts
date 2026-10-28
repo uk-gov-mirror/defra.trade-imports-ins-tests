@@ -54,8 +54,9 @@ test.describe('Hub groups and check-your-answers rows', { tag: '@duplicated-in-f
   }) => {
     test.slow();
     const answers = ALL_ANSWERS_WITHOUT_DOCUMENT;
+    const [cowLine] = answers.commodityLines;
     await animalsJourney.toReview(answers);
-    const commonName = await referenceDataApi.findCommonName(answers.species);
+    const commonName = await referenceDataApi.findCommonName(cowLine.species);
 
     const value = (card: Locator, key: string) =>
       card.locator('.govuk-summary-list__row', { has: pages.page.getByText(key, { exact: true }) }).locator('.govuk-summary-list__value');
@@ -97,17 +98,17 @@ test.describe('Hub groups and check-your-answers rows', { tag: '@duplicated-in-f
     await expect(value(reasonForImport, 'Reason for import')).toHaveText(answers.importReason.display);
     await expect(value(reasonForImport, 'Purpose in the market')).toHaveText(answers.internalMarketPurpose.display);
 
-    const speciesCard = animalsPages.notificationView.summaryCard(speciesCardTitle(answers.species));
-    await expect(value(speciesCard, 'Commodity code')).toHaveText(answers.species.commodityCode);
+    const speciesCard = animalsPages.notificationView.summaryCard(speciesCardTitle(cowLine.species));
+    await expect(value(speciesCard, 'Commodity code')).toHaveText(cowLine.species.commodityCode);
     await expect(value(speciesCard, 'Common name')).toHaveText(commonName);
-    await expect(value(speciesCard, 'Species')).toHaveText(answers.species.latinName);
-    await expect(value(speciesCard, 'Number of animals')).toHaveText(String(answers.noOfAnimals));
-    await expect(value(speciesCard, 'Number of packages')).toHaveText(String(answers.noOfPackages));
+    await expect(value(speciesCard, 'Species')).toHaveText(cowLine.species.latinName);
+    await expect(value(speciesCard, 'Number of animals')).toHaveText(String(cowLine.noOfAnimals));
+    await expect(value(speciesCard, 'Number of packages')).toHaveText(String(cowLine.noOfPackages));
     await expect(speciesCard.getByRole('heading', { name: 'Animal details' })).toBeVisible();
     await expect(speciesCard.getByRole('columnheader', { name: 'Ear tag' })).toBeVisible();
     await expect(speciesCard.getByRole('cell', { name: 'Animal 1' })).toBeVisible();
-    await expect(speciesCard.getByRole('cell', { name: answers.earTag })).toBeVisible();
-    await expect(speciesCard.getByRole('cell', { name: answers.passportNumber })).toBeVisible();
+    await expect(speciesCard.getByRole('cell', { name: cowLine.earTag })).toBeVisible();
+    await expect(speciesCard.getByRole('cell', { name: cowLine.passportNumber })).toBeVisible();
 
     const arrivalDetails = animalsPages.notificationView.summaryCard('Arrival details');
     await expect(value(arrivalDetails, 'Port of entry')).toHaveText(answers.pointOfEntry.display);

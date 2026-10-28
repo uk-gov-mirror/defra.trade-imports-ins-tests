@@ -57,7 +57,7 @@ test.describe('Opening run', () => {
     await animalsJourney.fillOriginOfImport();
     await animalsJourney.saveOriginOfImport();
     await expect(animalsPages.commoditySelection.heading).toBeVisible();
-    await animalsPages.commoditySelection.searchAndCheckSpecies([MANDATORY_ANSWERS.species]);
+    await animalsPages.commoditySelection.searchAndCheckSpecies([MANDATORY_ANSWERS.commodityLines[0].species]);
     await animalsPages.commoditySelection.saveAndContinue.click();
     await expect(animalsPages.importReason.heading).toBeVisible();
 

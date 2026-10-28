@@ -1,13 +1,18 @@
 import { commodityLines } from '@domain/animals/constants/commodity-lines';
 
 import { test, expect } from '@fixtures/visual';
+import { catLine } from '@domain/animals/constants/journey-options';
 
 test.use({ headless: true });
 
 test.describe('Identification card (visual regression)', { tag: '@visual' }, () => {
   test.beforeEach(async ({ page, animalsJourney }) => {
     await animalsJourney.toAnimalIdentificationWithCounts([{ species: commodityLines.domesticCat, animalCount: 2 }]);
-    await animalsJourney.saveAnimalWithPermanentAddress();
+    const { permanentAddress, passportNumber } = catLine;
+    if (!permanentAddress || !passportNumber) {
+      throw new Error('catLine must define passportNumber and permanentAddress for this test');
+    }
+    await animalsJourney.saveAnimalWithPermanentAddress(passportNumber, permanentAddress);
     await expect(page.getByRole('heading', { name: 'Enter details for Felis catus 2 of 2' })).toBeVisible();
   });
 

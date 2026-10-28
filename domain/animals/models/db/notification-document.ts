@@ -63,26 +63,7 @@ type NotificationContent = {
     regionOfOriginCode?: string;
     internalReference?: string;
   };
-  commodities?: StoredCommodityComplement[];
-  /** Legacy shape — absent on notifications saved after commodities[] rollout. */
-  commodity?: {
-    name: string;
-    commodityComplement: Array<{
-      typeOfCommodity: string;
-      species: Array<{
-        value: string;
-        text: string;
-        noOfAnimals: number;
-        noOfPackages: number;
-        earTag: string;
-        passport: string;
-        microchip?: string;
-        animalIdentifiers?: StoredAnimalIdentifier[];
-      }>;
-      totalNoOfAnimals: number;
-      totalNoOfPackages: number;
-    }>;
-  };
+  commodities: StoredCommodityComplement[];
   reasonForImport: string;
   additionalDetails: {
     certifiedFor?: string;

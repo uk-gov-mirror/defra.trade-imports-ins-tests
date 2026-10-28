@@ -41,7 +41,8 @@ test.describe('Notification outbox event', { tag: '@mongodb' }, () => {
     await animalsJourney.submitNotification(answers);
     const referenceNumber = journeyContext.referenceNumber;
     const aggregateId = aggregateIdFor(referenceNumber);
-    const cattleCommonName = await referenceDataApi.findCommonName(answers.species);
+    const [cowLine] = answers.commodityLines;
+    const cattleCommonName = await referenceDataApi.findCommonName(cowLine.species);
     const client = new MongoDbClient();
 
     try {
@@ -102,16 +103,16 @@ test.describe('Notification outbox event', { tag: '@mongodb' }, () => {
       const [line] = tradeLines;
       expect(line.description).toEqual([LIVE_BOVINE_LINE_DESCRIPTION]);
       expect(line.commonName).toBe(cattleCommonName);
-      expect(line.scientificName).toBe(answers.species.latinName);
-      expect(line.specifiedLineTradeDelivery?.[0].productUnitQuantity.content).toBe(answers.noOfAnimals);
-      expect(line.physicalReferencedLogisticsPackage?.[0].itemQuantity).toBe(answers.noOfPackages);
+      expect(line.scientificName).toBe(cowLine.species.latinName);
+      expect(line.specifiedLineTradeDelivery?.[0].productUnitQuantity.content).toBe(cowLine.noOfAnimals);
+      expect(line.physicalReferencedLogisticsPackage?.[0].itemQuantity).toBe(cowLine.noOfPackages);
       const animals = line.individualTradeProductInstance ?? [];
       expect(animals).toHaveLength(1);
       expect(animals[0].identifier).toHaveLength(2);
       expect(animals[0].identifier).toEqual(
         expect.arrayContaining([
-          expect.objectContaining({ typeCode: 'EAR_TAG', content: answers.earTag }),
-          expect.objectContaining({ typeCode: 'PASSPORT', content: answers.passportNumber }),
+          expect.objectContaining({ typeCode: 'EAR_TAG', content: cowLine.earTag }),
+          expect.objectContaining({ typeCode: 'PASSPORT', content: cowLine.passportNumber }),
         ]),
       );
       expect(actorWithNullableFields(doc.actor)).toEqual(EXPECTED_ACTOR);

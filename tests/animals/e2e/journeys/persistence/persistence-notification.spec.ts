@@ -4,6 +4,7 @@ import { type NotificationDocument } from '@domain/animals/models/db/notificatio
 import { timeouts } from '@config/timeouts';
 import { skipUnlessComposeEnvironment } from '@utils/playwright/environment';
 import { ALL_ANSWERS as answers, CPH_NUMBER } from '@domain/animals/constants/journey-options';
+import { commodityNames } from '@domain/animals/constants/commodity-lines';
 import { toIsoDate } from '@utils/date-utils';
 
 test.describe('Notification persistence round-trip', { tag: '@mongodb' }, () => {
@@ -43,6 +44,7 @@ test.describe('Notification persistence round-trip', { tag: '@mongodb' }, () => 
     const consignee = await addressBookApi.findByName(answers.parties.consignee);
     const importer = await addressBookApi.findByName(answers.parties.importer);
     const contact = await addressBookApi.findByName(answers.contactAddress);
+    const [cowLine] = answers.commodityLines;
 
     await animalsJourney.submitNotification(answers);
     const referenceNumber = journeyContext.referenceNumber;
@@ -55,7 +57,7 @@ test.describe('Notification persistence round-trip', { tag: '@mongodb' }, () => 
 
       const [doc] = await collection.find({ referenceNumber }).toArray();
       const { notification } = doc;
-      const commodities = notification.commodities ?? [];
+      const commodities = notification.commodities;
       expect(commodities).toHaveLength(1);
       const cow = commodities[0];
       const [species] = cow.species;
@@ -66,13 +68,13 @@ test.describe('Notification persistence round-trip', { tag: '@mongodb' }, () => 
       expect(notification.origin.requiresRegionCode).toBe('yes');
       expect(notification.origin.regionOfOriginCode).toBe(`${answers.countryCode.value}-${answers.regionCode}`);
       expect(notification.origin.internalReference).toBe(answers.internalReference);
-      expect(cow.name).toBe('Cow');
-      expect(cow.commodityCode).toBe(answers.species.commodityCode);
-      expect(species.text).toBe(answers.species.latinName);
-      expect(species.earTag).toBe(answers.earTag);
-      expect(species.animalIdentifiers).toEqual([{ earTag: answers.earTag, passport: answers.passportNumber }]);
-      expect(cow.totalNoOfAnimals).toBe(answers.noOfAnimals);
-      expect(cow.totalNoOfPackages).toBe(answers.noOfPackages);
+      expect(cow.name).toBe(commodityNames.cattle);
+      expect(cow.commodityCode).toBe(cowLine.species.commodityCode);
+      expect(species.text).toBe(cowLine.species.latinName);
+      expect(species.earTag).toBe(cowLine.earTag);
+      expect(species.animalIdentifiers).toEqual([{ earTag: cowLine.earTag, passport: cowLine.passportNumber }]);
+      expect(cow.totalNoOfAnimals).toBe(cowLine.noOfAnimals);
+      expect(cow.totalNoOfPackages).toBe(cowLine.noOfPackages);
       expect(notification.reasonForImport).toBe(answers.importReason.value);
       expect(notification.purposeInInternalMarket).toBe(answers.internalMarketPurpose.value);
       expect(notification.additionalDetails.certifiedFor).toBe(answers.certifiedFor.value);

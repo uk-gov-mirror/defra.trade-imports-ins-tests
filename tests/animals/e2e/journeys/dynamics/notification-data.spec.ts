@@ -85,9 +85,9 @@ test.describe('PIMS Dynamics notification data', { tag: '@dynamics' }, () => {
     // Each mandatory answer, in the order MandatoryAnswers declares them.
     expect.soft(formattedValue(row, '_defraimp_countryoforiginid_value'), 'country of origin').toBe(answers.countryCode.display);
     // answers.requiresRegionCode: not on this row, it is a journey flag.
-    // answers.species: [FROM v0.2.0] see 'mandatory answers PIMS Dynamics does not store yet' test (species name and common name).
-    // answers.noOfAnimals: [FROM v0.1.0: NOT MAPPED?] see 'mandatory answers PIMS Dynamics does not store yet' test.
-    // answers.earTag: [FROM v0.1.0: NOT MAPPED?] see 'mandatory answers PIMS Dynamics does not store yet' test.
+    // answers.commodityLines[0].species: [FROM v0.2.0] see 'mandatory answers PIMS Dynamics does not store yet' test (species name and common name).
+    // answers.commodityLines[0].noOfAnimals: [FROM v0.1.0: NOT MAPPED?] see 'mandatory answers PIMS Dynamics does not store yet' test.
+    // answers.commodityLines[0].earTag: [FROM v0.1.0: NOT MAPPED?] see 'mandatory answers PIMS Dynamics does not store yet' test.
     // answers.importReason: [FROM v0.1.0: OPTION NOT MATCHED?] see 'mandatory answers PIMS Dynamics does not store yet' test.
     // answers.internalMarketPurpose: [FROM v0.1.0: NOT IN MESSAGE] see 'mandatory answers PIMS Dynamics does not store yet' test.
     // answers.certifiedFor: [FROM v0.1.0: OPTION NOT MATCHED?] see 'mandatory answers PIMS Dynamics does not store yet' test.
@@ -192,8 +192,8 @@ test.describe('PIMS Dynamics notification data', { tag: '@dynamics' }, () => {
     // answers.requiresRegionCode: not on this row, it is a journey flag.
     // answers.regionCode: [FROM v0.3.0] see 'optional answers PIMS Dynamics does not store yet' test.
     expect.soft(row.defraimp_traderreference, 'internal reference').toBe(answers.internalReference);
-    // answers.noOfPackages: [FROM v0.1.0: NOT MAPPED?] see 'optional answers PIMS Dynamics does not store yet' test.
-    // answers.passportNumber: [FROM v0.1.0: NOT MAPPED?] see 'optional answers PIMS Dynamics does not store yet' test.
+    // answers.commodityLines[0].noOfPackages: [FROM v0.1.0: NOT MAPPED?] see 'optional answers PIMS Dynamics does not store yet' test.
+    // answers.commodityLines[0].passportNumber: [FROM v0.1.0: NOT MAPPED?] see 'optional answers PIMS Dynamics does not store yet' test.
     // answers.transitedCountries: [FROM v0.2.0] see 'optional answers PIMS Dynamics does not store yet' test.
     // answers.accompanyingDocument: [FROM v0.2.0] see 'optional answers PIMS Dynamics does not store yet' test.
   });

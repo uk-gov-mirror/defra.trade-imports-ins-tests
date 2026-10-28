@@ -1,6 +1,6 @@
 import { test, expect } from '@fixtures';
 import { MongoDbClient } from '@adapters/db/mongodb-client';
-import { ALL_ANSWERS_WITHOUT_DOCUMENT, MANDATORY_ANSWERS } from '@domain/animals/constants/journey-options';
+import { ALL_ANSWERS_WITHOUT_DOCUMENT, MANDATORY_ANSWERS, catLine } from '@domain/animals/constants/journey-options';
 import { type NotificationDocument } from '@domain/animals/models/db/notification-document';
 import { timeouts } from '@config/timeouts';
 import { skipUnlessComposeEnvironment } from '@utils/playwright/environment';
@@ -82,5 +82,26 @@ test.describe('Seeded and browser-driven notifications match', { tag: '@mongodb'
     expect(browserDoc.notification.consignor?.name).toBe(OTHER_CONSIGNOR_NAME);
     expect(seededDoc.notification.consignor?.name).toBe(OTHER_CONSIGNOR_NAME);
     expect(seededDoc.notification).toEqual(browserDoc.notification);
+  });
+
+  test('a seeded notification stores what the same cow-and-cat journey stores through the browser', async ({
+    animalsJourney,
+    journeyContext,
+    animalsSeededJourney,
+  }) => {
+    test.slow();
+    const answers = {
+      ...ALL_ANSWERS_WITHOUT_DOCUMENT,
+      commodityLines: [...ALL_ANSWERS_WITHOUT_DOCUMENT.commodityLines, catLine],
+    };
+    await animalsJourney.submitNotification(answers);
+    const browserReference = journeyContext.referenceNumber;
+    const seededReference = await animalsSeededJourney.createSubmittedNotification(answers);
+
+    const { browserDoc, seededDoc } = await readBothStoredNotifications(browserReference, seededReference);
+
+    expect(seededDoc.status).toBe(browserDoc.status);
+    expect(seededDoc.notification).toEqual(browserDoc.notification);
+    expect(seededDoc.fulfilments).toEqual(browserDoc.fulfilments);
   });
 });

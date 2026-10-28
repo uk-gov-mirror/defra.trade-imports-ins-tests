@@ -54,9 +54,7 @@ export type PartyAnswers = {
 export type MandatoryAnswers = {
   countryCode: CountryCode;
   requiresRegionCode: YesNoValue;
-  species: CommodityLine;
-  noOfAnimals: number;
-  earTag: string;
+  commodityLines: CommodityLineAnswer[];
   importReason: ImportReason;
   internalMarketPurpose: InternalMarketPurpose;
   certifiedFor: CertificationPurpose;
@@ -99,13 +97,9 @@ export type OptionalAnswers = {
   /** Asked when the origin needs a region code. */
   regionCode: string;
   internalReference: string;
-  noOfPackages: number;
-  passportNumber: string;
   /** Asked only of rail and road consignments. */
   transitedCountries: CountryCode[];
   accompanyingDocument: AccompanyingDocumentAnswer;
-  /** When set, commodity and identification journeys iterate these lines instead of the top-level species fields. */
-  commodityLines?: CommodityLineAnswer[];
 };
 
 export type NotificationAnswers = MandatoryAnswers & Partial<OptionalAnswers>;
@@ -129,24 +123,37 @@ export const assertConsistentAnswers = (answers: NotificationAnswers): void => {
   }
 };
 
-/** Commodity lines for UI and seed journeys — explicit lines or the default single cattle line. */
-export const commodityLinesFrom = (answers: NotificationAnswers): CommodityLineAnswer[] =>
-  answers.commodityLines ?? [
-    {
-      species: answers.species,
-      noOfAnimals: answers.noOfAnimals,
-      ...(answers.noOfPackages !== undefined ? { noOfPackages: answers.noOfPackages } : {}),
-      earTag: answers.earTag,
-      ...(answers.passportNumber ? { passportNumber: answers.passportNumber } : {}),
-    },
-  ];
+const mandatoryCowLine: CommodityLineAnswer = {
+  species: commodityLines.cattle,
+  noOfAnimals: 1,
+  earTag: 'UK123456789012',
+};
+
+const allAnswersCowLine: CommodityLineAnswer = {
+  ...mandatoryCowLine,
+  noOfPackages: 5,
+  passportNumber: 'PASSPORT-0001',
+};
+
+export const catLine: CommodityLineAnswer = {
+  species: commodityLines.domesticCat,
+  noOfAnimals: 1,
+  passportNumber: 'UK-CAT-1',
+  microchip: '900987654321098',
+  permanentAddress: {
+    nameOrOrganisationName: 'Pet Owner',
+    addressLine1: '1 Farm Lane',
+    townOrCity: 'Skipton',
+    postcode: 'BD23 1UD',
+    phone: '+44 1756 555 0192',
+    email: 'owner@example.co.uk',
+  },
+};
 
 export const MANDATORY_ANSWERS: MandatoryAnswers = {
   countryCode: countryCodes.eu.france,
   requiresRegionCode: yesNoValues.no,
-  species: commodityLines.cattle,
-  noOfAnimals: 1,
-  earTag: 'UK123456789012',
+  commodityLines: [mandatoryCowLine],
   importReason: importReasons.internalMarket,
   internalMarketPurpose: internalMarketPurposes.breeding,
   certifiedFor: certificationPurposes.slaughter,
@@ -171,11 +178,10 @@ export const MANDATORY_ANSWERS: MandatoryAnswers = {
 /** Every answer, including an accompanying document. The UI journey uses this set, as a browser can upload a file. */
 export const ALL_ANSWERS: AllAnswers = {
   ...MANDATORY_ANSWERS,
+  commodityLines: [allAnswersCowLine],
   requiresRegionCode: yesNoValues.yes,
   regionCode: '75',
   internalReference: 'Imports456GB',
-  noOfPackages: 5,
-  passportNumber: 'PASSPORT-0001',
   transitedCountries: [countryCodes.eu.france, countryCodes.eu.belgium],
   accompanyingDocument: {
     reference: 'DOCREF0001',
@@ -189,31 +195,4 @@ export const ALL_ANSWERS: AllAnswers = {
 export const ALL_ANSWERS_WITHOUT_DOCUMENT: AllAnswersWithoutDocument = {
   ...ALL_ANSWERS,
   accompanyingDocument: undefined,
-};
-
-export const COW_AND_CAT_ANSWERS: AllAnswers = {
-  ...ALL_ANSWERS,
-  commodityLines: [
-    {
-      species: commodityLines.cattle,
-      noOfAnimals: ALL_ANSWERS.noOfAnimals,
-      noOfPackages: ALL_ANSWERS.noOfPackages,
-      earTag: ALL_ANSWERS.earTag,
-      passportNumber: ALL_ANSWERS.passportNumber,
-    },
-    {
-      species: commodityLines.domesticCat,
-      noOfAnimals: 1,
-      passportNumber: 'UK-CAT-1',
-      microchip: '900987654321098',
-      permanentAddress: {
-        nameOrOrganisationName: 'Pet Owner',
-        addressLine1: '1 Farm Lane',
-        townOrCity: 'Skipton',
-        postcode: 'BD23 1UD',
-        phone: '+44 1756 555 0192',
-        email: 'owner@example.co.uk',
-      },
-    },
-  ],
 };

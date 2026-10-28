@@ -1,10 +1,5 @@
 import type { FormFields } from '@adapters/http/frontend-form-client';
-import {
-  assertConsistentAnswers,
-  commodityLinesFrom,
-  type CommodityLineAnswer,
-  type NotificationAnswers,
-} from '@domain/animals/constants/journey-options';
+import { assertConsistentAnswers, type CommodityLineAnswer, type NotificationAnswers } from '@domain/animals/constants/journey-options';
 import { speciesCheckboxValue } from '@domain/animals/constants/commodity-lines';
 
 export type PartyRole = 'placeOfOrigin' | 'consignor' | 'consignee' | 'importer' | 'placeOfDestination' | 'contact';
@@ -84,7 +79,7 @@ const originStep = (answers: NotificationAnswers): SeedStep => ({
 });
 
 const commoditySteps = (answers: NotificationAnswers): SeedStep[] => {
-  const lines = commodityLinesFrom(answers);
+  const lines = answers.commodityLines;
   const searchSteps: SeedStep[] = lines.map((line) => ({
     slug: 'commodities',
     form: { commoditySearch: line.species.searchTerm, action: 'search' },

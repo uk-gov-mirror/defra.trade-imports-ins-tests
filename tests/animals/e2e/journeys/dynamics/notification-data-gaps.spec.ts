@@ -67,6 +67,7 @@ test.describe('PIMS Dynamics notification data not stored yet', { tag: '@dynamic
     test.fixme(true, 'PIMS Dynamics leaves these mandatory answers empty; the likely cause of each is in the comments');
     const dynamics = new AnimalsDynamicsClient(externalRequest);
     const answers = MANDATORY_ANSWERS;
+    const [cowLine] = answers.commodityLines;
     const consignor = await addressBookApi.findByName(answers.parties.consignor);
     const destination = await addressBookApi.findByName(answers.parties.placeOfDestination);
     const placeOfOrigin = await addressBookApi.findByName(answers.parties.placeOfOrigin);
@@ -100,8 +101,8 @@ test.describe('PIMS Dynamics notification data not stored yet', { tag: '@dynamic
     // [FROM v0.2.0]
     // specifiedConsignment.includedConsignmentItem[].includedTradeLineItem[].scientificName and commonName.
     // The event carries both. Only the v0.2.0 message does; the gateway's v0.1.0 mapper omits the species names.
-    expect.soft(row.defraimp_commodityspeciesname, 'species name').toBe(answers.species.latinName);
-    expect.soft(row.defraimp_commodityspeciescommonname, 'species common name').toBe(answers.species.commodityCode);
+    expect.soft(row.defraimp_commodityspeciesname, 'species name').toBe(cowLine.species.latinName);
+    expect.soft(row.defraimp_commodityspeciescommonname, 'species common name').toBe(cowLine.species.commodityCode);
     // Each party's postalAddress.postcodeCode, and its definedContact[].telephoneUniversalCommunication and
     // emailURIUniversalCommunication.
     // The event carries them. Only the v0.2.0 message does. The phone column is a guess: the row also has an international
@@ -150,12 +151,12 @@ test.describe('PIMS Dynamics notification data not stored yet', { tag: '@dynamic
     // the number of animals.
     // The event carries it and both messages pass it on, but the column is empty. PIMS may not map it, or may store it
     // per species elsewhere. Ask the PIMS team.
-    expect.soft(row.defraimp_commoditiesnumberofanimals, 'number of animals').toBe(answers.noOfAnimals);
+    expect.soft(row.defraimp_commoditiesnumberofanimals, 'number of animals').toBe(cowLine.noOfAnimals);
     // specifiedConsignment.includedConsignmentItem[].includedTradeLineItem[].individualTradeProductInstance[].identifier[]
     // where typeCode is EAR_TAG, the ear tag.
     // The event carries it and both messages pass it on, but the identification text column is empty. PIMS has a
     // per-animal identifier table this test does not query, so the ear tag may be there. Ask the PIMS team.
-    expect.soft(row.defraimp_identificationofanimalstext, 'ear tag').toContain(answers.earTag);
+    expect.soft(row.defraimp_identificationofanimalstext, 'ear tag').toContain(cowLine.earTag);
     // specifiedConsignment.mainCarriageLogisticsTransportMovement[].usedLogisticsTransportMeans.name, the transport
     // identification (the movement's own identifier is null in the event).
     // Both messages pass the name on, but the column is empty. Ask the PIMS team; the v0.1.0 schema says the
@@ -169,6 +170,7 @@ test.describe('PIMS Dynamics notification data not stored yet', { tag: '@dynamic
     test.setTimeout(test.info().timeout + 2 * 60_000);
     const dynamics = new AnimalsDynamicsClient(externalRequest);
     const answers = ALL_ANSWERS;
+    const [cowLine] = answers.commodityLines;
     await animalsJourney.submitNotification(answers);
     const referenceNumber = journeyContext.referenceNumber;
 
@@ -215,12 +217,12 @@ test.describe('PIMS Dynamics notification data not stored yet', { tag: '@dynamic
     // the number of packages.
     // The event carries it and both messages pass it on, but the column is empty. PIMS may not map it, or may store it
     // per species elsewhere. Ask the PIMS team.
-    expect.soft(row.defraimp_commoditiesnumberofpackages, 'number of packages').toBe(answers.noOfPackages);
+    expect.soft(row.defraimp_commoditiesnumberofpackages, 'number of packages').toBe(cowLine.noOfPackages);
     // specifiedConsignment.includedConsignmentItem[].includedTradeLineItem[].individualTradeProductInstance[].identifier[]
     // where typeCode is PASSPORT, the passport number.
     // The event carries it and both messages pass it on, but the identification text column is empty. PIMS has a
     // per-animal identifier table this test does not query, so the passport number may be there. Ask the PIMS team.
-    expect.soft(row.defraimp_identificationofanimalstext, 'passport number').toContain(answers.passportNumber);
+    expect.soft(row.defraimp_identificationofanimalstext, 'passport number').toContain(cowLine.passportNumber);
   });
 
   test('answering yes to unweaned animals is stored in PIMS Dynamics', async ({ animalsJourney, journeyContext, externalRequest }) => {

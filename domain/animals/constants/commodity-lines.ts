@@ -13,6 +13,8 @@ export const commodityLines = {
   ostrich: { searchTerm: 'ostrich', commodityCode: '01063300', latinName: 'Struthio' },
 } as const satisfies Record<string, CommodityLine>;
 
+export const commodityNames = { cattle: 'Cow', domesticCat: 'Cat' } as const;
+
 export const speciesCheckboxValue = (line: CommodityLine): string => `${line.commodityCode}|${line.latinName}`;
 
 export const speciesCardTitle = (line: CommodityLine): string => `${line.commodityCode} — ${line.latinName}`;

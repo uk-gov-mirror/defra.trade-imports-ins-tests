@@ -1,7 +1,8 @@
 import { commodityLines } from '@domain/animals/constants/commodity-lines';
 
 import { test, expect } from '@fixtures';
-import { PERMANENT_ADDRESS_NAME, PERMANENT_ADDRESS_PASSPORT_NUMBER } from '@flows/animals/journey';
+import { catLine } from '@domain/animals/constants/journey-options';
+import { PERMANENT_ADDRESS_PASSPORT_NUMBER } from '@flows/animals/journey';
 
 test.describe('Animal identifiers — conditional identifier surface', { tag: '@duplicated-in-frontend' }, () => {
   test("a domestic cat's unit form asks for passport, tattoo and a permanent address, and refuses a partial address", async ({
@@ -21,19 +22,24 @@ test.describe('Animal identifiers — conditional identifier surface', { tag: '@
     await expect(pages.page.getByLabel('Name or organisation name')).toBeVisible();
     await expect(pages.page.getByLabel('Country')).toHaveCount(0);
 
+    const { permanentAddress } = catLine;
+    if (!permanentAddress) {
+      throw new Error('catLine must define permanentAddress for this test');
+    }
+
     await animalsPages.animalIdentification.passportNumber.fill(PERMANENT_ADDRESS_PASSPORT_NUMBER);
-    await animalsPages.animalIdentification.permanentAddressName.fill(PERMANENT_ADDRESS_NAME);
+    await animalsPages.animalIdentification.permanentAddressName.fill(permanentAddress.nameOrOrganisationName);
     await animalsPages.animalIdentification.saveAndAddAnother.click();
     await expect(pages.page.getByRole('heading', { name: 'There is a problem' })).toBeVisible();
     await expect(pages.page.getByRole('link', { name: 'Enter address line 1' })).toBeVisible();
 
-    await animalsJourney.saveAnimalWithPermanentAddress();
+    await animalsJourney.saveAnimalWithPermanentAddress(PERMANENT_ADDRESS_PASSPORT_NUMBER, permanentAddress);
 
     await expect(animalsPages.animalIdentification.heading).toBeVisible();
     const unitRow = animalsPages.animalIdentification.savedAnimalRow(commodityLines.domesticCat.latinName, 1);
     await expect(animalsPages.animalIdentification.identifierColumn('Permanent address')).toBeVisible();
     await expect(unitRow.getByRole('cell', { name: PERMANENT_ADDRESS_PASSPORT_NUMBER, exact: true })).toBeVisible();
-    await expect(unitRow.getByRole('cell', { name: PERMANENT_ADDRESS_NAME, exact: true })).toBeVisible();
+    await expect(unitRow.getByRole('cell', { name: permanentAddress.nameOrOrganisationName, exact: true })).toBeVisible();
   });
 
   test('a commodity with no identifier type of its own gets no card, while the lines that have one keep theirs', async ({
