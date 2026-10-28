@@ -1,6 +1,6 @@
 import { type CountryCode, countryCodes } from '@domain/animals/constants/country-codes';
 import { type CertificationPurpose, certificationPurposes } from '@domain/animals/constants/certification-purposes';
-import { type CommoditySpecies, commoditySpecies } from '@domain/animals/constants/commodity-species';
+import { type CommodityLine, commodityLines } from '@domain/animals/constants/commodity-lines';
 import { documentTypes } from '@domain/animals/constants/document-types';
 import { type ImportReason, importReasons } from '@domain/animals/constants/import-reasons';
 import { type InternalMarketPurpose, internalMarketPurposes } from '@domain/animals/constants/internal-market-purposes';
@@ -54,7 +54,7 @@ export type PartyAnswers = {
 export type MandatoryAnswers = {
   countryCode: CountryCode;
   requiresRegionCode: YesNoValue;
-  species: CommoditySpecies;
+  species: CommodityLine;
   noOfAnimals: number;
   earTag: string;
   importReason: ImportReason;
@@ -85,7 +85,7 @@ export type PermanentAddressAnswer = {
 
 /** One commodity line on the notification — species, counts and the identifiers that species needs. */
 export type CommodityLineAnswer = {
-  species: CommoditySpecies;
+  species: CommodityLine;
   noOfAnimals: number;
   noOfPackages?: number;
   earTag?: string;
@@ -144,7 +144,7 @@ export const commodityLinesFrom = (answers: NotificationAnswers): CommodityLineA
 export const MANDATORY_ANSWERS: MandatoryAnswers = {
   countryCode: countryCodes.eu.france,
   requiresRegionCode: yesNoValues.no,
-  species: commoditySpecies.bosTaurus,
+  species: commodityLines.cattle,
   noOfAnimals: 1,
   earTag: 'UK123456789012',
   importReason: importReasons.internalMarket,
@@ -195,14 +195,14 @@ export const COW_AND_CAT_ANSWERS: AllAnswers = {
   ...ALL_ANSWERS,
   commodityLines: [
     {
-      species: commoditySpecies.bosTaurus,
+      species: commodityLines.cattle,
       noOfAnimals: ALL_ANSWERS.noOfAnimals,
       noOfPackages: ALL_ANSWERS.noOfPackages,
       earTag: ALL_ANSWERS.earTag,
       passportNumber: ALL_ANSWERS.passportNumber,
     },
     {
-      species: commoditySpecies.felisCatus,
+      species: commodityLines.domesticCat,
       noOfAnimals: 1,
       passportNumber: 'UK-CAT-1',
       microchip: '900987654321098',

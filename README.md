@@ -137,6 +137,13 @@ those settings:
 `@a11y` tests use the same configs; per-test timeout is longer in
 `fixtures/a11y.ts`.
 
+The animals journey scans leave out govuk-frontend's conditional-reveal radios
+(`govukConditionalRevealRadioOnOrigin` and
+`govukConditionalRevealRadiosOnReason` in `fixtures/a11y.ts`). govuk-frontend sets `aria-expanded` on
+each radio that opens a conditional reveal (`radios.mjs`), and axe's
+`aria-allowed-attr` rule rejects it. That is a disagreement between
+govuk-frontend and axe, not a service defect.
+
 The CDP config sets a 60s test timeout and a 15s expect timeout, against
 Playwright's 30s and 5s defaults that the docker-compose config keeps. Each CDP
 page load is a real network hop, so CDP needs a longer budget than the local
@@ -172,6 +179,27 @@ suffix) so a search finds only this run's record. A spec deletes an address
 only when the deletion is what it tests. Where expiry is on, the shared journey
 addresses seeded in `globalSetup` expire too; the next run's
 `ensureE2eAddressBook` creates them again.
+
+### Commodity lines in the animals specs
+
+`domain/animals/constants/commodity-lines.ts` names each line a spec chooses
+by its CN commodity code and Latin name. The commodity page labels each tick
+box with the Latin name alone, under a heading of the code, and one Latin name
+can sit under several codes (`Bos taurus` is under four), so a line needs both.
+The stack's MDM stub answers only the searches saved from MDM, so each line's
+`searchTerm` is a saved term whose first page of results lists that line; the
+first page is the frontend's 100 results. The
+frontend saves only a species its search showed, so a seeded journey posts the
+search before it posts the chosen species. A spec that needs what MDM says
+about a species, such as its common name, reads it from reference-data's
+commodity search through `ReferenceDataApiClient`, rather than from a copy of
+it that goes stale.
+
+A notification's commodity name carries its first line's CN code until
+EUDPA-669 brings the real commodity name. So the outbox spec expects
+`commodityLines.cattle.commodityCode` as the trade line's description and
+common name, and the aggregated notification spec expects it as the
+commodity.
 
 ### Authenticated session reuse
 
@@ -340,6 +368,8 @@ Visual specs run headless whatever the project setting, because headed mode uses
 
 The origin of import baseline masks the whole status strip, not the notification reference alone. The strip renders from the first request and the reference inside it is minted per run, so an unmasked strip never matches the baseline twice. Masking the full-width strip keeps the masked box a fixed size, which the reference alone is not. The strip's own content is covered by `tests/animals/e2e/features/reference-strip.spec.ts`.
 
+The declaration baselines mask the date of declaration instead, because the server writes today's date into the page text. `freezeDatePickersAt` does not reach that text: it stops the browser clock and moves each date picker's served bounds, and changes nothing the server has already written. The date's strong emphasis is proved by the declaration e2e specs.
+
 Run against the stack with `npm run test:docker-compose:visual` (or
 `test:docker-compose:animals:visual` for `animals` alone). `animals` and `plants` have `@visual` specs.
 
@@ -355,6 +385,8 @@ updated snapshot into the working tree for commit. Narrow to one spec (or title 
 npm run test:visual:update:macos -- tests/animals/e2e/visual/origin-of-import.visual.spec.ts
 ./bin/update-visual-baselines-linux.sh tests/animals/e2e/visual/origin-of-import.visual.spec.ts
 ```
+
+The Linux script points the service URLs at `host.docker.internal`, because inside the container `localhost` is the container. It also runs the container with `--add-host=localhost:host-gateway`, which maps `localhost` to the host, so any URL the script does not override and that still names `localhost` reaches the stack too.
 
 Visual specs set `headless: true`, because headed mode uses the host's font rendering and
 never matches a headless baseline.

@@ -12,7 +12,7 @@ test.describe('Transit countries scope', { tag: '@duplicated-in-frontend' }, () 
     animalsPages,
   }) => {
     await animalsJourney.startNotification();
-    await animalsJourney.unlockSections();
+    await animalsJourney.answerCommodity();
 
     const saveArrivalWithMeans = async (means: string) => {
       await animalsPages.overview.task('Arrival details').click();

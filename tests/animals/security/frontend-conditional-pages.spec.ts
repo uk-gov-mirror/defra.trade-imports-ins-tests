@@ -16,7 +16,7 @@ test.describe('Security scan (frontend, conditional pages)', { tag: '@active' },
   test('routes the reason-gated and transporter-gated pages through the ZAP proxy', async ({ animalsJourney, animalsPages }) => {
     test.slow();
     await animalsJourney.startNotification();
-    await animalsJourney.unlockSections();
+    await animalsJourney.answerCommodity();
 
     await animalsPages.overview.task(IMPORT_REASON_TASK).click();
     await animalsPages.importReason.reason('Transit').check();

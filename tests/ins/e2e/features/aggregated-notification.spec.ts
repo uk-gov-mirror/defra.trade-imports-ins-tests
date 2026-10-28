@@ -24,7 +24,6 @@ test.describe('Aggregated notification store', { tag: ['@compose', '@mongodb', '
   }) => {
     test.slow();
 
-    // Given — complete the journey up to the declaration page (notification is in DRAFT)
     await animalsJourney.toDeclaration();
     const referenceNumber = journeyContext.referenceNumber;
     const aggregateId = aggregateIdFor(referenceNumber);
@@ -34,12 +33,6 @@ test.describe('Aggregated notification store', { tag: ['@compose', '@mongodb', '
       await client.connect();
       const collection = client.collection<AggregatedNotificationDocument>('trade-imports-ins-backend', 'notifications');
 
-      // When — notification has been edited but not yet submitted
-      // Then — aggregated store should reflect DRAFT status with all fields populated.
-
-      // NOTIFICATION_CREATED fires immediately at creation (before transport details are filled in),
-      // so we poll for the specific fully-populated state rather than bare status=DRAFT. The document
-      // is captured inside the poll — no redundant second read needed.
       let draftDoc: AggregatedNotificationDocument | null = null;
       await expect
         .poll(
@@ -63,7 +56,6 @@ test.describe('Aggregated notification store', { tag: ['@compose', '@mongodb', '
       expect(draftDoc.referenceNumber).toBe(referenceNumber);
       expect(draftDoc.status).toBe('DRAFT');
       expect(draftDoc.originCountry).toBe(MANDATORY_ANSWERS.countryCode.value);
-      // INS upsert reads the first GBN-AG trade line description, then commonName.
       expect(draftDoc.commodity).toBe(INS_DASHBOARD_COMMODITY_LABEL);
       expect(draftDoc.arrivalDate).toBeInstanceOf(Date);
       expect(draftDoc.arrivalDate.getTime()).toBeGreaterThan(Date.now());
@@ -72,12 +64,10 @@ test.describe('Aggregated notification store', { tag: ['@compose', '@mongodb', '
 
       const draftVersion = draftDoc.aggregateVersion;
 
-      // When — notification is submitted
       await animalsPages.declaration.confirmation.check();
       await animalsPages.declaration.continueButton.click();
       await pages.page.getByRole('heading', { name: 'Import notification submitted' }).waitFor();
 
-      // Then — same document is updated to SUBMITTED (no duplicate created)
       await expect.poll(() => collection.findOne({ _id: aggregateId, status: 'SUBMITTED' }), { timeout: timeouts.long }).not.toBeNull();
 
       expect(await collection.countDocuments({ _id: aggregateId })).toBe(1);

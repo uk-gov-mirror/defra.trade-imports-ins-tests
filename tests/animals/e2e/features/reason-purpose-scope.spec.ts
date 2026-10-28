@@ -8,7 +8,7 @@ test.describe('Reason and purpose scope', { tag: '@duplicated-in-frontend' }, ()
     animalsPages,
   }) => {
     await animalsJourney.startNotification();
-    await animalsJourney.unlockSections();
+    await animalsJourney.answerCommodity();
 
     const reasonRow = pages.page.locator('.govuk-task-list__item', { hasText: IMPORT_REASON_TASK });
 

@@ -16,7 +16,7 @@ test.describe('Commercial transporter scope', { tag: '@duplicated-in-frontend' }
     animalsPages,
   }) => {
     await animalsJourney.startNotification();
-    await animalsJourney.unlockSections();
+    await animalsJourney.answerCommodity();
 
     await animalsJourney.reachTransporterFromHub();
     await animalsJourney.chooseTransporterType('Commercial');

@@ -10,6 +10,10 @@ export class AnimalsOverviewPage extends NotificationPage {
     return this.page.getByRole('heading', { level: 1, name: 'Overview' });
   }
 
+  get numberedSectionHeadings(): Locator {
+    return this.page.getByRole('heading', { level: 3, name: /^\d+\. / });
+  }
+
   get reviewAndSubmitButton(): Locator {
     return this.page.getByRole('button', { name: 'Review and submit' });
   }

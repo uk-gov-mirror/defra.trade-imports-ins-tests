@@ -10,6 +10,8 @@ import { skipUnlessComposeEnvironment } from '@utils/playwright/environment';
 const NOTIFICATION_SUBMITTED = 'uk.gov.defra.imports.notification.NotificationSubmitted';
 const LIVE_BOVINE_LINE_DESCRIPTION = 'Live bovine animals';
 const DOMESTIC_CATTLE_COMMON_NAME = 'Domestic cattle';
+const SUBDIVISION_FUNCTION_TYPE_CODE = '106';
+const VETERINARY_CERTIFICATE_TYPE_CODE = '853';
 const EXPECTED_ACTOR: OutboxEventActor = {
   id: users.andrew.crn,
   source: 'dynamics-contact',
@@ -68,7 +70,7 @@ test.describe('Notification outbox event', { tag: '@mongodb' }, () => {
       expect(data.exchangedDocument.notificationStatusCode).toBe('SUBMITTED');
       expect(data.exchangedDocument.referenceDocument).toEqual([
         {
-          typeCode: '853', // veterinary certificate, copied into the GBN-AG list from UNTDID 1001
+          typeCode: VETERINARY_CERTIFICATE_TYPE_CODE,
           urlId: 'https://refdata.tbc.defra.gov.uk/gbn-ag-document-types',
           identifier: answers.accompanyingDocument.reference,
           issueDateTime: '2026-01-03',
@@ -78,9 +80,6 @@ test.describe('Notification outbox event', { tag: '@mongodb' }, () => {
       expect(data.specifiedConsignment.originCountry?.code?.value).toBe(answers.countryCode.value);
       expect(data.specifiedConsignment.unloadingBaseportLocation?.identifier).toBe(answers.pointOfEntry.value);
       expect(data.specifiedConsignment.includedConsignmentItem).toHaveLength(1);
-      // The journey answers the region, CPH, transport and animal questions, so each reaches the event.
-      // The journey picks a whole country, so the event leaves the subdivision out rather than
-      // sending it as null; the region of origin code has its own field.
       const originCountry = data.specifiedConsignment.originCountry;
       expect(originCountry?.regionOfOriginCode).toBe(`${answers.countryCode.value}-${answers.regionCode}`);
       expect(originCountry).not.toHaveProperty('subordinateTradeCountrySubDivision');
@@ -96,14 +95,14 @@ test.describe('Notification outbox event', { tag: '@mongodb' }, () => {
       }
       const [movement] = data.specifiedConsignment.mainCarriageLogisticsTransportMovement ?? [];
       const [transportDocument] = movement.transportContractRelatedReferencedDocument ?? [];
-      expect(transportDocument.typeCode).toBe('730'); // road consignment note, as the journey travels by road
+      expect(transportDocument.typeCode).toBe('730');
       expect(transportDocument.identifier).toBe(answers.transportDocumentReference);
       const tradeLines = data.specifiedConsignment.includedConsignmentItem?.[0].includedTradeLineItem ?? [];
       expect(tradeLines).toHaveLength(1);
       const [line] = tradeLines;
       expect(line.description).toEqual([LIVE_BOVINE_LINE_DESCRIPTION]);
       expect(line.commonName).toBe(DOMESTIC_CATTLE_COMMON_NAME);
-      expect(line.scientificName).toBe(answers.species.display);
+      expect(line.scientificName).toBe(answers.species.latinName);
       expect(line.specifiedLineTradeDelivery?.[0].productUnitQuantity.content).toBe(answers.noOfAnimals);
       expect(line.physicalReferencedLogisticsPackage?.[0].itemQuantity).toBe(answers.noOfPackages);
       const animals = line.individualTradeProductInstance ?? [];
@@ -150,16 +149,14 @@ test.describe('Notification outbox event', { tag: '@mongodb' }, () => {
 
       const doc = await collection.findOne({ aggregateId, eventType: NOTIFICATION_SUBMITTED });
       const originCountry = doc?.data.specifiedConsignment.originCountry;
-      // The country is the subdivision's parent; the subdivision is the '106' entry, named by its MDM list.
       expect(originCountry?.code?.value).toBe('ES');
       expect(originCountry?.subordinateTradeCountrySubDivision).toEqual([
         {
           identifier: 'ES-CN',
           urlId: 'https://refdata.tbc.defra.gov.uk/country_subdivisions',
-          functionTypeCode: { content: '106' },
+          functionTypeCode: { content: SUBDIVISION_FUNCTION_TYPE_CODE },
         },
       ]);
-      // The journey answers the region of origin code under the parent country's prefix.
       expect(originCountry?.regionOfOriginCode).toBe(`ES-${answers.regionCode}`);
     } finally {
       await client.close();
@@ -189,7 +186,7 @@ test.describe('Notification outbox event', { tag: '@mongodb' }, () => {
       const doc = await collection.findOne({ aggregateId, eventType: NOTIFICATION_SUBMITTED });
       expect(doc?.data.exchangedDocument.referenceDocument).toEqual([
         {
-          typeCode: '853', // veterinary certificate, copied into the GBN-AG list from UNTDID 1001
+          typeCode: VETERINARY_CERTIFICATE_TYPE_CODE,
           urlId: 'https://refdata.tbc.defra.gov.uk/gbn-ag-document-types',
           identifier: documentReference,
           issueDateTime: '2026-01-03',

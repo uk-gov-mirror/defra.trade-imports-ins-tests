@@ -84,6 +84,20 @@ test.describe('High-risk plants origin section', () => {
     await expect(plantsPages.origin.country.boldLettersOf(FRANCE)).toHaveText(['Fra']);
   });
 
+  test('typing an accented country name offers the country listed without the accent, with its letters in bold', async ({
+    plantsPages,
+    plantsJourney,
+  }) => {
+    await plantsJourney.toOriginOfNewNotification(POTATOES);
+
+    const typedCountry = 'Réunion';
+    const listedCountry = 'Reunion';
+
+    await plantsPages.origin.country.search(typedCountry);
+
+    await expect(plantsPages.origin.country.boldLettersOf(listedCountry)).toHaveText([listedCountry]);
+  });
+
   test('a seed-potato consignment may name any country in the origin block', async ({ pages, plantsPages, plantsJourney }) => {
     const reference = await plantsJourney.toOriginOfNewNotification(POTATOES);
 

@@ -54,6 +54,7 @@ export default tseslint.config(
       'allure-results',
       'allure-report',
       'zap-report',
+      '.playwright-cli',
       '*.mjs',
       'eslint-rules',
     ],

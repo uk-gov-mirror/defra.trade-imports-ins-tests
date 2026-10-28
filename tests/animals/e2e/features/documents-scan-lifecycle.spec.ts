@@ -12,7 +12,7 @@ test.describe('Documents scan lifecycle', { tag: '@duplicated-in-frontend' }, ()
     await animalsJourney.toAccompanyingDocuments();
   });
 
-  test('infected upload: accepted while scanning, then Virus found with error summary and no view link', async ({
+  test('infected upload: accepted while scanning, then Virus found with error summary blocking Save and continue until it is removed', async ({
     pages,
     animalsPages,
   }, testInfo) => {
@@ -32,9 +32,20 @@ test.describe('Documents scan lifecycle', { tag: '@duplicated-in-frontend' }, ()
       pages.page.getByText(`${eicar.fileName} cannot be used. Remove it and try again with a different file.`).first(),
     ).toBeVisible();
     await expect(animalsPages.accompanyingDocuments.viewFile(1)).toHaveCount(0);
+
+    await animalsPages.accompanyingDocuments.saveAndContinue.click();
+    await expect(
+      pages.page.getByText(`${eicar.fileName} cannot be used. Remove it and try again with a different file.`).first(),
+    ).toBeVisible();
+
+    await animalsPages.accompanyingDocuments.removeDocument(1).click();
+    await animalsPages.accompanyingDocuments.saveAndContinue.click();
+    await expect(animalsPages.overview.heading).toBeVisible();
   });
 
-  test('clean upload: shows Scanning for virus with no view link, then Check completed with a view link', async ({ animalsPages }) => {
+  test('clean upload: Save and continue reaches the overview, and the row settles to Check completed with a view link on reopening', async ({
+    animalsPages,
+  }) => {
     test.slow();
     const reference = `PWSCAN${Date.now()}`;
     await animalsPages.accompanyingDocuments.fillDocument(reference, issueDate, fileUploadPaths.safeFile1kbPdf);
@@ -47,7 +58,12 @@ test.describe('Documents scan lifecycle', { tag: '@duplicated-in-frontend' }, ()
     }
     await expect(animalsPages.accompanyingDocuments.removeDocument(1)).toBeVisible();
 
-    await expect(row).toContainText('Check completed', { timeout: fileUploadTimeouts.virusScanComplete });
+    await animalsPages.accompanyingDocuments.saveAndContinue.click();
+    await expect(animalsPages.overview.heading).toBeVisible();
+
+    await animalsPages.overview.task('Upload documents').click();
+    const reopenedRow = animalsPages.accompanyingDocuments.documentRow(reference);
+    await expect(reopenedRow).toContainText('Check completed', { timeout: fileUploadTimeouts.virusScanComplete });
     await expect(animalsPages.accompanyingDocuments.viewFile(1)).toBeVisible();
   });
 });

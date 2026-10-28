@@ -22,7 +22,7 @@ test.describe('Addresses are copied, not linked', () => {
       });
 
       await animalsJourney.startNotification();
-      await animalsJourney.unlockSections();
+      await animalsJourney.answerCommodity();
 
       await animalsPages.overview.task('Roles and addresses').click();
       const consignorAddressLines = animalsPages.addresses.partyAddressLines('Consignor');
@@ -82,7 +82,7 @@ test.describe('Addresses are copied, not linked', () => {
     await addressBookApi.createAddress(record);
 
     await animalsJourney.startNotification();
-    await animalsJourney.unlockSections();
+    await animalsJourney.answerCommodity();
 
     await animalsPages.overview.task('Roles and addresses').click();
     await animalsPages.addresses.addParty('Consignor').click();

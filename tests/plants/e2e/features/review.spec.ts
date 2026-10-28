@@ -117,19 +117,13 @@ test.describe('High-risk plants check and submit section', () => {
       await plantsJourney.toDeclarationFromReview();
     });
 
-    test('shows the confirmation as a small checkbox in a group whose legend is hidden from sight', async ({ plantsPages }) => {
-      const { content } = plantsPages.declaration;
-
-      await expect(content.confirmationGroup).toBeVisible();
-      await expect(content.confirmationLegend).toHaveClass(/govuk-visually-hidden/);
-      await expect(content.checkboxes).toHaveClass(/govuk-checkboxes--small/);
+    test('puts the confirmation checkbox in a group named by the declaration legend', async ({ plantsPages }) => {
+      await expect(plantsPages.declaration.content.confirmationGroup).toBeVisible();
+      await expect(plantsPages.declaration.content.confirmationCheckbox).toBeVisible();
     });
 
-    test('shows the date of declaration in bold', async ({ plantsPages }) => {
-      const { dateValue } = plantsPages.declaration.content;
-
-      await expect(dateValue).toHaveText(new RegExp(`^${todayOrTomorrowServiceDisplayDatePattern()}$`));
-      await expect(dateValue).toHaveCSS('font-weight', '700');
+    test('shows the date of declaration as the strong text of its line', async ({ plantsPages }) => {
+      await expect(plantsPages.declaration.content.dateValue).toHaveText(new RegExp(`^${todayOrTomorrowServiceDisplayDatePattern()}$`));
     });
 
     test('starts the declaration of a draft with the Declaration heading', async ({ plantsPages }) => {

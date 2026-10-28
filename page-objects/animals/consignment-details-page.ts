@@ -21,6 +21,10 @@ export class AnimalsConsignmentDetailsPage extends NotificationPage {
     return this.page.getByLabel('Number of packages (when required)');
   }
 
+  get addAnotherCommodity(): Locator {
+    return this.page.getByRole('link', { name: 'Add another commodity' });
+  }
+
   get errorSummary(): Locator {
     return this.page.getByRole('heading', { level: 2, name: 'There is a problem' });
   }
@@ -37,13 +41,25 @@ export class AnimalsConsignmentDetailsPage extends NotificationPage {
     return this.caption.locator('xpath=following-sibling::*[1]');
   }
 
+  async numberOfAnimalsFor(species: string): Promise<Locator> {
+    return this.numberOfAnimals.nth(await this.speciesPosition(species));
+  }
+
+  async numberOfPackagesFor(species: string): Promise<Locator> {
+    return this.numberOfPackages.nth(await this.speciesPosition(species));
+  }
+
   async fillAnimalCountFor(species: string, count: number): Promise<void> {
+    await (await this.numberOfAnimalsFor(species)).fill(String(count));
+  }
+
+  private async speciesPosition(species: string): Promise<number> {
     const speciesHeadings = await this.page.getByRole('heading', { level: 3 }).allTextContents();
     const index = speciesHeadings.indexOf(species);
     if (index === -1) {
       throw new Error(`No "${species}" heading among: ${speciesHeadings.join(', ')}`);
     }
-    await this.numberOfAnimals.nth(index).fill(String(count));
+    return index;
   }
 
   async fillPackageCountFor(species: string, count: number): Promise<void> {

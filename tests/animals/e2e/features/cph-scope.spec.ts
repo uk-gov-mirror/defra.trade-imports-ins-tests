@@ -1,3 +1,5 @@
+import { commodityLines } from '@domain/animals/constants/commodity-lines';
+
 import { test, expect } from '@fixtures';
 
 test.describe('CPH scope', { tag: '@duplicated-in-frontend' }, () => {
@@ -11,14 +13,14 @@ test.describe('CPH scope', { tag: '@duplicated-in-frontend' }, () => {
 
     const { cphSection, cphLinks, cphNumberText } = animalsPages.addresses;
 
-    await animalsJourney.addCommodityToCurrentNotification('Felis catus');
+    await animalsJourney.addCommodityToCurrentNotification(commodityLines.domesticCat);
     await animalsJourney.toRolesAndAddressesOfCurrentNotification();
     await expect(cphSection).toBeHidden();
     await animalsPages.addresses.continueButton.click();
     await expect(animalsPages.overview.heading).toBeVisible();
     await expect(animalsPages.cphNumber.heading).toBeHidden();
 
-    await animalsJourney.addCommodityToCurrentNotification('Bos taurus');
+    await animalsJourney.addCommodityToCurrentNotification(commodityLines.cattle);
     await animalsJourney.toRolesAndAddressesOfCurrentNotification();
     await expect(cphSection).toBeVisible();
     await expect(cphLinks).toHaveText(['Add a CPH number']);

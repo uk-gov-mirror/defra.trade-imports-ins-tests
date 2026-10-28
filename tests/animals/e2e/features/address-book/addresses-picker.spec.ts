@@ -52,7 +52,7 @@ test.describe('Addresses picker', { tag: ['@duplicated-in-frontend', '@address-b
     }
 
     await animalsJourney.startNotification();
-    await animalsJourney.unlockSections();
+    await animalsJourney.answerCommodity();
 
     await animalsPages.overview.task('Roles and addresses').click();
     const consignorAddressLines = animalsPages.addresses.partyAddressLines('Consignor');
@@ -115,7 +115,7 @@ test.describe('Addresses picker', { tag: ['@duplicated-in-frontend', '@address-b
     animalsPages,
   }) => {
     await animalsJourney.startNotification();
-    await animalsJourney.unlockSections();
+    await animalsJourney.answerCommodity();
     await animalsPages.overview.task('Roles and addresses').click();
     await animalsPages.addresses.addParty('Consignor').click();
 

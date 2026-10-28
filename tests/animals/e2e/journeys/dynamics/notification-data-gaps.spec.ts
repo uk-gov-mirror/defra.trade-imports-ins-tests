@@ -100,8 +100,8 @@ test.describe('PIMS Dynamics notification data not stored yet', { tag: '@dynamic
     // [FROM v0.2.0]
     // specifiedConsignment.includedConsignmentItem[].includedTradeLineItem[].scientificName and commonName.
     // The event carries both. Only the v0.2.0 message does; the gateway's v0.1.0 mapper omits the species names.
-    expect.soft(row.defraimp_commodityspeciesname, 'species name').toBe(answers.species.display);
-    expect.soft(row.defraimp_commodityspeciescommonname, 'species common name').toBe(answers.species.commodity.display);
+    expect.soft(row.defraimp_commodityspeciesname, 'species name').toBe(answers.species.latinName);
+    expect.soft(row.defraimp_commodityspeciescommonname, 'species common name').toBe(answers.species.commodityCode);
     // Each party's postalAddress.postcodeCode, and its definedContact[].telephoneUniversalCommunication and
     // emailURIUniversalCommunication.
     // The event carries them. Only the v0.2.0 message does. The phone column is a guess: the row also has an international

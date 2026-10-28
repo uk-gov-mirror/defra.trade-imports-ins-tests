@@ -16,11 +16,6 @@ PLAYWRIGHT_IMAGE="${PLAYWRIGHT_IMAGE:-mcr.microsoft.com/playwright:v1.64.1-jammy
 # Run as the invoking user's UID:GID so bind-mounted reports and snapshots are host-owned, not root.
 CONTAINER_USER="${CONTAINER_USER:-$(id -u):$(id -g)}"
 NODE_MODULES_VOLUME="${NODE_MODULES_VOLUME:-trade-imports-ins-tests-container-nm}"
-# Every service URL in playwright.docker-compose.config.ts defaults to
-# localhost, which inside the container is the container. Each one the run
-# touches has to be remapped to the host, or it fails with ECONNREFUSED —
-# global setup seeds the address book, so that one is reached even by
-# `--grep @visual`.
 MONGODB_URI="${MONGODB_URI:-mongodb://host.docker.internal:27017/?tls=false&directConnection=true}"
 TRADE_IMPORTS_ANIMALS_BACKEND_URL="${TRADE_IMPORTS_ANIMALS_BACKEND_URL:-http://host.docker.internal:8085}"
 TRADE_IMPORTS_ADDRESS_BOOK_URL="${TRADE_IMPORTS_ADDRESS_BOOK_URL:-http://host.docker.internal:8089}"
@@ -53,6 +48,7 @@ docker run --rm \
   --platform linux/amd64 \
   --user "$CONTAINER_USER" \
   --add-host=host.docker.internal:host-gateway \
+  --add-host=localhost:host-gateway \
   -v "$REPO_ROOT:/app" \
   -v "$NODE_MODULES_VOLUME:/app/node_modules" \
   -w /app \

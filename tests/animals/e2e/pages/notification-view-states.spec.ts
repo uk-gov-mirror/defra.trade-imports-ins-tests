@@ -1,3 +1,4 @@
+import { commodityLines, speciesCardTitle } from '@domain/animals/constants/commodity-lines';
 import { test, expect } from '@fixtures';
 
 const REFERENCE_NUMBER_PATTERN = /GBN-AG-\d{2}-[0-9A-Z]{6}/;
@@ -21,7 +22,7 @@ test.describe('Notification view states', { tag: '@duplicated-in-frontend' }, ()
       await expect(animalsPages.notificationView.summaryCard('Uploaded documents')).toBeVisible();
       await expect(animalsPages.notificationView.summaryCard('Uploaded documents')).toContainText('You have not added any documents yet.');
       await expect(animalsPages.notificationView.summaryCard('Import details')).toContainText('France');
-      await expect(animalsPages.notificationView.summaryCard('Cow (0102) — Bos taurus')).toContainText('Number of animals');
+      await expect(animalsPages.notificationView.summaryCard(speciesCardTitle(commodityLines.cattle))).toContainText('Number of animals');
     });
 
     test('shows the Draft strip with the notification reference', async ({ animalsPages, journeyContext }) => {
@@ -101,7 +102,7 @@ test.describe('Notification view states', { tag: '@duplicated-in-frontend' }, ()
 
     test('still renders the recorded answers after submission', async ({ animalsPages }) => {
       await expect(animalsPages.notificationView.summaryCard('Import details')).toContainText('France');
-      await expect(animalsPages.notificationView.summaryCard('Cow (0102) — Bos taurus')).toBeVisible();
+      await expect(animalsPages.notificationView.summaryCard(speciesCardTitle(commodityLines.cattle))).toBeVisible();
     });
   });
 });

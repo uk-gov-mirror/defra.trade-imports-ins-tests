@@ -1,3 +1,5 @@
+import { commodityLines } from '@domain/animals/constants/commodity-lines';
+
 import { test, expect } from '@fixtures';
 
 test.describe('Additional details scope', { tag: '@duplicated-in-frontend' }, () => {
@@ -14,12 +16,12 @@ test.describe('Additional details scope', { tag: '@duplicated-in-frontend' }, ()
       name: 'Does the consignment contain any unweaned animals?',
     });
 
-    await animalsJourney.addCommodityToCurrentNotification('Felis catus');
+    await animalsJourney.addCommodityToCurrentNotification(commodityLines.domesticCat);
     await animalsJourney.toAdditionalDetailsOfCurrentNotification();
     await expect(animalsPages.additionalDetails.certificationQuestion).toBeVisible();
     await expect(unweaned).toBeHidden();
 
-    await animalsJourney.addCommodityToCurrentNotification('Bos taurus');
+    await animalsJourney.addCommodityToCurrentNotification(commodityLines.cattle);
     await animalsJourney.toAdditionalDetailsOfCurrentNotification();
     await expect(animalsPages.additionalDetails.certificationQuestion).toBeVisible();
     await expect(unweaned).toBeVisible();
@@ -32,7 +34,7 @@ test.describe('Additional details scope', { tag: '@duplicated-in-frontend' }, ()
     test.slow();
 
     await animalsJourney.startNotification();
-    await animalsJourney.addCommodityToCurrentNotification('Bos taurus');
+    await animalsJourney.addCommodityToCurrentNotification(commodityLines.cattle);
     await animalsJourney.toAdditionalDetailsOfCurrentNotification();
     await animalsPages.additionalDetails.certifiedFor('Slaughter').check();
     await animalsPages.additionalDetails.containsUnweanedAnimals('Yes').check();
@@ -41,7 +43,7 @@ test.describe('Additional details scope', { tag: '@duplicated-in-frontend' }, ()
 
     await animalsPages.overview.task('What are you importing?').click();
     await animalsPages.commoditySelection.clearAll.click();
-    await animalsPages.commoditySelection.selectSpecies(['Felis catus']);
+    await animalsPages.commoditySelection.searchAndCheckSpecies([commodityLines.domesticCat]);
     await animalsPages.commoditySelection.saveAndContinue.click();
     await animalsPages.overview.heading.waitFor();
     await animalsPages.overview.reviewAndSubmitButton.click();
@@ -49,7 +51,7 @@ test.describe('Additional details scope', { tag: '@duplicated-in-frontend' }, ()
     const additionalAnimalDetails = animalsPages.notificationView.summaryCard('Additional animal details');
     await expect(additionalAnimalDetails.getByRole('term')).toHaveText(['Certified for']);
 
-    await animalsJourney.addCommodityToCurrentNotification('Bos taurus');
+    await animalsJourney.addCommodityToCurrentNotification(commodityLines.cattle);
     await animalsJourney.toAdditionalDetailsOfCurrentNotification();
     await expect(animalsPages.additionalDetails.containsUnweanedAnimals('Yes')).not.toBeChecked();
     await expect(animalsPages.additionalDetails.containsUnweanedAnimals('No')).not.toBeChecked();

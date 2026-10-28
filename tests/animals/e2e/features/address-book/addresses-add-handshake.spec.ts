@@ -28,7 +28,7 @@ test.describe('Add an address from the journey via INS', () => {
       };
 
       const referenceNumber = await animalsJourney.startNotification();
-      await animalsJourney.unlockSections();
+      await animalsJourney.answerCommodity();
 
       await animalsPages.overview.task('Roles and addresses').click();
       await animalsPages.addresses.addParty('Consignor').click();
@@ -63,7 +63,7 @@ test.describe('Add an address from the journey via INS', () => {
     { tag: '@ins-frontend' },
     async ({ animalsJourney, pages, animalsPages, insPages }) => {
       const referenceNumber = await animalsJourney.startNotification();
-      await animalsJourney.unlockSections();
+      await animalsJourney.answerCommodity();
 
       await animalsPages.overview.task('Roles and addresses').click();
       await animalsPages.addresses.addParty('Consignor').click();

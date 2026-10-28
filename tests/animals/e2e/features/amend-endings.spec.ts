@@ -1,6 +1,7 @@
 import { test, expect } from '@fixtures';
 
 const ARRIVAL_DETAILS_TASK = 'Arrival details';
+const UPLOAD_DOCUMENTS_TASK = 'Upload documents';
 const CHANGE_IMPORT_DETAILS = 'Change import details';
 const AMENDED_REFERENCE = 'AMENDED-REF';
 const AMEND = 'Amend';
@@ -26,6 +27,21 @@ test.describe('Amendment page endings', () => {
 
     await animalsPages.arrivalDetails.saveAndReturnToOverview.click();
     await expect(animalsPages.overview.heading).toBeVisible();
+  });
+
+  test('Upload documents opened from Overview while amending has a Back link to the review', async ({
+    animalsPages,
+    animalsSeededJourney,
+  }) => {
+    const reference = await animalsSeededJourney.createAmendNotification();
+    await animalsPages.overview.open(reference);
+    await animalsPages.overview.task(UPLOAD_DOCUMENTS_TASK).click();
+    await expect(animalsPages.accompanyingDocuments.heading).toBeVisible();
+
+    await expect(animalsPages.accompanyingDocuments.linkBack).toHaveAttribute('href', animalsPages.notificationView.expectedUrl(reference));
+
+    await animalsPages.accompanyingDocuments.linkBack.click();
+    await expect(animalsPages.notificationView.heading).toBeVisible();
   });
 
   test('Save and return from a Change link goes back to the amend review showing the changed answer', async ({

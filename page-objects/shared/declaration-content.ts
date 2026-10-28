@@ -9,16 +9,12 @@ export class DeclarationContent {
     return this.page.getByRole('group', { name: CONFIRMATION_LEGEND, exact: true });
   }
 
-  get confirmationLegend(): Locator {
-    return this.confirmationGroup.locator('legend');
-  }
-
-  get checkboxes(): Locator {
-    return this.confirmationGroup.locator('.govuk-checkboxes');
+  get confirmationCheckbox(): Locator {
+    return this.confirmationGroup.getByRole('checkbox', { name: /I confirm that I have reviewed/ });
   }
 
   get dateValue(): Locator {
-    return this.page.locator('p.govuk-body', { hasText: 'Date of declaration:' }).locator('strong');
+    return this.page.getByRole('paragraph').filter({ hasText: 'Date of declaration:' }).getByRole('strong');
   }
 
   get firstContentElement(): Locator {

@@ -1,12 +1,14 @@
 import { test, WCAG_STANDARD } from '@fixtures/a11y';
 import { sortByValues } from '@domain/animals/constants/sort-by-values';
+import { SET_BASES } from '@page-objects/shared/sets';
 
 test.describe(`Accessibility ${WCAG_STANDARD.name}`, { tag: '@a11y' }, () => {
   test.beforeEach(async ({ animalsJourney }) => {
     await animalsJourney.toNotificationDashboard();
   });
 
-  test('the notification dashboard has no accessibility violations in its default and sorted views', async ({
+  test('the notification dashboard has no accessibility violations in its default and sorted views, and the not found page has none', async ({
+    pages,
     animalsPages,
     runA11yScan,
   }) => {
@@ -17,6 +19,12 @@ test.describe(`Accessibility ${WCAG_STANDARD.name}`, { tag: '@a11y' }, () => {
     await test.step('Notification dashboard (sorted)', async () => {
       await animalsPages.dashboard.sortBy(sortByValues.dateCreatedNewestToOldest);
       await animalsPages.dashboard.heading.waitFor();
+      await runA11yScan();
+    });
+
+    await test.step('Page not found', async () => {
+      await pages.page.goto(`${SET_BASES.liveAnimals}/no-such-page`);
+      await pages.page.getByRole('heading', { name: '404' }).waitFor();
       await runA11yScan();
     });
   });

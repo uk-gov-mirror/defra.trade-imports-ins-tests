@@ -66,9 +66,9 @@ test.describe('Notification persistence round-trip', { tag: '@mongodb' }, () => 
       expect(notification.origin.requiresRegionCode).toBe('yes');
       expect(notification.origin.regionOfOriginCode).toBe(`${answers.countryCode.value}-${answers.regionCode}`);
       expect(notification.origin.internalReference).toBe(answers.internalReference);
-      expect(cow.name).toBe(answers.species.commodity.display);
-      expect(cow.commodityCode).toBe('0102');
-      expect(species.text).toBe(answers.species.display);
+      expect(cow.name).toBe('Cow');
+      expect(cow.commodityCode).toBe(answers.species.commodityCode);
+      expect(species.text).toBe(answers.species.latinName);
       expect(species.earTag).toBe(answers.earTag);
       expect(species.animalIdentifiers).toEqual([{ earTag: answers.earTag, passport: answers.passportNumber }]);
       expect(cow.totalNoOfAnimals).toBe(answers.noOfAnimals);
@@ -103,7 +103,6 @@ test.describe('Notification persistence round-trip', { tag: '@mongodb' }, () => 
       expect(notification.transport.transitedCountries).toEqual(answers.transitedCountries.map(({ value }) => value));
       expect(notification.transport.transporter?.name).toBe(answers.transporter.display);
       expect(notification.transport.transporter?.type).toBe('Commercial');
-      // Read from the raw document: a timezone drift would cancel itself out on a round trip through the API.
       const [day, month, year] = answers.arrivalDate.split('/');
       expect(notification.transport.arrivalDate).toBe(toIsoDate({ day, month, year }));
     } finally {

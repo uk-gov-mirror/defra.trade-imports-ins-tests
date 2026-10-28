@@ -1,3 +1,4 @@
+import { commodityLines } from '@domain/animals/constants/commodity-lines';
 import { test, expect } from '@fixtures';
 
 test.describe('Commodity details page', { tag: '@duplicated-in-frontend' }, () => {
@@ -17,15 +18,15 @@ test.describe('Commodity details page', { tag: '@duplicated-in-frontend' }, () =
     await expect(animalsPages.consignmentDetails.headingBelowCaption).toHaveText('Commodity details');
   });
 
-  test('lists the selected commodity with its code, common name and species', async ({ animalsPages }) => {
+  test('lists the selected commodity with its code and species', async ({ animalsPages }) => {
     const table = animalsPages.consignmentDetails.selectedCommodities.table;
+    const { cattle } = commodityLines;
 
-    await expect(table.getByRole('columnheader')).toHaveText(['Commodity code', 'Common name', 'Species', 'Actions']);
-    await expect(animalsPages.consignmentDetails.selectedCommodities.rowFor('Cow').getByRole('cell')).toHaveText([
-      '0102',
-      'Cow',
-      'Bos taurus',
-      'Remove Cow',
+    await expect(table.getByRole('columnheader')).toHaveText(['Commodity code', 'Species', 'Actions']);
+    await expect(animalsPages.consignmentDetails.selectedCommodities.rowFor(cattle).getByRole('cell')).toHaveText([
+      cattle.commodityCode,
+      cattle.latinName,
+      `Remove ${cattle.commodityCode} ${cattle.latinName}`,
     ]);
   });
 
@@ -44,7 +45,7 @@ test.describe('Commodity details page', { tag: '@duplicated-in-frontend' }, () =
 
 test.describe('Commodity details page with two species of one commodity', { tag: '@duplicated-in-frontend' }, () => {
   test.beforeEach(async ({ animalsJourney }) => {
-    await animalsJourney.toConsignmentDetails(['Bos taurus', 'Bison bison']);
+    await animalsJourney.toConsignmentDetails([commodityLines.cattle, commodityLines.bison]);
   });
 
   test('lists every number of animals error before any number of packages error', async ({ animalsPages }) => {
@@ -65,9 +66,31 @@ test.describe('Commodity details page with two species of one commodity', { tag:
 
   test("lists both species' Latin names, one per line, in the commodity's Species cell", async ({ animalsPages }) => {
     const speciesCell = animalsPages.consignmentDetails.selectedCommodities.speciesCell(
-      animalsPages.consignmentDetails.selectedCommodities.rowFor('Cow'),
+      animalsPages.consignmentDetails.selectedCommodities.rowFor(commodityLines.cattle),
     );
 
-    expect(await speciesCell.evaluate((el) => (el as HTMLElement).innerText)).toBe('Bison bison,\nBos taurus');
+    expect(await speciesCell.evaluate((el) => (el as HTMLElement).innerText)).toBe(
+      `${commodityLines.bison.latinName},\n${commodityLines.cattle.latinName}`,
+    );
+  });
+});
+
+test.describe('Commodity details page after counts are saved', { tag: '@duplicated-in-frontend' }, () => {
+  test.beforeEach(async ({ animalsJourney }) => {
+    await animalsJourney.toConsignmentDetailsWithSavedCounts({ animals: '2', packages: '5' });
+  });
+
+  test('returns from Add another commodity to Commodity details with the saved counts still filled in', async ({ animalsPages }) => {
+    await animalsPages.consignmentDetails.addAnotherCommodity.click();
+    await expect(animalsPages.commoditySelection.heading).toBeVisible();
+
+    await animalsPages.commoditySelection.searchAndCheckSpecies([commodityLines.domesticCat]);
+    await animalsPages.commoditySelection.saveAndContinue.click();
+
+    await expect(animalsPages.consignmentDetails.heading).toBeVisible();
+    await expect(await animalsPages.consignmentDetails.numberOfAnimalsFor('Bos taurus')).toHaveValue('2');
+    await expect(await animalsPages.consignmentDetails.numberOfPackagesFor('Bos taurus')).toHaveValue('5');
+    await expect(await animalsPages.consignmentDetails.numberOfAnimalsFor('Felis catus')).toHaveValue('');
+    await expect(await animalsPages.consignmentDetails.numberOfPackagesFor('Felis catus')).toHaveValue('');
   });
 });

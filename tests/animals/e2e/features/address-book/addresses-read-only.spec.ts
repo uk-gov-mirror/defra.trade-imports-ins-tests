@@ -48,7 +48,7 @@ test.describe('Addresses are read-only in the journey', () => {
       test.describe(hubRole, () => {
         test.beforeEach(async ({ animalsJourney, animalsPages }) => {
           await animalsJourney.startNotification();
-          await animalsJourney.unlockSections();
+          await animalsJourney.answerCommodity();
 
           await animalsPages.overview.task('Roles and addresses').click();
           await animalsPages.addresses.addParty(hubRole).click();

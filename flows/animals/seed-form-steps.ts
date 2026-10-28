@@ -5,9 +5,7 @@ import {
   type CommodityLineAnswer,
   type NotificationAnswers,
 } from '@domain/animals/constants/journey-options';
-
-// Each fact comes from the shared answers; this file only translates it into the form field the frontend takes.
-// `api-seed-parity.spec.ts` compares what the seed stores with what the browser journey stores.
+import { speciesCheckboxValue } from '@domain/animals/constants/commodity-lines';
 
 export type PartyRole = 'placeOfOrigin' | 'consignor' | 'consignee' | 'importer' | 'placeOfDestination' | 'contact';
 
@@ -24,6 +22,7 @@ export const partyNamesFrom = (answers: NotificationAnswers): PartyNames => ({
 export type SeedStep = {
   slug: string;
   form: FormFields;
+  returnsHtml?: boolean;
 };
 
 /**
@@ -79,7 +78,6 @@ const originStep = (answers: NotificationAnswers): SeedStep => ({
   form: {
     countryOfOrigin: answers.countryCode.value,
     regionOfOriginCodeRequirement: answers.requiresRegionCode.toLowerCase(),
-    // The country prefix is filled in for the trader, so the box takes only what follows it.
     regionOfOriginCodeSuffix: answers.regionCode ?? '',
     ...(answers.internalReference && { internalReferenceNumber: answers.internalReference }),
   },
@@ -87,13 +85,14 @@ const originStep = (answers: NotificationAnswers): SeedStep => ({
 
 const commoditySteps = (answers: NotificationAnswers): SeedStep[] => {
   const lines = commodityLinesFrom(answers);
+  const searchSteps: SeedStep[] = lines.map((line) => ({
+    slug: 'commodities',
+    form: { commoditySearch: line.species.searchTerm, action: 'search' },
+    returnsHtml: true,
+  }));
   return [
-    {
-      slug: 'commodities',
-      form: {
-        species: lines.map((line) => `${line.species.commodity.value}|${line.species.value}`),
-      },
-    },
+    ...searchSteps,
+    { slug: 'commodities', form: { species: lines.map((line) => speciesCheckboxValue(line.species)) } },
     { slug: 'consignment-details', form: consignmentDetailsForm(lines) },
     { slug: 'commodities/identification', form: identificationForm(lines) },
   ];
@@ -116,7 +115,6 @@ const addressSteps = (parties: PartyIds, answers: NotificationAnswers): SeedStep
   { slug: 'place-of-origin/select', form: { party: parties.placeOfOrigin } },
   { slug: 'consignees/select', form: { party: parties.consignee } },
   { slug: 'importers/select', form: { party: parties.importer } },
-  // The empty hub post is what advances past the pickers; without it the seed stalls.
   { slug: 'addresses', form: {} },
   {
     slug: 'cph-number',
@@ -136,13 +134,9 @@ const arrivalStep = (answers: NotificationAnswers): SeedStep => ({
 });
 
 const transportSteps = (answers: NotificationAnswers): SeedStep[] => [
-  // Countries are added one at a time and saved in the order they were added,
-  // so the seed matches the order the browser journey adds them.
   ...(answers.transitedCountries
     ? [{ slug: 'transit-countries', form: { transitedCountries: answers.transitedCountries.map(({ value }) => value) } }]
     : []),
-  // The list carries both kinds, so the pick settles the transporter type too
-  // and there is no separate type post.
   { slug: 'transporters', form: { transporter: answers.transporter.value } },
 ];
 

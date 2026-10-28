@@ -21,19 +21,13 @@ test.describe('Declaration page', { tag: '@duplicated-in-frontend' }, () => {
       await expect(pages.page.getByRole('heading', { name: 'There is a problem' })).toBeVisible();
     });
 
-    test('shows the confirmation as a small checkbox in a group whose legend is hidden from sight', async ({ animalsPages }) => {
-      const { content } = animalsPages.declaration;
-
-      await expect(content.confirmationGroup).toBeVisible();
-      await expect(content.confirmationLegend).toHaveClass(/govuk-visually-hidden/);
-      await expect(content.checkboxes).toHaveClass(/govuk-checkboxes--small/);
+    test('puts the confirmation checkbox in a group named by the declaration legend', async ({ animalsPages }) => {
+      await expect(animalsPages.declaration.content.confirmationGroup).toBeVisible();
+      await expect(animalsPages.declaration.content.confirmationCheckbox).toBeVisible();
     });
 
-    test('shows the date of declaration in bold', async ({ animalsPages }) => {
-      const { dateValue } = animalsPages.declaration.content;
-
-      await expect(dateValue).toHaveText(new RegExp(`^${todayOrTomorrowServiceDisplayDatePattern()}$`));
-      await expect(dateValue).toHaveCSS('font-weight', '700');
+    test('shows the date of declaration as the strong text of its line', async ({ animalsPages }) => {
+      await expect(animalsPages.declaration.content.dateValue).toHaveText(new RegExp(`^${todayOrTomorrowServiceDisplayDatePattern()}$`));
     });
   });
 

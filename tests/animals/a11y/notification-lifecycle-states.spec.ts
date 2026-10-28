@@ -17,7 +17,10 @@ test.describe(`Accessibility ${WCAG_STANDARD.name}`, { tag: '@a11y' }, () => {
       await animalsPages.dashboard.searchForReference(referenceNumber);
       await animalsPages.dashboard.amend(referenceNumber).click();
       await animalsPages.overview.heading.waitFor();
+      await runA11yScan();
       await animalsPages.notificationView.open(referenceNumber);
+      await animalsPages.notificationView.heading.waitFor();
+      await runA11yScan();
       await animalsPages.notificationView.cancelAmend.click();
       await animalsPages.notificationCancelAmend.heading.waitFor();
       await runA11yScan();
@@ -26,11 +29,21 @@ test.describe(`Accessibility ${WCAG_STANDARD.name}`, { tag: '@a11y' }, () => {
       await pages.page.waitForURL(/\/notification-view\?cancelled=1$/);
     });
 
+    await test.step('Amendment cancelled (success banner)', async () => {
+      await runA11yScan();
+    });
+
     await test.step('Delete this notification?', async () => {
       await animalsPages.dashboard.open();
       await animalsPages.dashboard.searchFor(referenceNumber);
       await animalsPages.dashboard.delete(referenceNumber).click();
       await pages.page.getByRole('heading', { name: 'Delete this notification?' }).waitFor();
+      await runA11yScan();
+    });
+
+    await test.step('Notification deleted (success banner)', async () => {
+      await animalsPages.deleteNotification.confirmDelete.click();
+      await animalsPages.dashboard.deletedBanner.waitFor();
       await runA11yScan();
     });
   });

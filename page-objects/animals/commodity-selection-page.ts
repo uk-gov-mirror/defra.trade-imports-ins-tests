@@ -1,5 +1,6 @@
 import { type Locator, type Page } from '@playwright/test';
 import { NotificationPage } from '@page-objects/shared/base-page';
+import type { CommodityLine } from '@domain/animals/constants/commodity-lines';
 import { SEARCH_HINT } from '@domain/animals/constants/commodity-selection-page';
 
 export class AnimalsCommoditySelectionPage extends NotificationPage {
@@ -53,18 +54,18 @@ export class AnimalsCommoditySelectionPage extends NotificationPage {
     await this.searchButton.click();
   }
 
-  species(name: string): Locator {
-    return this.page.getByRole('checkbox', { name });
+  commodityGroup(code: string): Locator {
+    return this.page.getByRole('group', { name: code, exact: true });
   }
 
-  group(legend: string): Locator {
-    return this.page.getByRole('group', { name: legend });
+  species(line: CommodityLine): Locator {
+    return this.commodityGroup(line.commodityCode).getByRole('checkbox', { name: line.latinName, exact: true });
   }
 
-  async selectSpecies(names: string[]): Promise<void> {
-    for (const name of names) {
-      await this.search(name);
-      await this.species(name).check();
+  async searchAndCheckSpecies(lines: CommodityLine[]): Promise<void> {
+    for (const line of lines) {
+      await this.search(line.searchTerm);
+      await this.species(line).check();
     }
   }
 

@@ -4,7 +4,7 @@ Why the animals flows and page objects are written the way they are. The code ca
 
 ## Starting a notification
 
-- `startNotification` answers origin and then opens the overview. Most other tasks are gated behind origin, so a test that wants a usable task list starts here.
+- `startNotification` answers origin and then opens the overview.
 - `startNotificationAtOrigin` leaves origin unanswered. The entry guard is satisfied by the opening-run marker set when the notification is created, not by answering origin.
 - `toOriginOfImport` shows origin unanswered, as a brand-new notification first shows it.
 - `startNotification` waits for the origin page to leave before it opens the overview. Opening the overview regardless hides a failed save: the run then fails several steps later on a task stuck at "Not yet started", pointing at the wrong page.
@@ -12,7 +12,6 @@ Why the animals flows and page objects are written the way they are. The code ca
 ## Reaching a page unfilled
 
 - The `to*` steps land on a page without filling it, so a per-page spec can drive it.
-- The commodity section and everything downstream are gated behind origin, so any step that reaches past origin runs `unlockSections` first.
 
 ## Dates
 
@@ -58,4 +57,4 @@ Why the animals flows and page objects are written the way they are. The code ca
 
 ## Choosing species (`page-objects/animals/commodity-selection-page.ts`)
 
-- `selectSpecies` searches for each species before ticking it, because a species has no tick box until its own search lists it.
+- `searchAndCheckSpecies` searches for each commodity line before ticking it, because a species has no tick box until its own search lists it, and ticks it inside the group for that commodity code.

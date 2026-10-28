@@ -20,6 +20,7 @@ import { PlantsJourney } from '@flows/plants/journey';
 import { PlantsNotificationActions } from '@flows/plants/notification-actions';
 import { NotificationApiClient } from '@adapters/http/notification-api-client';
 import { AddressBookApiClient } from '@adapters/http/address-book-api-client';
+import { ReferenceDataApiClient } from '@adapters/http/reference-data-api-client';
 import { FrontendFormClient } from '@adapters/http/frontend-form-client';
 import { authCookieNameFor, createWorkerAuthStates, stripToAuthCookie, type AuthStateFor } from '@fixtures/auth-state';
 import { createFrontendSeedContext } from '@fixtures/seed-context';
@@ -57,6 +58,7 @@ export interface PageFixtures {
   plantsNotificationActions: PlantsNotificationActions;
   notificationApi: NotificationApiClient;
   addressBookApi: AddressBookApiClient;
+  referenceDataApi: ReferenceDataApiClient;
   frontendForms: FrontendFormClient;
   externalRequest: APIRequestContext;
   openFreshSession: () => Promise<Page>;
@@ -132,6 +134,9 @@ export const test = base.extend<PageFixtures, AuthWorkerFixtures>({
   },
   addressBookApi: async ({ request }, use) => {
     await use(new AddressBookApiClient(request));
+  },
+  referenceDataApi: async ({ request }, use) => {
+    await use(new ReferenceDataApiClient(request));
   },
   frontendForms: async ({ frontendSeedContext }, use) => {
     await use(new FrontendFormClient(frontendSeedContext));

@@ -1,3 +1,4 @@
+import { commodityLines } from '@domain/animals/constants/commodity-lines';
 import { meansOfTransport } from '@domain/animals/constants/means-of-transport';
 import { IMPORT_REASON_TASK } from '@domain/animals/constants/import-reason-page';
 import { SET_BASES } from '@page-objects/shared/sets';
@@ -31,7 +32,7 @@ test.describe('Overview task return', () => {
     };
 
     await openTask('What are you importing?', 'commodities');
-    await animalsPages.commoditySelection.selectSpecies(['Bos taurus']);
+    await animalsPages.commoditySelection.searchAndCheckSpecies([commodityLines.cattle]);
     await animalsPages.commoditySelection.saveAndContinue.click();
     await expectOnOverview();
     await expect(animalsPages.consignmentDetails.heading).toBeHidden();

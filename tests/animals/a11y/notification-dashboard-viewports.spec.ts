@@ -1,25 +1,18 @@
-import { test, WCAG_STANDARD, scanViewports, waitForViewportSettle } from '@fixtures/a11y';
+import { test, WCAG_STANDARD, scanViewports } from '@fixtures/a11y';
 
-test.describe(`Accessibility ${WCAG_STANDARD.name}`, { tag: '@a11y' }, () => {
-  test.beforeEach(async ({ animalsJourney }) => {
-    await animalsJourney.toNotificationDashboard();
-  });
+const narrowViewports = {
+  'narrow portrait': scanViewports.narrowPortrait,
+  'narrow landscape': scanViewports.narrowLandscape,
+};
 
-  test('the notification dashboard has no accessibility violations across viewports', async ({ page, runA11yScan }) => {
-    await test.step('Notification dashboard (default viewport)', async () => {
-      await runA11yScan();
-    });
+for (const [viewportName, viewport] of Object.entries(narrowViewports)) {
+  test.describe(`Accessibility ${WCAG_STANDARD.name}`, { tag: '@a11y' }, () => {
+    test.use({ viewport });
 
-    await test.step('Notification dashboard (narrow portrait)', async () => {
-      await page.setViewportSize(scanViewports.narrowPortrait);
-      await waitForViewportSettle(page);
-      await runA11yScan();
-    });
+    test(`the notification dashboard has no accessibility violations at ${viewportName}`, async ({ animalsJourney, runA11yScan }) => {
+      await animalsJourney.toNotificationDashboard();
 
-    await test.step('Notification dashboard (narrow landscape)', async () => {
-      await page.setViewportSize(scanViewports.narrowLandscape);
-      await waitForViewportSettle(page);
       await runA11yScan();
     });
   });
-});
+}

@@ -1,3 +1,3 @@
-export const conditionalRadioInput = '#regionOfOriginCodeRequirement';
+export const govukConditionalRevealRadioOnOrigin = '#regionOfOriginCodeRequirement';
 
-export const conditionalReasonRadios = 'input[name="reasonForImport"][aria-controls]';
+export const govukConditionalRevealRadiosOnReason = 'input[name="reasonForImport"][aria-controls]';

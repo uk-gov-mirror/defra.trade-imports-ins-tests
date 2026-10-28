@@ -21,6 +21,10 @@ export class AnimalsAccompanyingDocumentsPage extends NotificationPage {
     return this.page.getByLabel('Document type');
   }
 
+  get documentTypeOptions(): Locator {
+    return this.documentType.locator('option');
+  }
+
   get fileUpload(): Locator {
     return this.page.locator('input[type="file"]');
   }
