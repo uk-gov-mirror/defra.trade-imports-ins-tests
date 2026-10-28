@@ -9,7 +9,6 @@ import { skipUnlessComposeEnvironment } from '@utils/playwright/environment';
 
 const NOTIFICATION_SUBMITTED = 'uk.gov.defra.imports.notification.NotificationSubmitted';
 const LIVE_BOVINE_LINE_DESCRIPTION = 'Live bovine animals';
-const DOMESTIC_CATTLE_COMMON_NAME = 'Domestic cattle';
 const SUBDIVISION_FUNCTION_TYPE_CODE = '106';
 const VETERINARY_CERTIFICATE_TYPE_CODE = '853';
 const EXPECTED_ACTOR: OutboxEventActor = {
@@ -37,11 +36,12 @@ test.describe('Notification outbox event', { tag: '@mongodb' }, () => {
     skipUnlessComposeEnvironment('outbox assertions read Mongo directly, which only the compose stack exposes');
   });
 
-  test('records a NotificationSubmitted outbox event on UI submission', async ({ animalsJourney, journeyContext }) => {
+  test('records a NotificationSubmitted outbox event on UI submission', async ({ animalsJourney, journeyContext, referenceDataApi }) => {
     test.slow();
     await animalsJourney.submitNotification(answers);
     const referenceNumber = journeyContext.referenceNumber;
     const aggregateId = aggregateIdFor(referenceNumber);
+    const cattleCommonName = await referenceDataApi.findCommonName(answers.species);
     const client = new MongoDbClient();
 
     try {
@@ -101,7 +101,7 @@ test.describe('Notification outbox event', { tag: '@mongodb' }, () => {
       expect(tradeLines).toHaveLength(1);
       const [line] = tradeLines;
       expect(line.description).toEqual([LIVE_BOVINE_LINE_DESCRIPTION]);
-      expect(line.commonName).toBe(DOMESTIC_CATTLE_COMMON_NAME);
+      expect(line.commonName).toBe(cattleCommonName);
       expect(line.scientificName).toBe(answers.species.latinName);
       expect(line.specifiedLineTradeDelivery?.[0].productUnitQuantity.content).toBe(answers.noOfAnimals);
       expect(line.physicalReferencedLogisticsPackage?.[0].itemQuantity).toBe(answers.noOfPackages);
