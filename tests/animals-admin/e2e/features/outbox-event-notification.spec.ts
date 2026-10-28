@@ -8,6 +8,8 @@ import { users } from '@config/users';
 import { skipUnlessComposeEnvironment } from '@utils/playwright/environment';
 
 const NOTIFICATION_SUBMITTED = 'uk.gov.defra.imports.notification.NotificationSubmitted';
+const LIVE_BOVINE_LINE_DESCRIPTION = 'Live bovine animals';
+const DOMESTIC_CATTLE_COMMON_NAME = 'Domestic cattle';
 const EXPECTED_ACTOR: OutboxEventActor = {
   id: users.andrew.crn,
   source: 'dynamics-contact',
@@ -99,8 +101,8 @@ test.describe('Notification outbox event', { tag: '@mongodb' }, () => {
       const tradeLines = data.specifiedConsignment.includedConsignmentItem?.[0].includedTradeLineItem ?? [];
       expect(tradeLines).toHaveLength(1);
       const [line] = tradeLines;
-      expect(line.description).toEqual([answers.species.commodity.lineDescription]);
-      expect(line.commonName).toBe(answers.species.commodity.gbnAgCommonName);
+      expect(line.description).toEqual([LIVE_BOVINE_LINE_DESCRIPTION]);
+      expect(line.commonName).toBe(DOMESTIC_CATTLE_COMMON_NAME);
       expect(line.scientificName).toBe(answers.species.display);
       expect(line.specifiedLineTradeDelivery?.[0].productUnitQuantity.content).toBe(answers.noOfAnimals);
       expect(line.physicalReferencedLogisticsPackage?.[0].itemQuantity).toBe(answers.noOfPackages);

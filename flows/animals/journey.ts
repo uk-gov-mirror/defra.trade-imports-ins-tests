@@ -6,6 +6,7 @@ import {
   ALL_ANSWERS,
   MANDATORY_ANSWERS,
   assertConsistentAnswers,
+  commodityLinesFrom,
   type AccompanyingDocumentAnswer,
   type CphAnswer,
   type NotificationAnswers,
@@ -171,23 +172,59 @@ export class AnimalsJourney {
   }
 
   async answerCommodity(answers: NotificationAnswers = MANDATORY_ANSWERS): Promise<void> {
+    const lines = commodityLinesFrom(answers);
     await this.animalsPages.overview.task('What are you importing?').click();
-    await this.chooseSpeciesAndOpenCommodityDetails([answers.species.display]);
-    await this.animalsPages.consignmentDetails.numberOfAnimals.fill(String(answers.noOfAnimals));
-    if (answers.noOfPackages !== undefined) {
-      await this.animalsPages.consignmentDetails.numberOfPackages.fill(String(answers.noOfPackages));
+    await this.chooseSpeciesAndOpenCommodityDetails(lines.map((line) => line.species.display));
+    if (lines.length === 1 && !answers.commodityLines) {
+      await this.animalsPages.consignmentDetails.numberOfAnimals.fill(String(lines[0].noOfAnimals));
+      if (lines[0].noOfPackages !== undefined) {
+        await this.animalsPages.consignmentDetails.numberOfPackages.fill(String(lines[0].noOfPackages));
+      }
+    } else {
+      for (const line of lines) {
+        await this.animalsPages.consignmentDetails.fillAnimalCountFor(line.species.display, line.noOfAnimals);
+        if (line.noOfPackages !== undefined) {
+          await this.animalsPages.consignmentDetails.fillPackageCountFor(line.species.display, line.noOfPackages);
+        }
+      }
     }
     await this.animalsPages.consignmentDetails.saveAndContinue.click();
     await this.animalsPages.overview.heading.waitFor(pageLoadWait);
   }
 
   async answerAnimalIdentification(answers: NotificationAnswers = MANDATORY_ANSWERS): Promise<void> {
+    const lines = commodityLinesFrom(answers);
     await this.animalsPages.overview.task('Identification details').click();
-    await this.animalsPages.animalIdentification.earTag.fill(answers.earTag);
-    if (answers.passportNumber !== undefined) {
-      await this.animalsPages.animalIdentification.passportNumber.fill(answers.passportNumber);
+    const { animalIdentification: identification } = this.animalsPages;
+    if (lines.length === 1 && !answers.commodityLines) {
+      await identification.earTag.fill(lines[0].earTag ?? answers.earTag);
+      if (lines[0].passportNumber !== undefined) {
+        await identification.passportNumber.fill(lines[0].passportNumber);
+      }
+    } else {
+      for (const line of lines) {
+        const card = identification.speciesCard(line.species.display);
+        if (line.earTag) {
+          await card.getByLabel('Ear tag', { exact: true }).fill(line.earTag);
+        }
+        if (line.passportNumber) {
+          await card.getByLabel('Passport', { exact: true }).fill(line.passportNumber);
+        }
+        if (line.microchip) {
+          await card.getByLabel('Microchip', { exact: true }).fill(line.microchip);
+        }
+        if (line.permanentAddress) {
+          const address = line.permanentAddress;
+          await card.getByLabel('Name or organisation name').fill(address.nameOrOrganisationName);
+          await card.getByLabel('Address line 1').fill(address.addressLine1);
+          await card.getByLabel('Town or city').fill(address.townOrCity);
+          await card.getByLabel('Postcode or Zip code').fill(address.postcode);
+          await card.getByLabel('Phone number').fill(address.phone);
+          await card.getByLabel('Email address').fill(address.email);
+        }
+      }
     }
-    await this.animalsPages.animalIdentification.saveAndContinue.click();
+    await identification.saveAndContinue.click();
     await this.animalsPages.overview.heading.waitFor(pageLoadWait);
   }
 
@@ -497,57 +534,6 @@ export class AnimalsJourney {
 
   async submitNotification(answers: NotificationAnswers = MANDATORY_ANSWERS): Promise<void> {
     await this.toDeclaration(answers);
-    await this.confirmDeclaration();
-  }
-
-  private static readonly COW_AND_CAT_SPECIES = ['Bos taurus', 'Felis catus'] as const;
-
-  async answerCowAndCatCommodity(answers: NotificationAnswers = MANDATORY_ANSWERS): Promise<void> {
-    await this.animalsPages.overview.task('What are you importing?').click();
-    await this.chooseSpeciesAndOpenCommodityDetails([...AnimalsJourney.COW_AND_CAT_SPECIES]);
-    await this.animalsPages.consignmentDetails.fillEveryAnimalCount(String(answers.noOfAnimals));
-    if (answers.noOfPackages !== undefined) {
-      await this.animalsPages.consignmentDetails.fillEveryPackageCount(String(answers.noOfPackages));
-    }
-    await this.saveCountsAndReturnToOverview();
-  }
-
-  async answerCowAndCatIdentification(answers: NotificationAnswers = MANDATORY_ANSWERS): Promise<void> {
-    await this.openIdentificationFromOverview();
-    const { animalIdentification: identification } = this.animalsPages;
-
-    await identification.speciesCard('Bos taurus').getByLabel('Ear tag', { exact: true }).fill(answers.earTag);
-
-    const catCard = identification.speciesCard('Felis catus');
-    await catCard.getByLabel('Passport', { exact: true }).fill('UK-CAT-1');
-    await catCard.getByLabel('Microchip', { exact: true }).fill('900987654321098');
-    await catCard.getByLabel('Name or organisation name').fill('Pet Owner');
-    await catCard.getByLabel('Address line 1').fill('1 Farm Lane');
-    await catCard.getByLabel('Town or city').fill('Skipton');
-    await catCard.getByLabel('Postcode or Zip code').fill('BD23 1UD');
-    await catCard.getByLabel('Phone number').fill('+44 1756 555 0192');
-    await catCard.getByLabel('Email address').fill('owner@example.co.uk');
-
-    await identification.saveAndContinue.click();
-    await this.animalsPages.overview.heading.waitFor(pageLoadWait);
-  }
-
-  async completeAnswerSectionsCowAndCat(answers: NotificationAnswers = ALL_ANSWERS): Promise<void> {
-    assertConsistentAnswers(answers);
-    await this.answerOrigin(answers);
-    await this.answerCowAndCatCommodity(answers);
-    await this.answerCowAndCatIdentification(answers);
-    await this.answerReasonAndAdditionalDetails(answers);
-    await this.answerAddresses(answers);
-    await this.answerTransport(answers);
-    await this.answerContact(answers);
-    await this.answerAccompanyingDocument(answers);
-  }
-
-  async submitNotificationWithCowAndCat(answers: NotificationAnswers = ALL_ANSWERS): Promise<void> {
-    await this.startNotification();
-    await this.completeAnswerSectionsCowAndCat(answers);
-    await this.fromOverviewToDeclaration();
     await this.confirmDeclaration();
   }
 

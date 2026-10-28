@@ -46,6 +46,15 @@ export class AnimalsConsignmentDetailsPage extends NotificationPage {
     await this.numberOfAnimals.nth(index).fill(String(count));
   }
 
+  async fillPackageCountFor(species: string, count: number): Promise<void> {
+    const speciesHeadings = await this.page.getByRole('heading', { level: 3 }).allTextContents();
+    const index = speciesHeadings.indexOf(species);
+    if (index === -1) {
+      throw new Error(`No "${species}" heading among: ${speciesHeadings.join(', ')}`);
+    }
+    await this.numberOfPackages.nth(index).fill(String(count));
+  }
+
   async fillEveryAnimalCount(count: string): Promise<void> {
     for (const box of await this.numberOfAnimals.all()) {
       await box.fill(count);

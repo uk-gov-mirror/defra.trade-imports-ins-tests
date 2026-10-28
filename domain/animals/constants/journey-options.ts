@@ -72,6 +72,28 @@ export type MandatoryAnswers = {
   contactAddress: string;
 };
 
+export type PermanentAddressAnswer = {
+  nameOrOrganisationName: string;
+  addressLine1: string;
+  townOrCity: string;
+  postcode: string;
+  phone: string;
+  email: string;
+  addressLine2?: string;
+  county?: string;
+};
+
+/** One commodity line on the notification — species, counts and the identifiers that species needs. */
+export type CommodityLineAnswer = {
+  species: CommoditySpecies;
+  noOfAnimals: number;
+  noOfPackages?: number;
+  earTag?: string;
+  passportNumber?: string;
+  microchip?: string;
+  permanentAddress?: PermanentAddressAnswer;
+};
+
 /** The answers the frontend leaves optional for cattle. */
 export type OptionalAnswers = {
   /** Asked when the origin needs a region code. */
@@ -82,6 +104,8 @@ export type OptionalAnswers = {
   /** Asked only of rail and road consignments. */
   transitedCountries: CountryCode[];
   accompanyingDocument: AccompanyingDocumentAnswer;
+  /** When set, commodity and identification journeys iterate these lines instead of the top-level species fields. */
+  commodityLines?: CommodityLineAnswer[];
 };
 
 export type NotificationAnswers = MandatoryAnswers & Partial<OptionalAnswers>;
@@ -104,6 +128,18 @@ export const assertConsistentAnswers = (answers: NotificationAnswers): void => {
     throw new Error(`The answers give the region of origin code "${answers.regionCode}" but do not require one.`);
   }
 };
+
+/** Commodity lines for UI and seed journeys — explicit lines or the default single cattle line. */
+export const commodityLinesFrom = (answers: NotificationAnswers): CommodityLineAnswer[] =>
+  answers.commodityLines ?? [
+    {
+      species: answers.species,
+      noOfAnimals: answers.noOfAnimals,
+      ...(answers.noOfPackages !== undefined ? { noOfPackages: answers.noOfPackages } : {}),
+      earTag: answers.earTag,
+      ...(answers.passportNumber ? { passportNumber: answers.passportNumber } : {}),
+    },
+  ];
 
 export const MANDATORY_ANSWERS: MandatoryAnswers = {
   countryCode: countryCodes.eu.france,
@@ -153,4 +189,31 @@ export const ALL_ANSWERS: AllAnswers = {
 export const ALL_ANSWERS_WITHOUT_DOCUMENT: AllAnswersWithoutDocument = {
   ...ALL_ANSWERS,
   accompanyingDocument: undefined,
+};
+
+export const COW_AND_CAT_ANSWERS: AllAnswers = {
+  ...ALL_ANSWERS,
+  commodityLines: [
+    {
+      species: commoditySpecies.bosTaurus,
+      noOfAnimals: ALL_ANSWERS.noOfAnimals,
+      noOfPackages: ALL_ANSWERS.noOfPackages,
+      earTag: ALL_ANSWERS.earTag,
+      passportNumber: ALL_ANSWERS.passportNumber,
+    },
+    {
+      species: commoditySpecies.felisCatus,
+      noOfAnimals: 1,
+      passportNumber: 'UK-CAT-1',
+      microchip: '900987654321098',
+      permanentAddress: {
+        nameOrOrganisationName: 'Pet Owner',
+        addressLine1: '1 Farm Lane',
+        townOrCity: 'Skipton',
+        postcode: 'BD23 1UD',
+        phone: '+44 1756 555 0192',
+        email: 'owner@example.co.uk',
+      },
+    },
+  ],
 };
