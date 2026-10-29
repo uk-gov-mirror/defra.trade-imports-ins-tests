@@ -3,8 +3,9 @@ import { MongoDbClient } from '@adapters/db/mongodb-client';
 import { type NotificationDocument } from '@domain/animals/models/db/notification-document';
 import { timeouts } from '@config/timeouts';
 import { skipUnlessComposeEnvironment } from '@utils/playwright/environment';
-import { ALL_ANSWERS, catLine } from '@domain/animals/constants/journey-options';
-import { commodityLines, commodityNames } from '@domain/animals/constants/commodity-lines';
+import { ALL_COMMODITY_LINES } from '@domain/animals/constants/journey-commodity-line-answers';
+import { commodityNames } from '@domain/animals/constants/commodity-names';
+import { ALL_ANSWERS, type AllAnswers } from '@domain/animals/constants/journey-options';
 
 test.describe('Notification persistence — multiple commodities', { tag: '@mongodb' }, () => {
   test.beforeEach(() => {
@@ -13,8 +14,8 @@ test.describe('Notification persistence — multiple commodities', { tag: '@mong
 
   test('submitted notification persists commodities[] with one entry per commodity', async ({ animalsJourney, journeyContext }) => {
     test.slow();
-    const answers = { ...ALL_ANSWERS, commodityLines: [...ALL_ANSWERS.commodityLines, catLine] };
-    const [cowLine] = answers.commodityLines;
+    const answers: AllAnswers = { ...ALL_ANSWERS, commodityLines: [...ALL_ANSWERS.commodityLines, ALL_COMMODITY_LINES.domesticCat] };
+    const [cowLine, catLine] = answers.commodityLines;
     await animalsJourney.submitNotification(answers);
     const referenceNumber = journeyContext.referenceNumber;
     const client = new MongoDbClient();
@@ -31,8 +32,8 @@ test.describe('Notification persistence — multiple commodities', { tag: '@mong
       expect(storedCommodities).toEqual(
         expect.arrayContaining([
           expect.objectContaining({
-            name: commodityNames.cattle,
-            commodityCode: commodityLines.cattle.commodityCode,
+            name: commodityNames[cowLine.species.commodityCode],
+            commodityCode: cowLine.species.commodityCode,
             species: expect.arrayContaining([
               expect.objectContaining({
                 text: cowLine.species.latinName,
@@ -41,8 +42,8 @@ test.describe('Notification persistence — multiple commodities', { tag: '@mong
             ]),
           }),
           expect.objectContaining({
-            name: commodityNames.domesticCat,
-            commodityCode: commodityLines.domesticCat.commodityCode,
+            name: commodityNames[catLine.species.commodityCode],
+            commodityCode: catLine.species.commodityCode,
             species: expect.arrayContaining([
               expect.objectContaining({
                 text: catLine.species.latinName,
@@ -50,6 +51,7 @@ test.describe('Notification persistence — multiple commodities', { tag: '@mong
                   expect.objectContaining({
                     passport: catLine.passportNumber,
                     microchip: catLine.microchip,
+                    tattoo: catLine.tattoo,
                   }),
                 ],
               }),

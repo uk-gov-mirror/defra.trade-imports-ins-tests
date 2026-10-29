@@ -1,6 +1,10 @@
 import { type CountryCode, countryCodes } from '@domain/animals/constants/country-codes';
 import { type CertificationPurpose, certificationPurposes } from '@domain/animals/constants/certification-purposes';
-import { type CommodityLine, commodityLines } from '@domain/animals/constants/commodity-lines';
+import {
+  ALL_COMMODITY_LINES,
+  MANDATORY_COMMODITY_LINES,
+  type CommodityLineAnswer,
+} from '@domain/animals/constants/journey-commodity-line-answers';
 import { documentTypes } from '@domain/animals/constants/document-types';
 import { type ImportReason, importReasons } from '@domain/animals/constants/import-reasons';
 import { type InternalMarketPurpose, internalMarketPurposes } from '@domain/animals/constants/internal-market-purposes';
@@ -70,28 +74,6 @@ export type MandatoryAnswers = {
   contactAddress: string;
 };
 
-export type PermanentAddressAnswer = {
-  nameOrOrganisationName: string;
-  addressLine1: string;
-  townOrCity: string;
-  postcode: string;
-  phone: string;
-  email: string;
-  addressLine2?: string;
-  county?: string;
-};
-
-/** One commodity line on the notification — species, counts and the identifiers that species needs. */
-export type CommodityLineAnswer = {
-  species: CommodityLine;
-  noOfAnimals: number;
-  noOfPackages?: number;
-  earTag?: string;
-  passportNumber?: string;
-  microchip?: string;
-  permanentAddress?: PermanentAddressAnswer;
-};
-
 /** The answers the frontend leaves optional for cattle. */
 export type OptionalAnswers = {
   /** Asked when the origin needs a region code. */
@@ -123,37 +105,10 @@ export const assertConsistentAnswers = (answers: NotificationAnswers): void => {
   }
 };
 
-const mandatoryCowLine: CommodityLineAnswer = {
-  species: commodityLines.cattle,
-  noOfAnimals: 1,
-  earTag: 'UK123456789012',
-};
-
-const allAnswersCowLine: CommodityLineAnswer = {
-  ...mandatoryCowLine,
-  noOfPackages: 5,
-  passportNumber: 'PASSPORT-0001',
-};
-
-export const catLine: CommodityLineAnswer = {
-  species: commodityLines.domesticCat,
-  noOfAnimals: 1,
-  passportNumber: 'UK-CAT-1',
-  microchip: '900987654321098',
-  permanentAddress: {
-    nameOrOrganisationName: 'Pet Owner',
-    addressLine1: '1 Farm Lane',
-    townOrCity: 'Skipton',
-    postcode: 'BD23 1UD',
-    phone: '+44 1756 555 0192',
-    email: 'owner@example.co.uk',
-  },
-};
-
 export const MANDATORY_ANSWERS: MandatoryAnswers = {
   countryCode: countryCodes.eu.france,
   requiresRegionCode: yesNoValues.no,
-  commodityLines: [mandatoryCowLine],
+  commodityLines: [MANDATORY_COMMODITY_LINES.cattle],
   importReason: importReasons.internalMarket,
   internalMarketPurpose: internalMarketPurposes.breeding,
   certifiedFor: certificationPurposes.slaughter,
@@ -178,7 +133,7 @@ export const MANDATORY_ANSWERS: MandatoryAnswers = {
 /** Every answer, including an accompanying document. The UI journey uses this set, as a browser can upload a file. */
 export const ALL_ANSWERS: AllAnswers = {
   ...MANDATORY_ANSWERS,
-  commodityLines: [allAnswersCowLine],
+  commodityLines: [ALL_COMMODITY_LINES.cattle],
   requiresRegionCode: yesNoValues.yes,
   regionCode: '75',
   internalReference: 'Imports456GB',

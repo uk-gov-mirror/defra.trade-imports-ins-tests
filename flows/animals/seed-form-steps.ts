@@ -1,6 +1,6 @@
 import type { FormFields } from '@adapters/http/frontend-form-client';
-import { assertConsistentAnswers, type CommodityLineAnswer, type NotificationAnswers } from '@domain/animals/constants/journey-options';
-import { speciesCheckboxValue } from '@domain/animals/constants/commodity-lines';
+import { type CommodityLineAnswer } from '@domain/animals/constants/journey-commodity-line-answers';
+import { assertConsistentAnswers, type NotificationAnswers } from '@domain/animals/constants/journey-options';
 
 export type PartyRole = 'placeOfOrigin' | 'consignor' | 'consignee' | 'importer' | 'placeOfDestination' | 'contact';
 
@@ -49,6 +49,9 @@ const identificationForm = (lines: CommodityLineAnswer[]): FormFields => {
     if (line.microchip) {
       form[`animalIdentifierMicrochip-${index}`] = line.microchip;
     }
+    if (line.tattoo) {
+      form[`animalIdentifierTattoo-${index}`] = line.tattoo;
+    }
     if (line.permanentAddress) {
       const { permanentAddress: address } = line;
       form[`nameOrOrganisationName-${index}`] = address.nameOrOrganisationName;
@@ -80,6 +83,7 @@ const originStep = (answers: NotificationAnswers): SeedStep => ({
 
 const commoditySteps = (answers: NotificationAnswers): SeedStep[] => {
   const lines = answers.commodityLines;
+  const speciesCheckboxValue = ({ species }: CommodityLineAnswer): string => `${species.commodityCode}|${species.latinName}`;
   const searchSteps: SeedStep[] = lines.map((line) => ({
     slug: 'commodities',
     form: { commoditySearch: line.species.searchTerm, action: 'search' },
@@ -87,7 +91,7 @@ const commoditySteps = (answers: NotificationAnswers): SeedStep[] => {
   }));
   return [
     ...searchSteps,
-    { slug: 'commodities', form: { species: lines.map((line) => speciesCheckboxValue(line.species)) } },
+    { slug: 'commodities', form: { species: lines.map(speciesCheckboxValue) } },
     { slug: 'consignment-details', form: consignmentDetailsForm(lines) },
     { slug: 'commodities/identification', form: identificationForm(lines) },
   ];

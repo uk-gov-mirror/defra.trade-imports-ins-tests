@@ -1,16 +1,16 @@
 import type { APIRequestContext } from '@playwright/test';
 import { RestClient } from '@adapters/http/rest-client';
 import { getDeveloperApiKey, getReferenceDataBaseUrl } from '@config/service-base-urls';
-import type { CommodityLine } from '@domain/animals/constants/commodity-lines';
+import type { CommoditySpecies } from '@domain/animals/constants/commodity-species';
 
-interface CommoditySpecies {
+interface ListedSpecies {
   latinName: string;
   commonName: string | null;
 }
 
 interface CommodityGroup {
   code: string;
-  species: CommoditySpecies[];
+  species: ListedSpecies[];
 }
 
 interface CommoditySearchResponse {
@@ -25,11 +25,11 @@ export class ReferenceDataApiClient {
     this.rest = new RestClient(baseUrl, request, apiKey);
   }
 
-  /** The common name the line's own search gives its species. Throws when the search does not list the species or gives it no common name. */
-  async findCommonName(line: CommodityLine): Promise<string> {
-    const { commonName } = await this.findSpecies(line);
+  /** The common name the species' own search gives it. Throws when the search does not list the species or gives it no common name. */
+  async findCommonName(species: CommoditySpecies): Promise<string> {
+    const { commonName } = await this.findSpecies(species);
     if (!commonName) {
-      throw new Error(`Searching "${line.searchTerm}" gives ${line.latinName} under ${line.commodityCode} no common name`);
+      throw new Error(`Searching "${species.searchTerm}" gives ${species.latinName} under ${species.commodityCode} no common name`);
     }
     return commonName;
   }
@@ -42,14 +42,14 @@ export class ReferenceDataApiClient {
     return response.groups;
   }
 
-  private async findSpecies(line: CommodityLine): Promise<CommoditySpecies> {
-    const groups = await this.listGroups(line.searchTerm);
-    const species = groups
-      .find((group) => group.code === line.commodityCode)
-      ?.species.find((candidate) => candidate.latinName === line.latinName);
-    if (!species) {
-      throw new Error(`Searching "${line.searchTerm}" does not list ${line.latinName} under ${line.commodityCode}`);
+  private async findSpecies(species: CommoditySpecies): Promise<ListedSpecies> {
+    const groups = await this.listGroups(species.searchTerm);
+    const listed = groups
+      .find((group) => group.code === species.commodityCode)
+      ?.species.find((candidate) => candidate.latinName === species.latinName);
+    if (!listed) {
+      throw new Error(`Searching "${species.searchTerm}" does not list ${species.latinName} under ${species.commodityCode}`);
     }
-    return species;
+    return listed;
   }
 }

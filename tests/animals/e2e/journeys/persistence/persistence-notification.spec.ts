@@ -4,7 +4,7 @@ import { type NotificationDocument } from '@domain/animals/models/db/notificatio
 import { timeouts } from '@config/timeouts';
 import { skipUnlessComposeEnvironment } from '@utils/playwright/environment';
 import { ALL_ANSWERS as answers, CPH_NUMBER } from '@domain/animals/constants/journey-options';
-import { commodityNames } from '@domain/animals/constants/commodity-lines';
+import { commodityNames } from '@domain/animals/constants/commodity-names';
 import { toIsoDate } from '@utils/date-utils';
 
 test.describe('Notification persistence round-trip', { tag: '@mongodb' }, () => {
@@ -68,7 +68,7 @@ test.describe('Notification persistence round-trip', { tag: '@mongodb' }, () => 
       expect(notification.origin.requiresRegionCode).toBe('yes');
       expect(notification.origin.regionOfOriginCode).toBe(`${answers.countryCode.value}-${answers.regionCode}`);
       expect(notification.origin.internalReference).toBe(answers.internalReference);
-      expect(cow.name).toBe(commodityNames.cattle);
+      expect(cow.name).toBe(commodityNames[cowLine.species.commodityCode]);
       expect(cow.commodityCode).toBe(cowLine.species.commodityCode);
       expect(species.text).toBe(cowLine.species.latinName);
       expect(species.earTag).toBe(cowLine.earTag);

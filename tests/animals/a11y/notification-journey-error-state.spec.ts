@@ -1,6 +1,6 @@
 import path from 'node:path';
 import { test, expect, WCAG_STANDARD } from '@fixtures/a11y';
-import { commodityLines } from '@domain/animals/constants/commodity-lines';
+import { commoditySpecies } from '@domain/animals/constants/commodity-species';
 import { IMPORT_REASON_TASK } from '@domain/animals/constants/import-reason-page';
 import { govukConditionalRevealRadioOnOrigin, govukConditionalRevealRadiosOnReason } from '@utils/a11y-exclusions';
 import { getRelativeDatePickerValue } from '@utils/date-utils';
@@ -44,7 +44,7 @@ test.describe(`Accessibility ${WCAG_STANDARD.name}`, { tag: '@a11y' }, () => {
       await animalsPages.commoditySelection.saveAndContinue.click();
       await expect(errorSummaryHeading).toBeVisible();
       await runA11yScan();
-      await animalsPages.commoditySelection.searchAndCheckSpecies([commodityLines.cattle]);
+      await animalsPages.commoditySelection.searchAndCheckSpecies([commoditySpecies.cattle]);
       await animalsPages.commoditySelection.saveAndContinue.click();
       await animalsPages.overview.heading.waitFor();
       await animalsPages.overview.task('Commodity details').click();

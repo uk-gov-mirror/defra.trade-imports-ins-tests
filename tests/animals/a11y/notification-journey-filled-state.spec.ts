@@ -1,4 +1,4 @@
-import { commodityLines } from '@domain/animals/constants/commodity-lines';
+import { commoditySpecies } from '@domain/animals/constants/commodity-species';
 import { test, WCAG_STANDARD } from '@fixtures/a11y';
 import { IMPORT_REASON_TASK } from '@domain/animals/constants/import-reason-page';
 import { govukConditionalRevealRadioOnOrigin, govukConditionalRevealRadiosOnReason } from '@utils/a11y-exclusions';
@@ -25,7 +25,7 @@ test.describe(`Accessibility ${WCAG_STANDARD.name}`, { tag: '@a11y' }, () => {
 
     await test.step('Commodity selection', async () => {
       await animalsPages.overview.task('What are you importing?').click();
-      await animalsPages.commoditySelection.searchAndCheckSpecies([commodityLines.cattle]);
+      await animalsPages.commoditySelection.searchAndCheckSpecies([commoditySpecies.cattle]);
       await runA11yScan();
       await animalsPages.commoditySelection.saveAndContinue.click();
       await animalsPages.overview.heading.waitFor();

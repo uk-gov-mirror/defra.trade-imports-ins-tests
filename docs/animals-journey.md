@@ -57,4 +57,4 @@ Why the animals flows and page objects are written the way they are. The code ca
 
 ## Choosing species (`page-objects/animals/commodity-selection-page.ts`)
 
-- `searchAndCheckSpecies` searches for each commodity line before ticking it, because a species has no tick box until its own search lists it, and ticks it inside the group for that commodity code.
+- `searchAndCheckSpecies` searches for each species before ticking it, because a species has no tick box until its own search lists it, and ticks it inside the group for that commodity code.

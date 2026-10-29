@@ -1,6 +1,5 @@
 import type { Locator } from '@playwright/test';
 import { test, expect } from '@fixtures';
-import { speciesCardTitle } from '@domain/animals/constants/commodity-lines';
 import { IMPORT_REASON_TASK } from '@domain/animals/constants/import-reason-page';
 import { ALL_ANSWERS_WITHOUT_DOCUMENT, CPH_NUMBER } from '@domain/animals/constants/journey-options';
 
@@ -98,7 +97,7 @@ test.describe('Hub groups and check-your-answers rows', { tag: '@duplicated-in-f
     await expect(value(reasonForImport, 'Reason for import')).toHaveText(answers.importReason.display);
     await expect(value(reasonForImport, 'Purpose in the market')).toHaveText(answers.internalMarketPurpose.display);
 
-    const speciesCard = animalsPages.notificationView.summaryCard(speciesCardTitle(cowLine.species));
+    const speciesCard = animalsPages.notificationView.speciesCard(cowLine.species);
     await expect(value(speciesCard, 'Commodity code')).toHaveText(cowLine.species.commodityCode);
     await expect(value(speciesCard, 'Common name')).toHaveText(commonName);
     await expect(value(speciesCard, 'Species')).toHaveText(cowLine.species.latinName);

@@ -1,5 +1,6 @@
 import { test, expect } from '@fixtures';
 import { MongoDbClient } from '@adapters/db/mongodb-client';
+import { GBN_AG_CATTLE_COMMON_NAME } from '@domain/animals/constants/gbn-ag';
 import { ALL_ANSWERS as answers, CPH_NUMBER, MANDATORY_ANSWERS } from '@domain/animals/constants/journey-options';
 import { countryCodes } from '@domain/animals/constants/country-codes';
 import { type OutboxEventActor, type OutboxEventDocument } from '@domain/animals/models/db/outbox-event-document';
@@ -9,7 +10,6 @@ import { skipUnlessComposeEnvironment } from '@utils/playwright/environment';
 
 const NOTIFICATION_SUBMITTED = 'uk.gov.defra.imports.notification.NotificationSubmitted';
 const LIVE_BOVINE_LINE_DESCRIPTION = 'Live bovine animals';
-const GBN_AG_CATTLE_COMMON_NAME = 'Cattle or Cow';
 const SUBDIVISION_FUNCTION_TYPE_CODE = '106';
 const VETERINARY_CERTIFICATE_TYPE_CODE = '853';
 const EXPECTED_ACTOR: OutboxEventActor = {

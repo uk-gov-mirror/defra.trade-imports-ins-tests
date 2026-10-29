@@ -1,6 +1,7 @@
 import { test, expect } from '@fixtures';
 import { MongoDbClient } from '@adapters/db/mongodb-client';
-import { ALL_ANSWERS_WITHOUT_DOCUMENT, MANDATORY_ANSWERS, catLine } from '@domain/animals/constants/journey-options';
+import { ALL_COMMODITY_LINES } from '@domain/animals/constants/journey-commodity-line-answers';
+import { ALL_ANSWERS_WITHOUT_DOCUMENT, MANDATORY_ANSWERS } from '@domain/animals/constants/journey-options';
 import { type NotificationDocument } from '@domain/animals/models/db/notification-document';
 import { timeouts } from '@config/timeouts';
 import { skipUnlessComposeEnvironment } from '@utils/playwright/environment';
@@ -92,7 +93,7 @@ test.describe('Seeded and browser-driven notifications match', { tag: '@mongodb'
     test.slow();
     const answers = {
       ...ALL_ANSWERS_WITHOUT_DOCUMENT,
-      commodityLines: [...ALL_ANSWERS_WITHOUT_DOCUMENT.commodityLines, catLine],
+      commodityLines: [...ALL_ANSWERS_WITHOUT_DOCUMENT.commodityLines, ALL_COMMODITY_LINES.domesticCat],
     };
     await animalsJourney.submitNotification(answers);
     const browserReference = journeyContext.referenceNumber;

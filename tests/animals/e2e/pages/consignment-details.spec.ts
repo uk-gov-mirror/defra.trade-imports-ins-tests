@@ -1,4 +1,4 @@
-import { commodityLines } from '@domain/animals/constants/commodity-lines';
+import { commoditySpecies } from '@domain/animals/constants/commodity-species';
 import { test, expect } from '@fixtures';
 
 test.describe('Commodity details page', { tag: '@duplicated-in-frontend' }, () => {
@@ -20,7 +20,7 @@ test.describe('Commodity details page', { tag: '@duplicated-in-frontend' }, () =
 
   test('lists the selected commodity with its code and species', async ({ animalsPages }) => {
     const table = animalsPages.consignmentDetails.selectedCommodities.table;
-    const { cattle } = commodityLines;
+    const { cattle } = commoditySpecies;
 
     await expect(table.getByRole('columnheader')).toHaveText(['Commodity code', 'Species', 'Actions']);
     await expect(animalsPages.consignmentDetails.selectedCommodities.rowFor(cattle).getByRole('cell')).toHaveText([
@@ -45,7 +45,7 @@ test.describe('Commodity details page', { tag: '@duplicated-in-frontend' }, () =
 
 test.describe('Commodity details page with two species of one commodity', { tag: '@duplicated-in-frontend' }, () => {
   test.beforeEach(async ({ animalsJourney }) => {
-    await animalsJourney.toConsignmentDetails([commodityLines.cattle, commodityLines.bison]);
+    await animalsJourney.toConsignmentDetails([commoditySpecies.cattle, commoditySpecies.bison]);
   });
 
   test('lists every number of animals error before any number of packages error', async ({ animalsPages }) => {
@@ -66,11 +66,11 @@ test.describe('Commodity details page with two species of one commodity', { tag:
 
   test("lists both species' Latin names, one per line, in the commodity's Species cell", async ({ animalsPages }) => {
     const speciesCell = animalsPages.consignmentDetails.selectedCommodities.speciesCell(
-      animalsPages.consignmentDetails.selectedCommodities.rowFor(commodityLines.cattle),
+      animalsPages.consignmentDetails.selectedCommodities.rowFor(commoditySpecies.cattle),
     );
 
     expect(await speciesCell.evaluate((el) => (el as HTMLElement).innerText)).toBe(
-      `${commodityLines.bison.latinName},\n${commodityLines.cattle.latinName}`,
+      `${commoditySpecies.bison.latinName},\n${commoditySpecies.cattle.latinName}`,
     );
   });
 });
@@ -84,13 +84,13 @@ test.describe('Commodity details page after counts are saved', { tag: '@duplicat
     await animalsPages.consignmentDetails.addAnotherCommodity.click();
     await expect(animalsPages.commoditySelection.heading).toBeVisible();
 
-    await animalsPages.commoditySelection.searchAndCheckSpecies([commodityLines.domesticCat]);
+    await animalsPages.commoditySelection.searchAndCheckSpecies([commoditySpecies.domesticCat]);
     await animalsPages.commoditySelection.saveAndContinue.click();
 
     await expect(animalsPages.consignmentDetails.heading).toBeVisible();
-    await expect(await animalsPages.consignmentDetails.numberOfAnimalsFor('Bos taurus')).toHaveValue('2');
-    await expect(await animalsPages.consignmentDetails.numberOfPackagesFor('Bos taurus')).toHaveValue('5');
-    await expect(await animalsPages.consignmentDetails.numberOfAnimalsFor('Felis catus')).toHaveValue('');
-    await expect(await animalsPages.consignmentDetails.numberOfPackagesFor('Felis catus')).toHaveValue('');
+    await expect(await animalsPages.consignmentDetails.numberOfAnimalsFor(commoditySpecies.cattle)).toHaveValue('2');
+    await expect(await animalsPages.consignmentDetails.numberOfPackagesFor(commoditySpecies.cattle)).toHaveValue('5');
+    await expect(await animalsPages.consignmentDetails.numberOfAnimalsFor(commoditySpecies.domesticCat)).toHaveValue('');
+    await expect(await animalsPages.consignmentDetails.numberOfPackagesFor(commoditySpecies.domesticCat)).toHaveValue('');
   });
 });

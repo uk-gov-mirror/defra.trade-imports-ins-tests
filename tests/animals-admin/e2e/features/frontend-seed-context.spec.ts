@@ -5,7 +5,7 @@ import { timeouts } from '@config/timeouts';
 import { skipUnlessComposeEnvironment } from '@utils/playwright/environment';
 import { CREATE_PATH } from '@flows/animals/seeded-journey';
 import { CPH_NUMBER, MANDATORY_ANSWERS as answers } from '@domain/animals/constants/journey-options';
-import { commodityNames } from '@domain/animals/constants/commodity-lines';
+import { commodityNames } from '@domain/animals/constants/commodity-names';
 
 const CREATED_AT_ORIGIN = new RegExp(`^${CREATE_PATH}/([^/]+)/origin$`);
 
@@ -93,7 +93,7 @@ test.describe('Frontend seed context', { tag: '@mongodb' }, () => {
 
         expect(doc.status).toBe('DRAFT');
         expect(notification.origin.countryCode).toBe(answers.countryCode.value);
-        expect(cow.name).toBe(commodityNames.cattle);
+        expect(cow.name).toBe(commodityNames[cowLine.species.commodityCode]);
         expect(cow.commodityCode).toBe(cowLine.species.commodityCode);
         expect(species.text).toBe(cowLine.species.latinName);
         expect(species.earTag).toBe(cowLine.earTag);

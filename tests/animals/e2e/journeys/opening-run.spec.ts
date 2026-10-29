@@ -1,4 +1,4 @@
-import { commodityLines, speciesCardTitle } from '@domain/animals/constants/commodity-lines';
+import { commoditySpecies } from '@domain/animals/constants/commodity-species';
 import { MANDATORY_ANSWERS } from '@domain/animals/constants/journey-options';
 import { SET_BASES } from '@page-objects/shared/sets';
 import { OPENING_RUN_TASKS, certificateDocument } from '@flows/animals/journey';
@@ -26,8 +26,8 @@ test.describe('Opening run', () => {
     await expect(animalsPages.notificationView.regionOfOriginCode).toHaveText('FR-75');
     await expect(animalsPages.notificationView.summaryValue(importDetails, 'Internal reference number')).toHaveText('CATTLE-2026-01');
 
-    const speciesCard = animalsPages.notificationView.summaryCard(speciesCardTitle(commodityLines.cattle));
-    await expect(animalsPages.notificationView.summaryValue(speciesCard, 'Species')).toHaveText(commodityLines.cattle.latinName);
+    const speciesCard = animalsPages.notificationView.speciesCard(commoditySpecies.cattle);
+    await expect(animalsPages.notificationView.summaryValue(speciesCard, 'Species')).toHaveText(commoditySpecies.cattle.latinName);
     await expect(animalsPages.notificationView.summaryValue(speciesCard, 'Number of animals')).toHaveText('2');
 
     const reasonForImport = animalsPages.notificationView.summaryCard('Reason for import');

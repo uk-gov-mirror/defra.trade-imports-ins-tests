@@ -1,4 +1,5 @@
 import { type Locator } from '@playwright/test';
+import { type CommoditySpecies } from '@domain/animals/constants/commodity-species';
 import { NotificationPage } from '@page-objects/shared/base-page';
 import { SelectedCommoditiesTable } from '@page-objects/animals/selected-commodities-table';
 
@@ -41,34 +42,29 @@ export class AnimalsConsignmentDetailsPage extends NotificationPage {
     return this.caption.locator('xpath=following-sibling::*[1]');
   }
 
-  async numberOfAnimalsFor(species: string): Promise<Locator> {
+  async numberOfAnimalsFor(species: CommoditySpecies): Promise<Locator> {
     return this.numberOfAnimals.nth(await this.speciesPosition(species));
   }
 
-  async numberOfPackagesFor(species: string): Promise<Locator> {
+  async numberOfPackagesFor(species: CommoditySpecies): Promise<Locator> {
     return this.numberOfPackages.nth(await this.speciesPosition(species));
   }
 
-  async fillAnimalCountFor(species: string, count: number): Promise<void> {
+  async fillAnimalCountFor(species: CommoditySpecies, count: number): Promise<void> {
     await (await this.numberOfAnimalsFor(species)).fill(String(count));
   }
 
-  private async speciesPosition(species: string): Promise<number> {
-    const speciesHeadings = await this.page.getByRole('heading', { level: 3 }).allTextContents();
-    const index = speciesHeadings.indexOf(species);
-    if (index === -1) {
-      throw new Error(`No "${species}" heading among: ${speciesHeadings.join(', ')}`);
-    }
-    return index;
+  async fillPackageCountFor(species: CommoditySpecies, count: number): Promise<void> {
+    await (await this.numberOfPackagesFor(species)).fill(String(count));
   }
 
-  async fillPackageCountFor(species: string, count: number): Promise<void> {
+  private async speciesPosition(species: CommoditySpecies): Promise<number> {
     const speciesHeadings = await this.page.getByRole('heading', { level: 3 }).allTextContents();
-    const index = speciesHeadings.indexOf(species);
+    const index = speciesHeadings.indexOf(species.latinName);
     if (index === -1) {
-      throw new Error(`No "${species}" heading among: ${speciesHeadings.join(', ')}`);
+      throw new Error(`No "${species.latinName}" heading among: ${speciesHeadings.join(', ')}`);
     }
-    await this.numberOfPackages.nth(index).fill(String(count));
+    return index;
   }
 
   async fillEveryAnimalCount(count: string): Promise<void> {

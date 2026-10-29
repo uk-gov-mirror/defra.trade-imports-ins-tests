@@ -1,20 +1,15 @@
-import { commodityLines } from '@domain/animals/constants/commodity-lines';
+import { MANDATORY_COMMODITY_LINES } from '@domain/animals/constants/journey-commodity-line-answers';
+import { commoditySpecies } from '@domain/animals/constants/commodity-species';
 
 import { test, expect } from '@fixtures/visual';
-import { catLine } from '@domain/animals/constants/journey-options';
-import { PERMANENT_ADDRESS_PASSPORT_NUMBER } from '@flows/animals/journey';
 
 test.use({ headless: true });
 
 test.describe('Identification card (visual regression)', { tag: '@visual' }, () => {
-  test.beforeEach(async ({ page, animalsJourney }) => {
-    await animalsJourney.toAnimalIdentificationWithCounts([{ species: commodityLines.domesticCat, animalCount: 2 }]);
-    const { permanentAddress } = catLine;
-    if (!permanentAddress) {
-      throw new Error('catLine must define permanentAddress for this test');
-    }
-    await animalsJourney.saveAnimalWithPermanentAddress(PERMANENT_ADDRESS_PASSPORT_NUMBER, permanentAddress);
-    await expect(page.getByRole('heading', { name: 'Enter details for Felis catus 2 of 2' })).toBeVisible();
+  test.beforeEach(async ({ animalsJourney, animalsPages }) => {
+    await animalsJourney.toAnimalIdentificationWithCounts([{ species: commoditySpecies.domesticCat, animalCount: 2 }]);
+    await animalsJourney.saveAnimalWithPermanentAddress(MANDATORY_COMMODITY_LINES.domesticCat);
+    await expect(animalsPages.animalIdentification.enterDetailsCounterHeading(commoditySpecies.domesticCat, 2, 2)).toBeVisible();
   });
 
   test('shows the entry form for the second cat above the saved animals table', async ({ page, animalsPages }) => {

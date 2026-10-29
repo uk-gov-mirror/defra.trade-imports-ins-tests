@@ -180,26 +180,23 @@ only when the deletion is what it tests. Where expiry is on, the shared journey
 addresses seeded in `globalSetup` expire too; the next run's
 `ensureE2eAddressBook` creates them again.
 
-### Commodity lines in the animals specs
+### Commodity species in the animals specs
 
-`domain/animals/constants/commodity-lines.ts` names each line a spec chooses
-by its CN commodity code and Latin name. The commodity page labels each tick
-box with the Latin name alone, under a heading of the code, and one Latin name
-can sit under several codes (`Bos taurus` is under four), so a line needs both.
-The stack's MDM stub answers only the searches saved from MDM, so each line's
-`searchTerm` is a saved term whose first page of results lists that line; the
-first page is the frontend's 100 results. The
+`domain/animals/constants/commodity-species.ts` names each species a spec
+chooses by its CN commodity code and Latin name. The commodity page labels each
+tick box with the Latin name alone, under a heading of the code, and one Latin
+name can sit under several codes (`Bos taurus` is under four), so a species
+needs both. The stack's MDM stub answers only the searches saved from MDM, so
+each species' `searchTerm` is a saved term whose first page of results lists
+that species; the first page is the frontend's 100 results. The
 frontend saves only a species its search showed, so a seeded journey posts the
 search before it posts the chosen species. A spec that needs what MDM says
 about a species, such as its common name, reads it from reference-data's
 commodity search through `ReferenceDataApiClient`, rather than from a copy of
 it that goes stale.
 
-A notification's commodity name carries its first line's CN code until
-EUDPA-669 brings the real commodity name. So the outbox spec expects
-`commodityLines.cattle.commodityCode` as the trade line's description and
-common name, and the aggregated notification spec expects it as the
-commodity.
+The outbox and PIMS Dynamics specs expect `GBN_AG_CATTLE_COMMON_NAME`, because
+the event's common name for `Bos taurus` differs from reference data's.
 
 ### Authenticated session reuse
 

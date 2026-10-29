@@ -1,4 +1,4 @@
-import { commodityLines } from '@domain/animals/constants/commodity-lines';
+import { commoditySpecies } from '@domain/animals/constants/commodity-species';
 import { test, expect, WCAG_STANDARD } from '@fixtures/a11y';
 import { IMPORT_REASON_TASK } from '@domain/animals/constants/import-reason-page';
 import { govukConditionalRevealRadiosOnReason } from '@utils/a11y-exclusions';
@@ -76,15 +76,15 @@ test.describe(`Accessibility ${WCAG_STANDARD.name}`, { tag: '@a11y' }, () => {
     animalsPages,
     runA11yScan,
   }) => {
-    const { horse: horseLine, domesticCat } = commodityLines;
-    const horse = animalsPages.animalIdentification.speciesCard(horseLine.latinName);
-    const cat = animalsPages.animalIdentification.speciesCard(domesticCat.latinName);
+    const { horse, domesticCat } = commoditySpecies;
+    const horseCard = animalsPages.animalIdentification.speciesCard(horse);
+    const catCard = animalsPages.animalIdentification.speciesCard(domesticCat);
 
     await test.step('Commodity details with two species', async () => {
-      await animalsJourney.toConsignmentDetails([horseLine, domesticCat]);
+      await animalsJourney.toConsignmentDetails([horse, domesticCat]);
       await runA11yScan();
-      await animalsPages.consignmentDetails.fillAnimalCountFor(horseLine.latinName, 1);
-      await animalsPages.consignmentDetails.fillAnimalCountFor(domesticCat.latinName, 1);
+      await animalsPages.consignmentDetails.fillAnimalCountFor(horse, 1);
+      await animalsPages.consignmentDetails.fillAnimalCountFor(domesticCat, 1);
       await animalsPages.consignmentDetails.saveAndContinue.click();
       await animalsPages.overview.heading.waitFor();
       await animalsPages.overview.task('Identification details').click();
@@ -96,12 +96,12 @@ test.describe(`Accessibility ${WCAG_STANDARD.name}`, { tag: '@a11y' }, () => {
     });
 
     await test.step('Identification details for the horse and cat identifier sets, filled in', async () => {
-      await horse.getByLabel('Microchip', { exact: true }).fill('985112345678901');
-      await horse.getByLabel('Passport', { exact: true }).fill('HORSE-PASSPORT-1');
-      await horse.getByLabel('Horse name', { exact: true }).fill('Bramble');
-      await cat.getByLabel('Microchip', { exact: true }).fill('985112345678902');
-      await cat.getByLabel('Passport', { exact: true }).fill('CAT-PASSPORT-1');
-      await cat.getByLabel('Tattoo', { exact: true }).fill('TATTOO-1');
+      await horseCard.getByLabel('Microchip', { exact: true }).fill('985112345678901');
+      await horseCard.getByLabel('Passport', { exact: true }).fill('HORSE-PASSPORT-1');
+      await horseCard.getByLabel('Horse name', { exact: true }).fill('Bramble');
+      await catCard.getByLabel('Microchip', { exact: true }).fill('985112345678902');
+      await catCard.getByLabel('Passport', { exact: true }).fill('CAT-PASSPORT-1');
+      await catCard.getByLabel('Tattoo', { exact: true }).fill('TATTOO-1');
       await runA11yScan();
     });
   });

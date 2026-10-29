@@ -1,4 +1,4 @@
-import { commodityLines } from '@domain/animals/constants/commodity-lines';
+import { commoditySpecies } from '@domain/animals/constants/commodity-species';
 
 import { test, expect } from '@fixtures';
 import { SEARCH_HINT, SELECT_COMMODITY_ERROR } from '@domain/animals/constants/commodity-selection-page';
@@ -69,7 +69,7 @@ test.describe('Commodity selection page', { tag: '@duplicated-in-frontend' }, ()
   test('accepts and persists multiple commodity-species pairs found under different queries', async ({ pages, animalsPages }) => {
     test.slow();
 
-    await animalsPages.commoditySelection.searchAndCheckSpecies([commodityLines.cattle, commodityLines.domesticCat]);
+    await animalsPages.commoditySelection.searchAndCheckSpecies([commoditySpecies.cattle, commoditySpecies.domesticCat]);
     await animalsPages.commoditySelection.saveAndContinue.click();
     await expect(pages.page.getByRole('heading', { name: 'There is a problem' })).toHaveCount(0);
 
@@ -77,20 +77,20 @@ test.describe('Commodity selection page', { tag: '@duplicated-in-frontend' }, ()
     await animalsPages.overview.task('What are you importing?').click();
 
     await expect(animalsPages.commoditySelection.selectedSummary).toContainText('2 selected');
-    await expect(animalsPages.commoditySelection.selectedSummary).toContainText(commodityLines.cattle.latinName);
-    await expect(animalsPages.commoditySelection.selectedSummary).toContainText(commodityLines.domesticCat.latinName);
+    await expect(animalsPages.commoditySelection.selectedSummary).toContainText(commoditySpecies.cattle.latinName);
+    await expect(animalsPages.commoditySelection.selectedSummary).toContainText(commoditySpecies.domesticCat.latinName);
 
-    await animalsPages.commoditySelection.search(commodityLines.cattle.searchTerm);
-    await expect(animalsPages.commoditySelection.species(commodityLines.cattle)).toBeChecked();
-    await animalsPages.commoditySelection.search(commodityLines.domesticCat.searchTerm);
-    await expect(animalsPages.commoditySelection.species(commodityLines.domesticCat)).toBeChecked();
+    await animalsPages.commoditySelection.search(commoditySpecies.cattle.searchTerm);
+    await expect(animalsPages.commoditySelection.species(commoditySpecies.cattle)).toBeChecked();
+    await animalsPages.commoditySelection.search(commoditySpecies.domesticCat.searchTerm);
+    await expect(animalsPages.commoditySelection.species(commoditySpecies.domesticCat)).toBeChecked();
   });
 
   test('counts what has been chosen and clears it on request', async ({ animalsPages }) => {
-    await animalsPages.commoditySelection.searchAndCheckSpecies([commodityLines.cattle]);
+    await animalsPages.commoditySelection.searchAndCheckSpecies([commoditySpecies.cattle]);
     await animalsPages.commoditySelection.search(NO_MATCH_QUERY);
     await expect(animalsPages.commoditySelection.selectedSummary).toContainText('1 selected');
-    await expect(animalsPages.commoditySelection.selectedSummary).toContainText(commodityLines.cattle.latinName);
+    await expect(animalsPages.commoditySelection.selectedSummary).toContainText(commoditySpecies.cattle.latinName);
 
     await animalsPages.commoditySelection.clearAll.click();
     await expect(animalsPages.commoditySelection.selectedSummary).toHaveCount(0);
@@ -107,19 +107,19 @@ test.describe('Commodity selection page', { tag: '@duplicated-in-frontend' }, ()
   });
 
   test('with results listed, keeps the "Select a commodity" error on the search box', async ({ animalsPages }) => {
-    await animalsPages.commoditySelection.search(commodityLines.cattle.searchTerm);
+    await animalsPages.commoditySelection.search(commoditySpecies.cattle.searchTerm);
     await animalsPages.commoditySelection.saveAndContinue.click();
 
     await expect(animalsPages.commoditySelection.errorSummaryLinks).toHaveText([SELECT_COMMODITY_ERROR]);
     await expect(animalsPages.commoditySelection.searchBox).toHaveAccessibleDescription(SEARCH_BOX_DESCRIPTION_WITH_ERROR);
-    await expect(animalsPages.commoditySelection.commodityGroup(commodityLines.cattle.commodityCode)).toBeVisible();
+    await expect(animalsPages.commoditySelection.commodityGroup(commoditySpecies.cattle.commodityCode)).toBeVisible();
     await animalsPages.commoditySelection.errorSummaryLinks.click();
     await expect(animalsPages.commoditySelection.searchBox).toBeFocused();
   });
 
   test.describe('after a saved selection is cleared and save and return to overview is chosen', () => {
     test.beforeEach(async ({ animalsPages }) => {
-      await animalsPages.commoditySelection.searchAndCheckSpecies([commodityLines.cattle]);
+      await animalsPages.commoditySelection.searchAndCheckSpecies([commoditySpecies.cattle]);
       await animalsPages.commoditySelection.saveAndContinue.click();
       await expect(animalsPages.overview.heading).toBeVisible();
       await animalsPages.overview.task('What are you importing?').click();
@@ -136,7 +136,7 @@ test.describe('Commodity selection page', { tag: '@duplicated-in-frontend' }, ()
     test('keeps the saved selection when the page is reopened', async ({ animalsPages }) => {
       const referenceNumber = animalsPages.commoditySelection.referenceNumberFromUrl();
       await animalsPages.overview.openTaskAfterReopening(referenceNumber, 'What are you importing?');
-      await expect(animalsPages.commoditySelection.selectedSummary).toContainText(commodityLines.cattle.latinName);
+      await expect(animalsPages.commoditySelection.selectedSummary).toContainText(commoditySpecies.cattle.latinName);
     });
   });
 });

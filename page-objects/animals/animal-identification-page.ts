@@ -1,4 +1,6 @@
 import { type Locator, type Page } from '@playwright/test';
+import { type CommoditySpecies } from '@domain/animals/constants/commodity-species';
+import { type PermanentAddressAnswer } from '@domain/animals/constants/journey-commodity-line-answers';
 import { NotificationPage } from '@page-objects/shared/base-page';
 import { SelectedCommoditiesTable } from '@page-objects/animals/selected-commodities-table';
 
@@ -29,9 +31,9 @@ export class AnimalsAnimalIdentificationPage extends NotificationPage {
     return this.page.getByLabel('Horse name', { exact: true });
   }
 
-  enterDetailsCounterHeading(latinName: string, current: number, total: number): Locator {
+  enterDetailsCounterHeading(species: CommoditySpecies, current: number, total: number): Locator {
     return this.page.getByRole('heading', {
-      name: `Enter details for ${latinName} ${current} of ${total}`,
+      name: `Enter details for ${species.latinName} ${current} of ${total}`,
       exact: true,
     });
   }
@@ -40,42 +42,38 @@ export class AnimalsAnimalIdentificationPage extends NotificationPage {
     return this.page.getByLabel('Name or organisation name', { exact: true });
   }
 
-  get permanentAddressLine1(): Locator {
-    return this.page.getByLabel('Address line 1', { exact: true });
-  }
-
-  get permanentAddressTownOrCity(): Locator {
-    return this.page.getByLabel('Town or city', { exact: true });
-  }
-
-  get permanentAddressPostcode(): Locator {
-    return this.page.getByLabel('Postcode or Zip code', { exact: true });
-  }
-
-  get permanentAddressPhone(): Locator {
-    return this.page.getByLabel('Phone number', { exact: true });
-  }
-
-  get permanentAddressEmail(): Locator {
-    return this.page.getByLabel('Email address', { exact: true });
+  async fillPermanentAddress(address: PermanentAddressAnswer, scope: Page | Locator = this.page): Promise<void> {
+    const field = (label: string): Locator => scope.getByLabel(label, { exact: true });
+    await field('Name or organisation name').fill(address.nameOrOrganisationName);
+    await field('Address line 1').fill(address.addressLine1);
+    if (address.addressLine2) {
+      await field('Address line 2 (optional)').fill(address.addressLine2);
+    }
+    await field('Town or city').fill(address.townOrCity);
+    if (address.county) {
+      await field('County (optional)').fill(address.county);
+    }
+    await field('Postcode or Zip code').fill(address.postcode);
+    await field('Phone number').fill(address.phone);
+    await field('Email address').fill(address.email);
   }
 
   commodityHeading(heading: string): Locator {
     return this.page.getByRole('heading', { level: 2, name: heading, exact: true });
   }
 
-  speciesCard(species: string): Locator {
-    return this.page.getByRole('region', { name: species, exact: true });
+  speciesCard(species: CommoditySpecies): Locator {
+    return this.page.getByRole('region', { name: species.latinName, exact: true });
   }
 
-  savedAnimalsRows(species: string): Locator {
+  savedAnimalsRows(species: CommoditySpecies): Locator {
     return this.speciesCard(species).getByRole('table').locator('tbody').getByRole('row');
   }
 
-  savedAnimalRow(species: string, number: number): Locator {
+  savedAnimalRow(species: CommoditySpecies, number: number): Locator {
     return this.speciesCard(species)
       .getByRole('row')
-      .filter({ has: this.page.getByRole('cell', { name: `${species} ${number}`, exact: true }) });
+      .filter({ has: this.page.getByRole('cell', { name: `${species.latinName} ${number}`, exact: true }) });
   }
 
   identifierColumn(name: string): Locator {
