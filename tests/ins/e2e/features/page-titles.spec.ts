@@ -1,5 +1,5 @@
 import { test, expect } from '@fixtures';
-import { traderAddress } from './address-book/trader-address';
+import { traderAddress } from '@domain/ins/constants/trader-address';
 
 test.describe('INS page titles', { tag: '@duplicated-in-frontend' }, () => {
   test('the home is titled Dashboard - Import notification service - GOV.UK', async ({ pages, insPages }) => {

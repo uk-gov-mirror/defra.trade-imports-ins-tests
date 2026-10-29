@@ -2,7 +2,7 @@ import type { APIRequestContext } from '@playwright/test';
 import { expect } from '@fixtures';
 import { AddressBookApiClient } from '@adapters/http/address-book-api-client';
 import { expectAddressBookList } from './expect-address-book-list';
-import { traderAddress } from './trader-address';
+import { traderAddress } from '@domain/ins/constants/trader-address';
 
 type AddressBookListPages = Parameters<typeof expectAddressBookList>[0];
 

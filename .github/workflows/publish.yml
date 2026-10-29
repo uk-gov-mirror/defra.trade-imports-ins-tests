@@ -67,3 +67,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WITH_V: false
+
+  layer-cache:
+    name: Write the branch build layer cache
+    uses: DEFRA/trade-imports-workspace/.github/workflows/publish-branch.yml@main
+    with:
+      image-name: trade-imports-ins-tests
+      run-mode: job
+      layer-cache-write-only: true
+    secrets: inherit

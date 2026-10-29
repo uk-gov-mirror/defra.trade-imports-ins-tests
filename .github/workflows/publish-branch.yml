@@ -16,4 +16,5 @@ jobs:
     with:
       image-name: trade-imports-ins-tests
       run-mode: job
+      layer-cache: true
     secrets: inherit

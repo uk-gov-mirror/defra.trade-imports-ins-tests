@@ -3,9 +3,9 @@ import { COLD_START } from '@fixtures/auth-state';
 import { createInsPages } from '@page-objects';
 import { users } from '@config/users';
 import { urlWithReturn } from '@page-objects/ins/address-book/url-with-return';
-import { expectAddressBookList } from './expect-address-book-list';
+import { expectAddressBookList, expectNoMatchesListed } from './expect-address-book-list';
 import { UNKNOWN_ADDRESS_ID } from './unknown-address-id';
-import { traderAddress } from './trader-address';
+import { addressWithLineTwoAndCounty, traderAddress } from '@domain/ins/constants/trader-address';
 
 test.describe('Address book delete', () => {
   test('deleting through the UI tombstones the record rather than removing it', async ({ pages, insPages, addressBookApi }) => {
@@ -17,8 +17,9 @@ test.describe('Address book delete', () => {
     await insPages.addressBookDelete.confirm();
 
     await expect(pages.page).toHaveURL(new RegExp(`${insPages.addressBookList.expectedUrl}$`));
-    await expect(insPages.addressBookList.row(name)).toHaveCount(0);
     await expect(insPages.addressBookList.successBanner).toContainText(`${name} address deleted`);
+    await insPages.addressBookList.search(name, { submitWith: 'button' });
+    await expectNoMatchesListed(insPages.addressBookList);
 
     const tombstone = await addressBookApi.getAddress(created.id);
     expect(tombstone.deleted).toBe(true);
@@ -30,7 +31,7 @@ test.describe('Address book delete', () => {
     insPages,
     addressBookApi,
   }) => {
-    const address = { ...traderAddress(`Delete Summary Farm ${Date.now()}`), addressLine2: 'Unit 9', county: 'Cumbria' };
+    const address = addressWithLineTwoAndCounty(`Delete Summary Farm ${Date.now()}`);
     const created = await addressBookApi.createAddress(address);
 
     await insPages.addressBookDelete.open(created.id);
@@ -144,7 +145,9 @@ test.describe('Address book delete', () => {
     await insPages.addressBookDelete.open(created.id, { userId: users.andrew.crn });
     await insPages.addressBookDelete.confirm();
     await expect(pages.page).toHaveURL(new RegExp(`${insPages.addressBookList.expectedUrl}$`));
-    await expect(insPages.addressBookList.row(name)).toHaveCount(0);
+    expect((await addressBookApi.getAddress(created.id)).deleted).toBe(true);
+    await insPages.addressBookList.search(name, { submitWith: 'button' });
+    await expectNoMatchesListed(insPages.addressBookList);
 
     const sarahContext = await browser.newContext({ storageState: COLD_START });
     try {
@@ -155,7 +158,8 @@ test.describe('Address book delete', () => {
         organisationSbi: users.sarah.organisations.gatwickAirport,
       });
 
-      await expect(sarahInsPages.addressBookList.row(name)).toHaveCount(0);
+      await sarahInsPages.addressBookList.search(name, { submitWith: 'button' });
+      await expectNoMatchesListed(sarahInsPages.addressBookList);
     } finally {
       await sarahContext.close();
     }

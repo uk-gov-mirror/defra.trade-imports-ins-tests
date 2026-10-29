@@ -1,17 +1,7 @@
 import { Locator } from '@playwright/test';
 import { test, expect } from '@fixtures';
 import { InsAddressBookFormPage } from '@page-objects/ins/address-book/form-page';
-
-const baseAddress = {
-  addressLine1: '5 Form Lane',
-  addressLine2: 'Unit 2',
-  townOrCity: 'Carlisle',
-  county: 'Cumbria',
-  postcode: 'CA1 4DD',
-  countryCode: 'GB',
-  phone: '01228 555 0120',
-  email: 'form@example.co.uk',
-};
+import { addressWithLineTwoAndCounty } from '@domain/ins/constants/trader-address';
 
 const FIELD_NAMES_IN_ORDER = [
   'Name or organisation',
@@ -30,7 +20,6 @@ async function expectAbove(upper: Locator, lower: Locator): Promise<void> {
   expect(upperBox.y).toBeLessThan(lowerBox.y);
 }
 
-// Address heading, then Name down to Country; Contact details heading, then Email and Phone.
 async function expectFieldsGroupedUnderSections(form: InsAddressBookFormPage): Promise<void> {
   await expect(form.sectionHeading('Address')).toBeVisible();
   await expect(form.sectionHeading('Contact details')).toBeVisible();
@@ -52,7 +41,7 @@ test.describe('The add-details form for an address entered by hand', () => {
       await expect(insPages.addressBookAdd.textboxes.nth(index)).toHaveAccessibleName(name);
     }
 
-    const created = await addressBookApi.createAddress({ name: `Form Label Farm ${Date.now()}`, ...baseAddress });
+    const created = await addressBookApi.createAddress(addressWithLineTwoAndCounty(`Form Label Farm ${Date.now()}`));
     await insPages.addressBookEdit.open(created.id);
 
     await expect(insPages.addressBookEdit.inputName).toHaveAccessibleName('Name or organisation');
@@ -105,12 +94,12 @@ test.describe('The add-details form for an address entered by hand', () => {
     expect(await addressBookApi.listAddresses(name)).toHaveLength(0);
   });
 
-  test('the edit page groups its fields under Address and Contact details and labels the name Name or organisation', async ({
+  test('the edit page groups its fields under Address and Contact details and opens with the saved name', async ({
     insPages,
     addressBookApi,
   }) => {
     const name = `Form Edit Farm ${Date.now()}`;
-    const created = await addressBookApi.createAddress({ name, ...baseAddress });
+    const created = await addressBookApi.createAddress(addressWithLineTwoAndCounty(name));
 
     await insPages.addressBookEdit.open(created.id);
 
