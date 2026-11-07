@@ -1,0 +1,1462 @@
+<!doctype html><meta charset="utf-8"><title>zap.log</title><pre>2026-11-04 07:18:18,844 [ZAP-IO-Server-1-1] INFO  CommandLine - Job passiveScan-wait set maxDuration = 0
+2026-11-04 07:18:18,950 [ZAP-Automation] INFO  CommandLine - Job passiveScan-wait started
+2026-11-04 07:18:18,958 [ZAP-Automation] INFO  CommandLine - Job passiveScan-wait finished, time taken: 00:00:00
+2026-11-04 07:19:01,143 [ZAP-IO-Server-1-2] WARN  CookieBasedSessionManagementHelper - Multiple sessions matching the cookies from response. Using first one.
+2026-11-04 07:19:01,141 [ZAP-IO-Server-1-5] WARN  CookieBasedSessionManagementHelper - Multiple sessions matching the cookies from response. Using first one.
+2026-11-04 07:19:01,143 [ZAP-IO-Server-1-1] WARN  CookieBasedSessionManagementHelper - Multiple sessions matching the cookies from response. Using first one.
+2026-11-04 07:19:01,144 [ZAP-IO-Server-1-7] WARN  CookieBasedSessionManagementHelper - Multiple sessions matching the cookies from response. Using first one.
+2026-11-04 07:19:12,610 [ZAP-IO-Server-1-7] INFO  CommandLine - Job passiveScan-wait set maxDuration = 5
+2026-11-04 07:19:12,610 [ZAP-IO-Server-1-7] INFO  CommandLine - Job delay set time = 5
+2026-11-04 07:19:12,611 [ZAP-IO-Server-1-7] INFO  CommandLine - Job activeScan set context = frontend
+2026-11-04 07:19:12,611 [ZAP-IO-Server-1-7] INFO  CommandLine - Job activeScan set maxScanDurationInMins = 60
+2026-11-04 07:19:12,617 [ZAP-IO-Server-1-7] INFO  CommandLine - Job activeScan set context = admin
+2026-11-04 07:19:12,618 [ZAP-IO-Server-1-7] INFO  CommandLine - Job activeScan set maxScanDurationInMins = 60
+2026-11-04 07:19:12,621 [ZAP-IO-Server-1-7] INFO  CommandLine - Job activeScan set context = ins
+2026-11-04 07:19:12,622 [ZAP-IO-Server-1-7] INFO  CommandLine - Job activeScan set maxScanDurationInMins = 60
+2026-11-04 07:19:12,626 [ZAP-IO-Server-1-7] INFO  CommandLine - Job activeScan set context = backend
+2026-11-04 07:19:12,626 [ZAP-IO-Server-1-7] INFO  CommandLine - Job activeScan set maxScanDurationInMins = 60
+2026-11-04 07:19:12,636 [ZAP-IO-Server-1-7] INFO  CommandLine - Job activeScan set context = address-book
+2026-11-04 07:19:12,641 [ZAP-IO-Server-1-7] INFO  CommandLine - Job activeScan set maxScanDurationInMins = 60
+2026-11-04 07:19:12,652 [ZAP-IO-Server-1-7] INFO  CommandLine - Job report set template = traditional-json
+2026-11-04 07:19:12,652 [ZAP-IO-Server-1-7] INFO  CommandLine - Job report set reportDir = /zap/wrk/zap-report
+2026-11-04 07:19:12,652 [ZAP-IO-Server-1-7] INFO  CommandLine - Job report set reportFile = security-scan
+2026-11-04 07:19:12,652 [ZAP-IO-Server-1-7] INFO  CommandLine - Job report set reportTitle = trade-imports-animals — security scan
+2026-11-04 07:19:12,676 [ZAP-IO-Server-1-7] INFO  CommandLine - Job report set template = traditional-html
+2026-11-04 07:19:12,676 [ZAP-IO-Server-1-7] INFO  CommandLine - Job report set reportDir = /zap/wrk/zap-report
+2026-11-04 07:19:12,676 [ZAP-IO-Server-1-7] INFO  CommandLine - Job report set reportFile = security-scan
+2026-11-04 07:19:12,676 [ZAP-IO-Server-1-7] INFO  CommandLine - Job report set reportTitle = trade-imports-animals — security scan
+2026-11-04 07:19:12,761 [ZAP-Automation] INFO  CommandLine - Job passiveScan-wait started
+2026-11-04 07:19:12,763 [ZAP-Automation] INFO  CommandLine - Job passiveScan-wait finished, time taken: 00:00:00
+2026-11-04 07:19:12,763 [ZAP-Automation] INFO  CommandLine - Job delay started
+2026-11-04 07:19:17,764 [ZAP-Automation] INFO  CommandLine - Job delay ended after specified time 5
+2026-11-04 07:19:17,764 [ZAP-Automation] INFO  CommandLine - Job delay finished, time taken: 00:00:05
+2026-11-04 07:19:17,767 [ZAP-Automation] INFO  CommandLine - Job activeScan started
+2026-11-04 07:19:17,770 [ZAP-Automation] INFO  CommandLine - Job activeScan set default strength to MEDIUM
+2026-11-04 07:19:17,771 [ZAP-Automation] INFO  CommandLine - Job activeScan set default threshold to MEDIUM
+2026-11-04 07:19:17,771 [ZAP-Automation] INFO  CommandLine - Job activeScan set rule 40026 threshold to OFF
+2026-11-04 07:19:17,772 [ZAP-Automation] INFO  Scanner - scanner with ID 0 started
+2026-11-04 07:19:17,810 [ZAP-Scanner-1] INFO  HostProcess - Scanning 63 node(s) from http://localhost:3000
+2026-11-04 07:19:17,810 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | PathTraversalScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:19:17,941 [ZAP-Scanner-0] INFO  HostProcess - Scanning 63 node(s) from http://localhost:3000
+2026-11-04 07:19:17,942 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | PathTraversalScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:20:04,599 [ZAP-ActiveScanner-2] ERROR PathTraversalScanRule - Error occurred while scanning a message:
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.PathTraversalScanRule.sendAndCheckPayload(PathTraversalScanRule.java:581)
+	at org.zaproxy.zap.extension.ascanrules.PathTraversalScanRule.scan(PathTraversalScanRule.java:316)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:20:04,732 [ZAP-ActiveScanner-3] ERROR PathTraversalScanRule - Error occurred while scanning a message:
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.PathTraversalScanRule.sendAndCheckPayload(PathTraversalScanRule.java:581)
+	at org.zaproxy.zap.extension.ascanrules.PathTraversalScanRule.scan(PathTraversalScanRule.java:316)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:20:18,576 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | PathTraversalScanRule in 60.634s with 5542 message(s) sent and 4 alert(s) raised.
+2026-11-04 07:20:18,576 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | RemoteFileIncludeScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:20:19,189 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | PathTraversalScanRule in 61.379s with 5542 message(s) sent and 4 alert(s) raised.
+2026-11-04 07:20:19,189 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | RemoteFileIncludeScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:20:48,960 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | RemoteFileIncludeScanRule in 30.384s with 3260 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:20:48,961 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | SourceCodeDisclosureWebInfScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:20:48,962 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | ShellShockScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:20:49,706 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | RemoteFileIncludeScanRule in 30.517s with 3260 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:20:49,706 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | SourceCodeDisclosureWebInfScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:20:49,706 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | ShellShockScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:20:54,332 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | SourceCodeDisclosureWebInfScanRule in 5.37s with 297 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:20:54,635 [ZAP-ActiveScanner-6] ERROR ShellShockScanRule - Error occurred while scanning a message:
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.ShellShockScanRule.scan(ShellShockScanRule.java:147)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:20:55,541 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | SourceCodeDisclosureWebInfScanRule in 5.835s with 297 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:20:55,706 [ZAP-ActiveScanner-0] ERROR ShellShockScanRule - Error occurred while scanning a message:
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.ShellShockScanRule.scan(ShellShockScanRule.java:147)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:20:56,210 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | ShellShockScanRule in 7.248s with 652 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:20:56,210 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | HeartBleedActiveScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:20:56,211 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | SourceCodeDisclosureCve20121823ScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:20:56,216 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | HeartBleedActiveScanRule in 0.006s with 3 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:20:56,645 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | ShellShockScanRule in 6.939s with 652 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:20:56,646 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | HeartBleedActiveScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:20:56,646 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | SourceCodeDisclosureCve20121823ScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:20:56,648 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | HeartBleedActiveScanRule in 0.002s with 3 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:20:56,731 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | SourceCodeDisclosureCve20121823ScanRule in 0.52s with 53 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:20:56,731 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | RemoteCodeExecutionCve20121823ScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:20:56,789 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | SourceCodeDisclosureCve20121823ScanRule in 0.143s with 53 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:20:56,789 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | RemoteCodeExecutionCve20121823ScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:20:57,245 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | RemoteCodeExecutionCve20121823ScanRule in 0.514s with 126 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:20:57,246 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | ExternalRedirectScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:20:57,333 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | RemoteCodeExecutionCve20121823ScanRule in 0.544s with 126 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:20:57,333 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | ExternalRedirectScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:21:18,062 [ZAP-ActiveScanner-3] ERROR ExternalRedirectScanRule - Error occurred while scanning a message:
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.ExternalRedirectScanRule.scan(ExternalRedirectScanRule.java:290)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:21:18,281 [ZAP-ActiveScanner-3] ERROR ExternalRedirectScanRule - Error occurred while scanning a message:
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.ExternalRedirectScanRule.scan(ExternalRedirectScanRule.java:290)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:21:24,945 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | ExternalRedirectScanRule in 27.699s with 2934 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:21:24,946 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | ServerSideIncludeScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:21:25,438 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | ExternalRedirectScanRule in 28.105s with 2934 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:21:25,438 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | ServerSideIncludeScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:21:35,089 [ZAP-ActiveScanner-2] ERROR ServerSideIncludeScanRule - Error occurred while scanning a message:
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.ServerSideIncludeScanRule.testServerSideInclude(ServerSideIncludeScanRule.java:178)
+	at org.zaproxy.zap.extension.ascanrules.ServerSideIncludeScanRule.scan(ServerSideIncludeScanRule.java:141)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:21:35,555 [ZAP-ActiveScanner-6] ERROR ServerSideIncludeScanRule - Error occurred while scanning a message:
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.ServerSideIncludeScanRule.testServerSideInclude(ServerSideIncludeScanRule.java:178)
+	at org.zaproxy.zap.extension.ascanrules.ServerSideIncludeScanRule.scan(ServerSideIncludeScanRule.java:141)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:21:38,573 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | ServerSideIncludeScanRule in 13.628s with 1304 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:21:38,574 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | CrossSiteScriptingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:21:38,635 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | ServerSideIncludeScanRule in 13.197s with 1304 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:21:38,638 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | CrossSiteScriptingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:21:51,976 [ZAP-ActiveScanner-6] ERROR CrossSiteScriptingScanRule - Error occurred while scanning a message:
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.CrossSiteScriptingScanRule.scan(CrossSiteScriptingScanRule.java:898)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.zaproxy.zap.extension.ascanrules.CrossSiteScriptingScanRule.scan(CrossSiteScriptingScanRule.java:170)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:21:52,174 [ZAP-ActiveScanner-6] ERROR CrossSiteScriptingScanRule - Error occurred while scanning a message:
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.CrossSiteScriptingScanRule.scan(CrossSiteScriptingScanRule.java:898)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.zaproxy.zap.extension.ascanrules.CrossSiteScriptingScanRule.scan(CrossSiteScriptingScanRule.java:170)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:21:57,208 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | CrossSiteScriptingScanRule in 18.634s with 1718 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:21:57,209 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | PersistentXssPrimeScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:21:57,472 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | CrossSiteScriptingScanRule in 18.834s with 1716 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:21:57,472 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | PersistentXssPrimeScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:21:59,260 [ZAP-ActiveScanner-0] ERROR PersistentXssPrimeScanRule - Error occurred while scanning a message:
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.PersistentXssPrimeScanRule.scan(PersistentXssPrimeScanRule.java:97)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:21:59,775 [ZAP-ActiveScanner-4] ERROR PersistentXssPrimeScanRule - Error occurred while scanning a message:
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.PersistentXssPrimeScanRule.scan(PersistentXssPrimeScanRule.java:97)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:22:00,082 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | PersistentXssPrimeScanRule in 2.873s with 326 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:22:00,083 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | PersistentXssSpiderScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:22:00,430 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | PersistentXssPrimeScanRule in 2.958s with 326 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:22:00,430 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | PersistentXssSpiderScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:22:01,423 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | PersistentXssSpiderScanRule in 1.34s with 101 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:22:01,423 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | PersistentXssScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:22:01,491 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | PersistentXssScanRule in 0.068s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:22:01,491 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | SqlInjectionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:22:01,813 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | PersistentXssSpiderScanRule in 1.383s with 101 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:22:01,813 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | PersistentXssScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:22:02,244 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | PersistentXssScanRule in 0.431s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:22:02,244 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | SqlInjectionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:22:55,312 [ZAP-ActiveScanner-1] WARN  SqlInjectionScanRule - An error occurred checking a URL for SQL Injection vulnerabilities
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.SqlInjectionScanRule.testErrorBasedSqlInjection(SqlInjectionScanRule.java:706)
+	at org.zaproxy.zap.extension.ascanrules.SqlInjectionScanRule.scan(SqlInjectionScanRule.java:610)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:22:55,329 [ZAP-ActiveScanner-7] WARN  SqlInjectionScanRule - An error occurred checking a URL for SQL Injection vulnerabilities
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.SqlInjectionScanRule.testErrorBasedSqlInjection(SqlInjectionScanRule.java:706)
+	at org.zaproxy.zap.extension.ascanrules.SqlInjectionScanRule.scan(SqlInjectionScanRule.java:610)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:23:12,647 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | SqlInjectionScanRule in 70.403s with 7519 message(s) sent and 19 alert(s) raised.
+2026-11-04 07:23:12,648 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | SqlInjectionMySqlTimingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:23:13,971 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | SqlInjectionScanRule in 72.479s with 7676 message(s) sent and 14 alert(s) raised.
+2026-11-04 07:23:13,971 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | SqlInjectionMySqlTimingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:23:34,368 [ZAP-ActiveScanner-2] ERROR SqlInjectionMySqlTimingScanRule - Error occurred while scanning a message:
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.SqlInjectionMySqlTimingScanRule.lambda$scan$0(SqlInjectionMySqlTimingScanRule.java:309)
+	at org.zaproxy.addon.commonlib.timing.TimingUtils.sendRequestAndTestConfidence(TimingUtils.java:125)
+	at org.zaproxy.addon.commonlib.timing.TimingUtils.checkTimingDependence(TimingUtils.java:91)
+	at org.zaproxy.zap.extension.ascanrules.SqlInjectionMySqlTimingScanRule.scan(SqlInjectionMySqlTimingScanRule.java:319)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:23:36,311 [ZAP-ActiveScanner-0] ERROR SqlInjectionMySqlTimingScanRule - Error occurred while scanning a message:
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.SqlInjectionMySqlTimingScanRule.lambda$scan$0(SqlInjectionMySqlTimingScanRule.java:309)
+	at org.zaproxy.addon.commonlib.timing.TimingUtils.sendRequestAndTestConfidence(TimingUtils.java:125)
+	at org.zaproxy.addon.commonlib.timing.TimingUtils.checkTimingDependence(TimingUtils.java:91)
+	at org.zaproxy.zap.extension.ascanrules.SqlInjectionMySqlTimingScanRule.scan(SqlInjectionMySqlTimingScanRule.java:319)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:23:42,413 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | SqlInjectionMySqlTimingScanRule in 29.765s with 3260 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:23:42,413 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | SqlInjectionHypersonicTimingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:23:42,718 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | SqlInjectionMySqlTimingScanRule in 28.747s with 3260 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:23:42,719 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | SqlInjectionHypersonicTimingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:24:04,900 [ZAP-ActiveScanner-5] ERROR SqlInjectionHypersonicTimingScanRule - Error occurred while scanning a message:
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.SqlInjectionHypersonicTimingScanRule.lambda$scan$0(SqlInjectionHypersonicTimingScanRule.java:303)
+	at org.zaproxy.addon.commonlib.timing.TimingUtils.sendRequestAndTestConfidence(TimingUtils.java:125)
+	at org.zaproxy.addon.commonlib.timing.TimingUtils.checkTimingDependence(TimingUtils.java:91)
+	at org.zaproxy.zap.extension.ascanrules.SqlInjectionHypersonicTimingScanRule.scan(SqlInjectionHypersonicTimingScanRule.java:313)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:24:05,043 [ZAP-ActiveScanner-6] ERROR SqlInjectionHypersonicTimingScanRule - Error occurred while scanning a message:
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.SqlInjectionHypersonicTimingScanRule.lambda$scan$0(SqlInjectionHypersonicTimingScanRule.java:303)
+	at org.zaproxy.addon.commonlib.timing.TimingUtils.sendRequestAndTestConfidence(TimingUtils.java:125)
+	at org.zaproxy.addon.commonlib.timing.TimingUtils.checkTimingDependence(TimingUtils.java:91)
+	at org.zaproxy.zap.extension.ascanrules.SqlInjectionHypersonicTimingScanRule.scan(SqlInjectionHypersonicTimingScanRule.java:313)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:24:11,712 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | SqlInjectionHypersonicTimingScanRule in 29.299s with 3260 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:24:11,712 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | SqlInjectionOracleTimingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:24:11,897 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | SqlInjectionHypersonicTimingScanRule in 29.178s with 3260 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:24:11,898 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | SqlInjectionOracleTimingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:24:22,667 [ZAP-ActiveScanner-4] ERROR SqlInjectionOracleTimingScanRule - Error occurred while scanning a message:
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.SqlInjectionOracleTimingScanRule.lambda$scan$0(SqlInjectionOracleTimingScanRule.java:235)
+	at org.zaproxy.addon.commonlib.timing.TimingUtils.sendRequestAndTestConfidence(TimingUtils.java:125)
+	at org.zaproxy.addon.commonlib.timing.TimingUtils.checkTimingDependence(TimingUtils.java:91)
+	at org.zaproxy.zap.extension.ascanrules.SqlInjectionOracleTimingScanRule.scan(SqlInjectionOracleTimingScanRule.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:24:23,745 [ZAP-ActiveScanner-4] ERROR SqlInjectionOracleTimingScanRule - Error occurred while scanning a message:
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.SqlInjectionOracleTimingScanRule.lambda$scan$0(SqlInjectionOracleTimingScanRule.java:235)
+	at org.zaproxy.addon.commonlib.timing.TimingUtils.sendRequestAndTestConfidence(TimingUtils.java:125)
+	at org.zaproxy.addon.commonlib.timing.TimingUtils.checkTimingDependence(TimingUtils.java:91)
+	at org.zaproxy.zap.extension.ascanrules.SqlInjectionOracleTimingScanRule.scan(SqlInjectionOracleTimingScanRule.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:24:27,016 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | SqlInjectionOracleTimingScanRule in 15.304s with 1630 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:24:27,016 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | SqlInjectionPostgreSqlTimingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:24:27,136 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | SqlInjectionOracleTimingScanRule in 15.238s with 1630 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:24:27,136 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | SqlInjectionPostgreSqlTimingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:24:38,118 [ZAP-ActiveScanner-4] WARN  SqlInjectionPostgreSqlTimingScanRule - An error occurred checking a URL for Postgres SQL Injection vulnerabilities
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.SqlInjectionPostgreSqlTimingScanRule.lambda$scan$0(SqlInjectionPostgreSqlTimingScanRule.java:275)
+	at org.zaproxy.addon.commonlib.timing.TimingUtils.sendRequestAndTestConfidence(TimingUtils.java:125)
+	at org.zaproxy.addon.commonlib.timing.TimingUtils.checkTimingDependence(TimingUtils.java:91)
+	at org.zaproxy.zap.extension.ascanrules.SqlInjectionPostgreSqlTimingScanRule.scan(SqlInjectionPostgreSqlTimingScanRule.java:284)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:24:38,427 [ZAP-ActiveScanner-2] WARN  SqlInjectionPostgreSqlTimingScanRule - An error occurred checking a URL for Postgres SQL Injection vulnerabilities
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.SqlInjectionPostgreSqlTimingScanRule.lambda$scan$0(SqlInjectionPostgreSqlTimingScanRule.java:275)
+	at org.zaproxy.addon.commonlib.timing.TimingUtils.sendRequestAndTestConfidence(TimingUtils.java:125)
+	at org.zaproxy.addon.commonlib.timing.TimingUtils.checkTimingDependence(TimingUtils.java:91)
+	at org.zaproxy.zap.extension.ascanrules.SqlInjectionPostgreSqlTimingScanRule.scan(SqlInjectionPostgreSqlTimingScanRule.java:284)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:24:41,256 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | SqlInjectionPostgreSqlTimingScanRule in 14.24s with 1630 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:24:41,256 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | SqlInjectionMsSqlTimingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:24:41,314 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | SqlInjectionPostgreSqlTimingScanRule in 14.178s with 1630 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:24:41,315 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | SqlInjectionMsSqlTimingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:25:04,077 [ZAP-ActiveScanner-4] ERROR SqlInjectionMsSqlTimingScanRule - Error occurred while scanning a message:
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.SqlInjectionMsSqlTimingScanRule.lambda$scan$0(SqlInjectionMsSqlTimingScanRule.java:248)
+	at org.zaproxy.addon.commonlib.timing.TimingUtils.sendRequestAndTestConfidence(TimingUtils.java:125)
+	at org.zaproxy.addon.commonlib.timing.TimingUtils.checkTimingDependence(TimingUtils.java:91)
+	at org.zaproxy.zap.extension.ascanrules.SqlInjectionMsSqlTimingScanRule.scan(SqlInjectionMsSqlTimingScanRule.java:258)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:25:04,511 [ZAP-ActiveScanner-3] ERROR SqlInjectionMsSqlTimingScanRule - Error occurred while scanning a message:
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.SqlInjectionMsSqlTimingScanRule.lambda$scan$0(SqlInjectionMsSqlTimingScanRule.java:248)
+	at org.zaproxy.addon.commonlib.timing.TimingUtils.sendRequestAndTestConfidence(TimingUtils.java:125)
+	at org.zaproxy.addon.commonlib.timing.TimingUtils.checkTimingDependence(TimingUtils.java:91)
+	at org.zaproxy.zap.extension.ascanrules.SqlInjectionMsSqlTimingScanRule.scan(SqlInjectionMsSqlTimingScanRule.java:258)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:25:11,319 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | SqlInjectionMsSqlTimingScanRule in 30.063s with 3260 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:25:11,320 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | Log4ShellScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:25:11,322 [ZAP-Scanner-1] INFO  HostProcess - skipped plugin [no Active Scan OAST service is selected] http://localhost:3000 | Log4ShellScanRule in 0.001s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:25:11,322 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | Spring4ShellScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:25:11,585 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | SqlInjectionMsSqlTimingScanRule in 30.27s with 3260 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:25:11,585 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | Log4ShellScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:25:11,586 [ZAP-Scanner-0] INFO  HostProcess - skipped plugin [no Active Scan OAST service is selected] http://localhost:3000 | Log4ShellScanRule in 0.001s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:25:11,586 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | Spring4ShellScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:25:13,155 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | Spring4ShellScanRule in 1.833s with 202 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:25:13,156 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | React2ShellScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:25:13,157 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | CodeInjectionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:25:13,161 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | React2ShellScanRule in 0.005s with 1 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:25:13,866 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | Spring4ShellScanRule in 2.28s with 202 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:25:13,866 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | React2ShellScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:25:13,867 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | CodeInjectionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:25:13,881 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | React2ShellScanRule in 0.015s with 1 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:25:31,948 [ZAP-ActiveScanner-4] ERROR CodeInjectionScanRule - Error occurred while scanning a message:
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.CodeInjectionScanRule.testPhpInjection(CodeInjectionScanRule.java:211)
+	at org.zaproxy.zap.extension.ascanrules.CodeInjectionScanRule.scan(CodeInjectionScanRule.java:184)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:25:33,392 [ZAP-ActiveScanner-7] ERROR CodeInjectionScanRule - Error occurred while scanning a message:
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.CodeInjectionScanRule.testPhpInjection(CodeInjectionScanRule.java:211)
+	at org.zaproxy.zap.extension.ascanrules.CodeInjectionScanRule.scan(CodeInjectionScanRule.java:184)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:25:37,947 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | CodeInjectionScanRule in 24.789s with 2608 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:25:37,948 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | CommandInjectionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:25:38,016 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | CodeInjectionScanRule in 24.149s with 2608 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:25:38,016 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | CommandInjectionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:26:19,992 [ZAP-ActiveScanner-5] ERROR CommandInjectionScanRule - Error occurred while scanning a message:
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.CommandInjectionScanRule.testCommandInjection(CommandInjectionScanRule.java:370)
+	at org.zaproxy.zap.extension.ascanrules.CommandInjectionScanRule.scan(CommandInjectionScanRule.java:314)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:26:21,241 [ZAP-ActiveScanner-4] ERROR CommandInjectionScanRule - Error occurred while scanning a message:
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.CommandInjectionScanRule.testCommandInjection(CommandInjectionScanRule.java:370)
+	at org.zaproxy.zap.extension.ascanrules.CommandInjectionScanRule.scan(CommandInjectionScanRule.java:314)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:26:36,052 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | CommandInjectionScanRule in 58.036s with 6194 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:26:36,053 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | XpathInjectionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:26:36,124 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | CommandInjectionScanRule in 58.176s with 6194 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:26:36,124 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | XpathInjectionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:26:42,764 [ZAP-ActiveScanner-3] ERROR XpathInjectionScanRule - Error occurred while scanning a message:
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.XpathInjectionScanRule.scan(XpathInjectionScanRule.java:207)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:26:43,032 [ZAP-ActiveScanner-2] ERROR XpathInjectionScanRule - Error occurred while scanning a message:
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.XpathInjectionScanRule.scan(XpathInjectionScanRule.java:207)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:26:45,126 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | XpathInjectionScanRule in 9.073s with 978 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:26:45,126 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | XxeScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:26:45,171 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | XxeScanRule in 0.045s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:26:45,171 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | PaddingOracleScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:26:45,359 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | PaddingOracleScanRule in 0.188s with 16 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:26:45,359 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | CloudMetadataScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:26:45,359 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | SstiScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:26:45,550 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | CloudMetadataScanRule in 0.191s with 13 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:26:45,580 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | XpathInjectionScanRule in 9.456s with 978 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:26:45,580 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | XxeScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:26:45,898 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | XxeScanRule in 0.318s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:26:45,898 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | PaddingOracleScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:26:46,691 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | PaddingOracleScanRule in 0.793s with 16 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:26:46,691 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | CloudMetadataScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:26:46,692 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | SstiScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:26:47,001 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | CloudMetadataScanRule in 0.31s with 13 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:27:17,163 [ZAP-ActiveScanner-4] ERROR SstiScanRule - Error occurred while scanning a message:
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.SstiScanRule.searchForMathsExecution(SstiScanRule.java:399)
+	at org.zaproxy.zap.extension.ascanrules.SstiScanRule.reliableScan(SstiScanRule.java:298)
+	at org.zaproxy.zap.extension.ascanrules.SstiScanRule.scan(SstiScanRule.java:190)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:27:19,609 [ZAP-ActiveScanner-4] ERROR SstiScanRule - Error occurred while scanning a message:
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.SstiScanRule.searchForMathsExecution(SstiScanRule.java:399)
+	at org.zaproxy.zap.extension.ascanrules.SstiScanRule.reliableScan(SstiScanRule.java:298)
+	at org.zaproxy.zap.extension.ascanrules.SstiScanRule.scan(SstiScanRule.java:190)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:27:28,572 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | SstiScanRule in 43.213s with 4564 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:27:28,572 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | SstiBlindScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:27:28,814 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | SstiScanRule in 42.122s with 4564 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:27:28,814 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | SstiBlindScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:27:57,211 [ZAP-ActiveScanner-4] ERROR SstiBlindScanRule - Error occurred while scanning a message:
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.SstiBlindScanRule.lambda$checkIfCausesTimeDelay$0(SstiBlindScanRule.java:257)
+	at org.zaproxy.addon.commonlib.timing.TimingUtils.sendRequestAndTestConfidence(TimingUtils.java:125)
+	at org.zaproxy.addon.commonlib.timing.TimingUtils.checkTimingDependence(TimingUtils.java:91)
+	at org.zaproxy.zap.extension.ascanrules.SstiBlindScanRule.checkIfCausesTimeDelay(SstiBlindScanRule.java:267)
+	at org.zaproxy.zap.extension.ascanrules.SstiBlindScanRule.timeBasedTests(SstiBlindScanRule.java:232)
+	at org.zaproxy.zap.extension.ascanrules.SstiBlindScanRule.scan(SstiBlindScanRule.java:200)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:27:57,311 [ZAP-ActiveScanner-5] ERROR SstiBlindScanRule - Error occurred while scanning a message:
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.SstiBlindScanRule.lambda$checkIfCausesTimeDelay$0(SstiBlindScanRule.java:257)
+	at org.zaproxy.addon.commonlib.timing.TimingUtils.sendRequestAndTestConfidence(TimingUtils.java:125)
+	at org.zaproxy.addon.commonlib.timing.TimingUtils.checkTimingDependence(TimingUtils.java:91)
+	at org.zaproxy.zap.extension.ascanrules.SstiBlindScanRule.checkIfCausesTimeDelay(SstiBlindScanRule.java:267)
+	at org.zaproxy.zap.extension.ascanrules.SstiBlindScanRule.timeBasedTests(SstiBlindScanRule.java:232)
+	at org.zaproxy.zap.extension.ascanrules.SstiBlindScanRule.scan(SstiBlindScanRule.java:200)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:28:05,206 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | SstiBlindScanRule in 36.634s with 3912 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:28:05,206 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | CommandInjectionTimingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:28:05,355 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | SstiBlindScanRule in 36.541s with 3912 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:28:05,355 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | CommandInjectionTimingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:28:41,898 [ZAP-ActiveScanner-4] ERROR CommandInjectionTimingScanRule - Error occurred while scanning a message:
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.CommandInjectionTimingScanRule.lambda$testCommandInjection$0(CommandInjectionTimingScanRule.java:268)
+	at org.zaproxy.addon.commonlib.timing.TimingUtils.sendRequestAndTestConfidence(TimingUtils.java:125)
+	at org.zaproxy.addon.commonlib.timing.TimingUtils.checkTimingDependence(TimingUtils.java:91)
+	at org.zaproxy.zap.extension.ascanrules.CommandInjectionTimingScanRule.testCommandInjection(CommandInjectionTimingScanRule.java:280)
+	at org.zaproxy.zap.extension.ascanrules.CommandInjectionTimingScanRule.scan(CommandInjectionTimingScanRule.java:210)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:28:42,272 [ZAP-ActiveScanner-4] ERROR CommandInjectionTimingScanRule - Error occurred while scanning a message:
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.CommandInjectionTimingScanRule.lambda$testCommandInjection$0(CommandInjectionTimingScanRule.java:268)
+	at org.zaproxy.addon.commonlib.timing.TimingUtils.sendRequestAndTestConfidence(TimingUtils.java:125)
+	at org.zaproxy.addon.commonlib.timing.TimingUtils.checkTimingDependence(TimingUtils.java:91)
+	at org.zaproxy.zap.extension.ascanrules.CommandInjectionTimingScanRule.testCommandInjection(CommandInjectionTimingScanRule.java:280)
+	at org.zaproxy.zap.extension.ascanrules.CommandInjectionTimingScanRule.scan(CommandInjectionTimingScanRule.java:210)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:28:53,937 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | CommandInjectionTimingScanRule in 48.582s with 5216 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:28:53,937 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | DirectoryBrowsingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:28:54,531 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | CommandInjectionTimingScanRule in 49.324s with 5216 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:28:54,531 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | DirectoryBrowsingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:28:55,291 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | DirectoryBrowsingScanRule in 1.354s with 101 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:28:55,292 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | HttpOnlySiteScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:28:55,292 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | BufferOverflowScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:28:55,309 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | HttpOnlySiteScanRule in 0.017s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:28:56,292 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | DirectoryBrowsingScanRule in 1.761s with 101 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:28:56,292 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | HttpOnlySiteScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:28:56,293 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | BufferOverflowScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:28:56,306 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | HttpOnlySiteScanRule in 0.014s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:28:57,442 [ZAP-ActiveScanner-5] ERROR BufferOverflowScanRule - Error occurred while scanning a message:
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.BufferOverflowScanRule.scan(BufferOverflowScanRule.java:132)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:28:58,481 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | BufferOverflowScanRule in 3.189s with 326 message(s) sent and 8 alert(s) raised.
+2026-11-04 07:28:58,482 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | FormatStringScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:28:58,995 [ZAP-ActiveScanner-0] ERROR BufferOverflowScanRule - Error occurred while scanning a message:
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.BufferOverflowScanRule.scan(BufferOverflowScanRule.java:132)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:28:59,720 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | BufferOverflowScanRule in 3.427s with 326 message(s) sent and 8 alert(s) raised.
+2026-11-04 07:28:59,720 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | FormatStringScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:29:04,626 [ZAP-ActiveScanner-6] ERROR FormatStringScanRule - Error occurred while scanning a message:
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.FormatStringScanRule.scan(FormatStringScanRule.java:160)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:29:06,115 [ZAP-ActiveScanner-4] ERROR FormatStringScanRule - Error occurred while scanning a message:
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.FormatStringScanRule.scan(FormatStringScanRule.java:160)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:29:07,515 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | FormatStringScanRule in 9.033s with 766 message(s) sent and 2 alert(s) raised.
+2026-11-04 07:29:07,515 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | CrlfInjectionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:29:07,740 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | FormatStringScanRule in 8.02s with 782 message(s) sent and 3 alert(s) raised.
+2026-11-04 07:29:07,740 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | CrlfInjectionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:29:23,428 [ZAP-ActiveScanner-0] ERROR CrlfInjectionScanRule - Error occurred while scanning a message:
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.CrlfInjectionScanRule.scan(CrlfInjectionScanRule.java:134)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:29:23,778 [ZAP-ActiveScanner-6] ERROR CrlfInjectionScanRule - Error occurred while scanning a message:
+java.lang.IndexOutOfBoundsException: Index -1 out of bounds for length 1
+	at java.base/jdk.internal.util.Preconditions.outOfBounds(Preconditions.java:64)
+	at java.base/jdk.internal.util.Preconditions.outOfBoundsCheckIndex(Preconditions.java:70)
+	at java.base/jdk.internal.util.Preconditions.checkIndex(Preconditions.java:266)
+	at java.base/java.util.Objects.checkIndex(Objects.java:361)
+	at java.base/java.util.ArrayList.get(ArrayList.java:427)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:275)
+	at org.parosproxy.paros.core.scanner.VariantMultipartFormParameters.setParameter(VariantMultipartFormParameters.java:243)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.setParameter(AbstractAppParamPlugin.java:247)
+	at org.zaproxy.zap.extension.ascanrules.CrlfInjectionScanRule.scan(CrlfInjectionScanRule.java:134)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:233)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:136)
+	at org.parosproxy.paros.core.scanner.AbstractAppParamPlugin.scan(AbstractAppParamPlugin.java:96)
+	at org.parosproxy.paros.core.scanner.AbstractPlugin.run(AbstractPlugin.java:402)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2026-11-04 07:29:28,167 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | CrlfInjectionScanRule in 20.652s with 2282 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:29:28,167 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | ParameterTamperScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:29:28,630 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | CrlfInjectionScanRule in 20.89s with 2282 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:29:28,630 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | ParameterTamperScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:29:42,766 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | ParameterTamperScanRule in 14.136s with 1102 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:29:42,767 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | ElmahScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:29:42,772 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | TraceAxdScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:29:42,775 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | ElmahScanRule in 0.008s with 1 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:29:42,851 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | TraceAxdScanRule in 0.079s with 26 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:29:42,851 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | HtAccessScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:29:42,904 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | HtAccessScanRule in 0.053s with 25 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:29:42,905 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | EnvFileScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:29:42,968 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | EnvFileScanRule in 0.064s with 25 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:29:42,968 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | HiddenFilesScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:29:42,973 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | SpringActuatorScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:29:42,974 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | ExponentialEntityExpansionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:29:42,982 [ZAP-ActiveScanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | SpringActuatorScanRule in 0.009s with 2 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:29:43,123 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | HiddenFilesScanRule in 0.155s with 52 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:29:43,123 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | ExponentialEntityExpansionScanRule in 0.149s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:29:43,123 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | XsltInjectionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:29:43,352 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | ParameterTamperScanRule in 15.185s with 1150 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:29:43,352 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | ElmahScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:29:43,353 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | TraceAxdScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:29:43,367 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | ElmahScanRule in 0.015s with 1 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:29:43,748 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | TraceAxdScanRule in 0.396s with 25 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:29:43,748 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | HtAccessScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:29:44,259 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | HtAccessScanRule in 0.511s with 25 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:29:44,259 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | EnvFileScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:29:44,476 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | EnvFileScanRule in 0.217s with 25 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:29:44,478 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | HiddenFilesScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:29:44,486 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | SpringActuatorScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:29:44,487 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | ExponentialEntityExpansionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:29:44,563 [ZAP-ActiveScanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | SpringActuatorScanRule in 0.078s with 2 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:29:44,985 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | HiddenFilesScanRule in 0.507s with 52 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:29:44,986 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | ExponentialEntityExpansionScanRule in 0.499s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:29:44,986 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | XsltInjectionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:29:48,969 [ZAP-ActiveScanner-6] WARN  XsltInjectionScanRule - An error occurred while checking [POST] [http://localhost:3000/upload-and-scan/91a1acb3-ded1-48a7-a4ed-cd70c226765a] for XSLT Injection. Caught java.lang.IndexOutOfBoundsException Index -1 out of bounds for length 1
+2026-11-04 07:29:48,970 [ZAP-ActiveScanner-6] WARN  XsltInjectionScanRule - An error occurred while checking [POST] [http://localhost:3000/upload-and-scan/91a1acb3-ded1-48a7-a4ed-cd70c226765a] for XSLT Injection. Caught java.lang.IndexOutOfBoundsException Index -1 out of bounds for length 1
+2026-11-04 07:29:48,970 [ZAP-ActiveScanner-6] WARN  XsltInjectionScanRule - An error occurred while checking [POST] [http://localhost:3000/upload-and-scan/91a1acb3-ded1-48a7-a4ed-cd70c226765a] for XSLT Injection. Caught java.lang.IndexOutOfBoundsException Index -1 out of bounds for length 1
+2026-11-04 07:29:48,970 [ZAP-ActiveScanner-6] WARN  XsltInjectionScanRule - An error occurred while checking [POST] [http://localhost:3000/upload-and-scan/91a1acb3-ded1-48a7-a4ed-cd70c226765a] for XSLT Injection. Caught java.lang.IndexOutOfBoundsException Index -1 out of bounds for length 1
+2026-11-04 07:29:48,971 [ZAP-ActiveScanner-6] WARN  XsltInjectionScanRule - An error occurred while checking [POST] [http://localhost:3000/upload-and-scan/91a1acb3-ded1-48a7-a4ed-cd70c226765a] for XSLT Injection. Caught java.lang.IndexOutOfBoundsException Index -1 out of bounds for length 1
+2026-11-04 07:29:48,971 [ZAP-ActiveScanner-6] WARN  XsltInjectionScanRule - An error occurred while checking [POST] [http://localhost:3000/upload-and-scan/91a1acb3-ded1-48a7-a4ed-cd70c226765a] for XSLT Injection. Caught java.lang.IndexOutOfBoundsException Index -1 out of bounds for length 1
+2026-11-04 07:29:48,971 [ZAP-ActiveScanner-6] WARN  XsltInjectionScanRule - An error occurred while checking [POST] [http://localhost:3000/upload-and-scan/91a1acb3-ded1-48a7-a4ed-cd70c226765a] for XSLT Injection. Caught java.lang.IndexOutOfBoundsException Index -1 out of bounds for length 1
+2026-11-04 07:29:48,971 [ZAP-ActiveScanner-6] WARN  XsltInjectionScanRule - An error occurred while checking [POST] [http://localhost:3000/upload-and-scan/91a1acb3-ded1-48a7-a4ed-cd70c226765a] for XSLT Injection. Caught java.lang.IndexOutOfBoundsException Index -1 out of bounds for length 1
+2026-11-04 07:29:51,487 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | XsltInjectionScanRule in 8.363s with 996 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:29:51,487 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | HttpsAsHttpScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:29:51,601 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | HttpsAsHttpScanRule in 0.114s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:29:51,601 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | GetForPostScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:29:51,884 [ZAP-ActiveScanner-5] WARN  XsltInjectionScanRule - An error occurred while checking [POST] [http://localhost:3000/upload-and-scan/91a1acb3-ded1-48a7-a4ed-cd70c226765a] for XSLT Injection. Caught java.lang.IndexOutOfBoundsException Index -1 out of bounds for length 1
+2026-11-04 07:29:51,885 [ZAP-ActiveScanner-5] WARN  XsltInjectionScanRule - An error occurred while checking [POST] [http://localhost:3000/upload-and-scan/91a1acb3-ded1-48a7-a4ed-cd70c226765a] for XSLT Injection. Caught java.lang.IndexOutOfBoundsException Index -1 out of bounds for length 1
+2026-11-04 07:29:51,885 [ZAP-ActiveScanner-5] WARN  XsltInjectionScanRule - An error occurred while checking [POST] [http://localhost:3000/upload-and-scan/91a1acb3-ded1-48a7-a4ed-cd70c226765a] for XSLT Injection. Caught java.lang.IndexOutOfBoundsException Index -1 out of bounds for length 1
+2026-11-04 07:29:51,885 [ZAP-ActiveScanner-5] WARN  XsltInjectionScanRule - An error occurred while checking [POST] [http://localhost:3000/upload-and-scan/91a1acb3-ded1-48a7-a4ed-cd70c226765a] for XSLT Injection. Caught java.lang.IndexOutOfBoundsException Index -1 out of bounds for length 1
+2026-11-04 07:29:51,885 [ZAP-ActiveScanner-5] WARN  XsltInjectionScanRule - An error occurred while checking [POST] [http://localhost:3000/upload-and-scan/91a1acb3-ded1-48a7-a4ed-cd70c226765a] for XSLT Injection. Caught java.lang.IndexOutOfBoundsException Index -1 out of bounds for length 1
+2026-11-04 07:29:51,885 [ZAP-ActiveScanner-5] WARN  XsltInjectionScanRule - An error occurred while checking [POST] [http://localhost:3000/upload-and-scan/91a1acb3-ded1-48a7-a4ed-cd70c226765a] for XSLT Injection. Caught java.lang.IndexOutOfBoundsException Index -1 out of bounds for length 1
+2026-11-04 07:29:51,886 [ZAP-ActiveScanner-5] WARN  XsltInjectionScanRule - An error occurred while checking [POST] [http://localhost:3000/upload-and-scan/91a1acb3-ded1-48a7-a4ed-cd70c226765a] for XSLT Injection. Caught java.lang.IndexOutOfBoundsException Index -1 out of bounds for length 1
+2026-11-04 07:29:51,886 [ZAP-ActiveScanner-5] WARN  XsltInjectionScanRule - An error occurred while checking [POST] [http://localhost:3000/upload-and-scan/91a1acb3-ded1-48a7-a4ed-cd70c226765a] for XSLT Injection. Caught java.lang.IndexOutOfBoundsException Index -1 out of bounds for length 1
+2026-11-04 07:29:52,661 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | GetForPostScanRule in 1.06s with 37 message(s) sent and 4 alert(s) raised.
+2026-11-04 07:29:52,661 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | UserAgentScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:29:54,305 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | XsltInjectionScanRule in 9.319s with 996 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:29:54,306 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | HttpsAsHttpScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:29:54,504 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | HttpsAsHttpScanRule in 0.199s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:29:54,504 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | GetForPostScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:29:55,661 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | GetForPostScanRule in 1.157s with 37 message(s) sent and 4 alert(s) raised.
+2026-11-04 07:29:55,662 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | UserAgentScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:30:04,929 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | UserAgentScanRule in 12.268s with 1212 message(s) sent and 588 alert(s) raised.
+2026-11-04 07:30:04,930 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | ScriptsActiveScanner strength MEDIUM threshold MEDIUM
+2026-11-04 07:30:07,896 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | UserAgentScanRule in 12.235s with 1212 message(s) sent and 588 alert(s) raised.
+2026-11-04 07:30:07,898 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | ScriptsActiveScanner strength MEDIUM threshold MEDIUM
+2026-11-04 07:30:10,795 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | ScriptsActiveScanner in 5.865s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:30:10,795 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | SOAPActionSpoofingActiveScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:30:10,979 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | SOAPActionSpoofingActiveScanRule in 0.184s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:30:10,979 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | SOAPXMLInjectionActiveScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:30:11,104 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | SOAPXMLInjectionActiveScanRule in 0.125s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:30:11,105 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3000 | ActiveScriptScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:30:11,794 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | ScriptsActiveScanner in 3.896s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:30:11,794 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | SOAPActionSpoofingActiveScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:30:11,911 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | SOAPActionSpoofingActiveScanRule in 0.117s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:30:11,911 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | SOAPXMLInjectionActiveScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:30:12,321 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | SOAPXMLInjectionActiveScanRule in 0.41s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:30:12,321 [ZAP-Scanner-1] INFO  HostProcess - start host http://localhost:3000 | ActiveScriptScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:30:15,027 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3000 | ActiveScriptScanRule in 3.922s with 12 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:30:15,027 [ZAP-Scanner-0] INFO  HostProcess - completed host http://localhost:3000 in 657.25s with 621 alert(s) raised.
+2026-11-04 07:30:15,196 [ZAP-Scanner-1] INFO  HostProcess - completed host/plugin http://localhost:3000 | ActiveScriptScanRule in 2.875s with 12 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:30:15,196 [ZAP-Scanner-1] INFO  HostProcess - completed host http://localhost:3000 in 657.414s with 625 alert(s) raised.
+2026-11-04 07:30:15,197 [Thread-668] INFO  Scanner - scanner with ID 0 completed in 657.425s
+2026-11-04 07:30:15,935 [ZAP-Automation] INFO  CommandLine - Job activeScan finished, time taken: 00:10:58
+2026-11-04 07:30:15,936 [ZAP-Automation] INFO  CommandLine - Job activeScan started
+2026-11-04 07:30:15,939 [ZAP-Automation] INFO  CommandLine - Job activeScan set default strength to MEDIUM
+2026-11-04 07:30:15,939 [ZAP-Automation] INFO  CommandLine - Job activeScan set default threshold to MEDIUM
+2026-11-04 07:30:15,939 [ZAP-Automation] INFO  CommandLine - Job activeScan set rule 40026 threshold to OFF
+2026-11-04 07:30:15,939 [ZAP-Automation] INFO  Scanner - scanner with ID 1 started
+2026-11-04 07:30:15,998 [ZAP-Scanner-0] INFO  HostProcess - Scanning 17 node(s) from http://localhost:3001
+2026-11-04 07:30:15,998 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | PathTraversalScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:30:46,504 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | PathTraversalScanRule in 30.506s with 198 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:30:46,505 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | RemoteFileIncludeScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:30:57,023 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | RemoteFileIncludeScanRule in 10.517s with 120 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:30:57,023 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | SourceCodeDisclosureWebInfScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:30:57,023 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | ShellShockScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:30:57,675 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | SourceCodeDisclosureWebInfScanRule in 0.652s with 296 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:30:59,318 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | ShellShockScanRule in 2.294s with 24 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:30:59,318 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | HeartBleedActiveScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:30:59,318 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | SourceCodeDisclosureCve20121823ScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:30:59,328 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | HeartBleedActiveScanRule in 0.01s with 3 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:30:59,371 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | SourceCodeDisclosureCve20121823ScanRule in 0.053s with 14 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:30:59,371 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | RemoteCodeExecutionCve20121823ScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:30:59,614 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | RemoteCodeExecutionCve20121823ScanRule in 0.243s with 34 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:30:59,614 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | ExternalRedirectScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:31:09,090 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | ExternalRedirectScanRule in 9.475s with 108 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:31:09,090 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | ServerSideIncludeScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:31:17,265 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | ServerSideIncludeScanRule in 8.174s with 48 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:31:17,265 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | CrossSiteScriptingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:31:27,408 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | CrossSiteScriptingScanRule in 10.143s with 60 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:31:27,409 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | PersistentXssPrimeScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:31:28,666 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | PersistentXssPrimeScanRule in 1.257s with 12 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:31:28,666 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | PersistentXssSpiderScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:31:29,917 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | PersistentXssSpiderScanRule in 1.251s with 19 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:31:29,917 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | PersistentXssScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:31:29,928 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | PersistentXssScanRule in 0.011s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:31:29,928 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | SqlInjectionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:32:01,762 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | SqlInjectionScanRule in 31.834s with 296 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:32:01,762 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | SqlInjectionMySqlTimingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:32:12,221 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | SqlInjectionMySqlTimingScanRule in 10.458s with 120 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:32:12,221 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | SqlInjectionHypersonicTimingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:32:22,566 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | SqlInjectionHypersonicTimingScanRule in 10.345s with 120 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:32:22,566 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | SqlInjectionOracleTimingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:32:27,763 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | SqlInjectionOracleTimingScanRule in 5.197s with 60 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:32:27,763 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | SqlInjectionPostgreSqlTimingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:32:33,143 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | SqlInjectionPostgreSqlTimingScanRule in 5.38s with 60 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:32:33,143 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | SqlInjectionMsSqlTimingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:32:43,445 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | SqlInjectionMsSqlTimingScanRule in 10.302s with 120 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:32:43,446 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | Log4ShellScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:32:43,446 [ZAP-Scanner-0] INFO  HostProcess - skipped plugin [no Active Scan OAST service is selected] http://localhost:3001 | Log4ShellScanRule in 0s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:32:43,447 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | Spring4ShellScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:32:47,496 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | Spring4ShellScanRule in 4.049s with 39 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:32:47,497 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | React2ShellScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:32:47,497 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | CodeInjectionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:32:47,500 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | React2ShellScanRule in 0.003s with 1 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:32:55,925 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | CodeInjectionScanRule in 8.427s with 96 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:32:55,925 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | CommandInjectionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:33:15,695 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | CommandInjectionScanRule in 19.769s with 228 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:33:15,695 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | XpathInjectionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:33:18,789 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | XpathInjectionScanRule in 3.094s with 36 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:33:18,789 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | XxeScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:33:18,799 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | XxeScanRule in 0.01s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:33:18,799 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | PaddingOracleScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:33:18,826 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | PaddingOracleScanRule in 0.027s with 2 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:33:18,827 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | CloudMetadataScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:33:18,827 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | SstiScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:33:18,866 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | CloudMetadataScanRule in 0.039s with 13 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:33:33,389 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | SstiScanRule in 14.562s with 168 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:33:33,390 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | SstiBlindScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:33:46,047 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | SstiBlindScanRule in 12.657s with 144 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:33:46,047 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | CommandInjectionTimingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:34:02,570 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | CommandInjectionTimingScanRule in 16.523s with 192 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:34:02,571 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | DirectoryBrowsingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:34:04,643 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | DirectoryBrowsingScanRule in 2.072s with 19 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:34:04,643 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | HttpOnlySiteScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:34:04,644 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | BufferOverflowScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:34:04,653 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | HttpOnlySiteScanRule in 0.01s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:34:06,687 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | BufferOverflowScanRule in 2.043s with 12 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:34:06,687 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | FormatStringScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:34:12,776 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | FormatStringScanRule in 6.089s with 26 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:34:12,776 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | CrlfInjectionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:34:20,028 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | CrlfInjectionScanRule in 7.252s with 84 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:34:20,028 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | ParameterTamperScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:34:34,210 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | ParameterTamperScanRule in 14.182s with 60 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:34:34,210 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | ElmahScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:34:34,211 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | TraceAxdScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:34:34,214 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | ElmahScanRule in 0.004s with 1 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:34:34,225 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | TraceAxdScanRule in 0.014s with 3 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:34:34,225 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | HtAccessScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:34:34,238 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | HtAccessScanRule in 0.013s with 3 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:34:34,239 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | EnvFileScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:34:34,251 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | EnvFileScanRule in 0.012s with 3 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:34:34,251 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | HiddenFilesScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:34:34,254 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | SpringActuatorScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:34:34,254 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | ExponentialEntityExpansionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:34:34,261 [ZAP-ActiveScanner-1] INFO  HostProcess - completed host/plugin http://localhost:3001 | SpringActuatorScanRule in 0.007s with 2 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:34:34,370 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | HiddenFilesScanRule in 0.119s with 52 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:34:34,370 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | ExponentialEntityExpansionScanRule in 0.116s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:34:34,370 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | XsltInjectionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:34:50,572 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | XsltInjectionScanRule in 16.202s with 88 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:34:50,572 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | HttpsAsHttpScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:34:50,583 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | HttpsAsHttpScanRule in 0.011s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:34:50,583 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | GetForPostScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:34:51,595 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | GetForPostScanRule in 1.012s with 2 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:34:51,596 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | UserAgentScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:16,394 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | UserAgentScanRule in 24.798s with 228 message(s) sent and 84 alert(s) raised.
+2026-11-04 07:35:16,395 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | ScriptsActiveScanner strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:16,851 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | ScriptsActiveScanner in 0.456s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:16,851 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | SOAPActionSpoofingActiveScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:16,867 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | SOAPActionSpoofingActiveScanRule in 0.016s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:16,867 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | SOAPXMLInjectionActiveScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:16,885 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | SOAPXMLInjectionActiveScanRule in 0.018s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:16,886 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3001 | ActiveScriptScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:17,210 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3001 | ActiveScriptScanRule in 0.324s with 12 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:17,210 [ZAP-Scanner-0] INFO  HostProcess - completed host http://localhost:3001 in 301.267s with 84 alert(s) raised.
+2026-11-04 07:35:17,210 [Thread-6107] INFO  Scanner - scanner with ID 1 completed in 301.27s
+2026-11-04 07:35:17,571 [ZAP-Automation] INFO  CommandLine - Job activeScan finished, time taken: 00:05:01
+2026-11-04 07:35:17,571 [ZAP-Automation] INFO  CommandLine - Job activeScan started
+2026-11-04 07:35:17,574 [ZAP-Automation] INFO  CommandLine - Job activeScan set default strength to MEDIUM
+2026-11-04 07:35:17,574 [ZAP-Automation] INFO  CommandLine - Job activeScan set default threshold to MEDIUM
+2026-11-04 07:35:17,574 [ZAP-Automation] INFO  CommandLine - Job activeScan set rule 40026 threshold to OFF
+2026-11-04 07:35:17,574 [ZAP-Automation] INFO  Scanner - scanner with ID 2 started
+2026-11-04 07:35:17,617 [ZAP-Scanner-0] INFO  HostProcess - Scanning 15 node(s) from http://localhost:3002
+2026-11-04 07:35:17,617 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | PathTraversalScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:21,597 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | PathTraversalScanRule in 3.98s with 483 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:21,597 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | RemoteFileIncludeScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:23,105 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | RemoteFileIncludeScanRule in 1.508s with 310 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:23,106 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | SourceCodeDisclosureWebInfScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:23,106 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | ShellShockScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:23,732 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | SourceCodeDisclosureWebInfScanRule in 0.626s with 297 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:23,733 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | ShellShockScanRule in 0.627s with 62 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:23,733 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | HeartBleedActiveScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:23,733 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | SourceCodeDisclosureCve20121823ScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:23,739 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | HeartBleedActiveScanRule in 0.006s with 3 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:23,756 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | SourceCodeDisclosureCve20121823ScanRule in 0.023s with 9 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:23,756 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | RemoteCodeExecutionCve20121823ScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:23,806 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | RemoteCodeExecutionCve20121823ScanRule in 0.05s with 30 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:23,806 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | ExternalRedirectScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:25,177 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | ExternalRedirectScanRule in 1.37s with 279 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:25,177 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | ServerSideIncludeScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:25,956 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | ServerSideIncludeScanRule in 0.779s with 124 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:25,956 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | CrossSiteScriptingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:27,284 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | CrossSiteScriptingScanRule in 1.327s with 155 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:27,284 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | PersistentXssPrimeScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:27,446 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | PersistentXssPrimeScanRule in 0.162s with 31 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:27,446 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | PersistentXssSpiderScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:27,505 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | PersistentXssSpiderScanRule in 0.059s with 17 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:27,505 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | PersistentXssScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:27,522 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | PersistentXssScanRule in 0.017s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:27,522 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | SqlInjectionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:30,705 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | SqlInjectionScanRule in 3.183s with 682 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:30,705 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | SqlInjectionMySqlTimingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:32,084 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | SqlInjectionMySqlTimingScanRule in 1.379s with 310 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:32,084 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | SqlInjectionHypersonicTimingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:33,554 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | SqlInjectionHypersonicTimingScanRule in 1.47s with 310 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:33,555 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | SqlInjectionOracleTimingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:34,220 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | SqlInjectionOracleTimingScanRule in 0.666s with 155 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:34,220 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | SqlInjectionPostgreSqlTimingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:34,961 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | SqlInjectionPostgreSqlTimingScanRule in 0.741s with 155 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:34,961 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | SqlInjectionMsSqlTimingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:36,338 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | SqlInjectionMsSqlTimingScanRule in 1.377s with 310 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:36,339 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | Log4ShellScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:36,340 [ZAP-Scanner-0] INFO  HostProcess - skipped plugin [no Active Scan OAST service is selected] http://localhost:3002 | Log4ShellScanRule in 0.001s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:36,340 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | Spring4ShellScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:36,588 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | Spring4ShellScanRule in 0.248s with 35 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:36,588 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | React2ShellScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:36,589 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | CodeInjectionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:36,591 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | React2ShellScanRule in 0.003s with 1 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:38,132 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | CodeInjectionScanRule in 1.543s with 248 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:38,132 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | CommandInjectionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:40,679 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | CommandInjectionScanRule in 2.547s with 589 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:40,679 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | XpathInjectionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:41,160 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | XpathInjectionScanRule in 0.481s with 93 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:41,161 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | XxeScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:41,173 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | XxeScanRule in 0.012s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:41,173 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | PaddingOracleScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:41,211 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | PaddingOracleScanRule in 0.038s with 2 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:41,211 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | CloudMetadataScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:41,212 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | SstiScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:41,263 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | CloudMetadataScanRule in 0.052s with 13 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:43,342 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | SstiScanRule in 2.13s with 434 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:43,342 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | SstiBlindScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:44,852 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | SstiBlindScanRule in 1.51s with 372 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:44,852 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | CommandInjectionTimingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:46,982 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | CommandInjectionTimingScanRule in 2.13s with 496 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:46,982 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | DirectoryBrowsingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:47,069 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | DirectoryBrowsingScanRule in 0.087s with 17 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:47,070 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | HttpOnlySiteScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:47,070 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | BufferOverflowScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:47,080 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | HttpOnlySiteScanRule in 0.01s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:47,418 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | BufferOverflowScanRule in 0.348s with 31 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:47,418 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | FormatStringScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:48,232 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | FormatStringScanRule in 0.814s with 93 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:48,232 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | CrlfInjectionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:49,176 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | CrlfInjectionScanRule in 0.944s with 217 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:49,176 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | ParameterTamperScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:50,483 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | ParameterTamperScanRule in 1.307s with 169 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:50,483 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | ElmahScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:50,484 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | TraceAxdScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:50,486 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | ElmahScanRule in 0.003s with 1 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:50,502 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | TraceAxdScanRule in 0.018s with 6 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:50,503 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | HtAccessScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:50,519 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | HtAccessScanRule in 0.016s with 6 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:50,519 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | EnvFileScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:50,536 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | EnvFileScanRule in 0.017s with 6 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:50,537 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | HiddenFilesScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:50,539 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | SpringActuatorScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:50,539 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | ExponentialEntityExpansionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:50,548 [ZAP-ActiveScanner-1] INFO  HostProcess - completed host/plugin http://localhost:3002 | SpringActuatorScanRule in 0.009s with 2 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:50,629 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | HiddenFilesScanRule in 0.093s with 52 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:50,629 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | ExponentialEntityExpansionScanRule in 0.09s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:50,629 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | XsltInjectionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:50,973 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | XsltInjectionScanRule in 0.344s with 80 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:50,974 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | HttpsAsHttpScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:50,988 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | HttpsAsHttpScanRule in 0.015s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:50,988 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | GetForPostScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:51,005 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | GetForPostScanRule in 0.017s with 2 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:51,005 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | UserAgentScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:51,867 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | UserAgentScanRule in 0.862s with 204 message(s) sent and 60 alert(s) raised.
+2026-11-04 07:35:51,867 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | ScriptsActiveScanner strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:52,141 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | ScriptsActiveScanner in 0.274s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:52,142 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | SOAPActionSpoofingActiveScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:52,158 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | SOAPActionSpoofingActiveScanRule in 0.016s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:52,158 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | SOAPXMLInjectionActiveScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:52,174 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | SOAPXMLInjectionActiveScanRule in 0.016s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:52,174 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:3002 | ActiveScriptScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:52,351 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:3002 | ActiveScriptScanRule in 0.177s with 12 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:52,351 [ZAP-Scanner-0] INFO  HostProcess - completed host http://localhost:3002 in 34.768s with 60 alert(s) raised.
+2026-11-04 07:35:52,351 [Thread-6849] INFO  Scanner - scanner with ID 2 completed in 34.777s
+2026-11-04 07:35:52,590 [ZAP-Automation] INFO  CommandLine - Job activeScan finished, time taken: 00:00:35
+2026-11-04 07:35:52,590 [ZAP-Automation] INFO  CommandLine - Job activeScan started
+2026-11-04 07:35:52,592 [ZAP-Automation] INFO  CommandLine - Job activeScan set default strength to MEDIUM
+2026-11-04 07:35:52,592 [ZAP-Automation] INFO  CommandLine - Job activeScan set default threshold to MEDIUM
+2026-11-04 07:35:52,592 [ZAP-Automation] INFO  CommandLine - Job activeScan set rule 40026 threshold to OFF
+2026-11-04 07:35:52,593 [ZAP-Automation] INFO  Scanner - scanner with ID 3 started
+2026-11-04 07:35:52,613 [ZAP-Scanner-0] INFO  HostProcess - Scanning 6 node(s) from http://localhost:8085
+2026-11-04 07:35:52,613 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | PathTraversalScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:52,703 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | PathTraversalScanRule in 0.09s with 36 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:52,703 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | RemoteFileIncludeScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:52,756 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | RemoteFileIncludeScanRule in 0.053s with 20 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:52,756 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | SourceCodeDisclosureWebInfScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:52,757 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | ShellShockScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:52,766 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | SourceCodeDisclosureWebInfScanRule in 0.01s with 6 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:52,773 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | ShellShockScanRule in 0.016s with 4 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:52,773 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | HeartBleedActiveScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:52,773 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | SourceCodeDisclosureCve20121823ScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:52,781 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | HeartBleedActiveScanRule in 0.008s with 3 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:52,787 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | SourceCodeDisclosureCve20121823ScanRule in 0.014s with 2 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:52,787 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | RemoteCodeExecutionCve20121823ScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:52,800 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | RemoteCodeExecutionCve20121823ScanRule in 0.013s with 12 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:52,800 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | ExternalRedirectScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:52,851 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | ExternalRedirectScanRule in 0.051s with 18 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:52,851 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | ServerSideIncludeScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:52,879 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | ServerSideIncludeScanRule in 0.028s with 8 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:52,880 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | CrossSiteScriptingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:52,920 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | CrossSiteScriptingScanRule in 0.04s with 10 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:52,921 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | PersistentXssPrimeScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:52,931 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | PersistentXssPrimeScanRule in 0.01s with 2 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:52,931 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | PersistentXssSpiderScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:52,946 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | PersistentXssSpiderScanRule in 0.015s with 6 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:52,946 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | PersistentXssScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:52,954 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | PersistentXssScanRule in 0.008s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:52,954 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | SqlInjectionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:53,068 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | SqlInjectionScanRule in 0.114s with 46 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:53,068 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | SqlInjectionMySqlTimingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:53,114 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | SqlInjectionMySqlTimingScanRule in 0.046s with 20 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:53,115 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | SqlInjectionHypersonicTimingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:53,158 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | SqlInjectionHypersonicTimingScanRule in 0.043s with 20 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:53,159 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | SqlInjectionOracleTimingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:53,182 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | SqlInjectionOracleTimingScanRule in 0.023s with 10 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:53,183 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | SqlInjectionPostgreSqlTimingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:53,207 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | SqlInjectionPostgreSqlTimingScanRule in 0.024s with 10 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:53,208 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | SqlInjectionMsSqlTimingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:53,258 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | SqlInjectionMsSqlTimingScanRule in 0.051s with 20 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:53,259 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | Log4ShellScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:53,259 [ZAP-Scanner-0] INFO  HostProcess - skipped plugin [no Active Scan OAST service is selected] http://localhost:8085 | Log4ShellScanRule in 0s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:53,259 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | Spring4ShellScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:53,276 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | Spring4ShellScanRule in 0.017s with 13 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:53,276 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | React2ShellScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:53,276 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | CodeInjectionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:53,280 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | React2ShellScanRule in 0.004s with 1 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:53,314 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | CodeInjectionScanRule in 0.038s with 16 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:53,314 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | CommandInjectionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:53,397 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | CommandInjectionScanRule in 0.083s with 38 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:53,397 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | XpathInjectionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:53,412 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | XpathInjectionScanRule in 0.015s with 6 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:53,412 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | XxeScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:53,419 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | XxeScanRule in 0.007s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:53,419 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | PaddingOracleScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:53,426 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | PaddingOracleScanRule in 0.007s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:53,426 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | CloudMetadataScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:53,427 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | SstiScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:53,466 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | CloudMetadataScanRule in 0.04s with 13 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:53,494 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | SstiScanRule in 0.067s with 28 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:53,494 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | SstiBlindScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:53,549 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | SstiBlindScanRule in 0.055s with 24 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:53,549 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | CommandInjectionTimingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:53,626 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | CommandInjectionTimingScanRule in 0.077s with 32 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:53,627 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | DirectoryBrowsingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:53,636 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | DirectoryBrowsingScanRule in 0.009s with 6 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:53,637 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | HttpOnlySiteScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:53,637 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | BufferOverflowScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:53,644 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | HttpOnlySiteScanRule in 0.007s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:53,646 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | BufferOverflowScanRule in 0.009s with 2 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:53,647 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | FormatStringScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:53,667 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | FormatStringScanRule in 0.021s with 6 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:53,667 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | CrlfInjectionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:53,727 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | CrlfInjectionScanRule in 0.06s with 14 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:53,727 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | ParameterTamperScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:53,782 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | ParameterTamperScanRule in 0.055s with 2 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:53,782 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | ElmahScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:53,783 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | TraceAxdScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:53,806 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | ElmahScanRule in 0.024s with 1 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:53,823 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | TraceAxdScanRule in 0.04s with 4 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:53,823 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | HtAccessScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:53,848 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | HtAccessScanRule in 0.024s with 4 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:53,848 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | EnvFileScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:53,863 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | EnvFileScanRule in 0.015s with 4 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:53,863 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | HiddenFilesScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:53,868 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | SpringActuatorScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:53,869 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | ExponentialEntityExpansionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:53,887 [ZAP-ActiveScanner-1] INFO  HostProcess - completed host/plugin http://localhost:8085 | SpringActuatorScanRule in 0.019s with 2 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:54,043 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | HiddenFilesScanRule in 0.18s with 52 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:54,044 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | ExponentialEntityExpansionScanRule in 0.175s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:54,044 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | XsltInjectionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:54,081 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | XsltInjectionScanRule in 0.037s with 12 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:54,081 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | HttpsAsHttpScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:54,093 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | HttpsAsHttpScanRule in 0.012s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:54,093 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | GetForPostScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:54,102 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | GetForPostScanRule in 0.009s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:54,102 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | UserAgentScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:54,240 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | UserAgentScanRule in 0.138s with 72 message(s) sent and 72 alert(s) raised.
+2026-11-04 07:35:54,240 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | ScriptsActiveScanner strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:54,269 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | ScriptsActiveScanner in 0.029s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:54,269 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | SOAPActionSpoofingActiveScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:54,277 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | SOAPActionSpoofingActiveScanRule in 0.008s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:54,278 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | SOAPXMLInjectionActiveScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:54,285 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | SOAPXMLInjectionActiveScanRule in 0.007s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:54,285 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8085 | ActiveScriptScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:54,690 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8085 | ActiveScriptScanRule in 0.405s with 12 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:54,690 [ZAP-Scanner-0] INFO  HostProcess - completed host http://localhost:8085 in 2.096s with 72 alert(s) raised.
+2026-11-04 07:35:54,690 [Thread-7505] INFO  Scanner - scanner with ID 3 completed in 2.097s
+2026-11-04 07:35:55,096 [ZAP-Automation] INFO  CommandLine - Job activeScan finished, time taken: 00:00:02
+2026-11-04 07:35:55,097 [ZAP-Automation] INFO  CommandLine - Job activeScan started
+2026-11-04 07:35:55,098 [ZAP-Automation] INFO  CommandLine - Job activeScan set default strength to MEDIUM
+2026-11-04 07:35:55,098 [ZAP-Automation] INFO  CommandLine - Job activeScan set default threshold to MEDIUM
+2026-11-04 07:35:55,098 [ZAP-Automation] INFO  CommandLine - Job activeScan set rule 40026 threshold to OFF
+2026-11-04 07:35:55,098 [ZAP-Automation] INFO  Scanner - scanner with ID 4 started
+2026-11-04 07:35:55,124 [ZAP-Scanner-0] INFO  HostProcess - Scanning 5 node(s) from http://localhost:8089
+2026-11-04 07:35:55,124 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | PathTraversalScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:55,186 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | PathTraversalScanRule in 0.062s with 30 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:55,186 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | RemoteFileIncludeScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:55,236 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | RemoteFileIncludeScanRule in 0.05s with 20 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:55,236 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | SourceCodeDisclosureWebInfScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:55,238 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | ShellShockScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:55,248 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | SourceCodeDisclosureWebInfScanRule in 0.012s with 6 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:55,257 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | ShellShockScanRule in 0.019s with 4 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:55,257 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | HeartBleedActiveScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:55,258 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | SourceCodeDisclosureCve20121823ScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:55,264 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | HeartBleedActiveScanRule in 0.007s with 3 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:55,268 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | SourceCodeDisclosureCve20121823ScanRule in 0.01s with 1 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:55,269 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | RemoteCodeExecutionCve20121823ScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:55,280 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | RemoteCodeExecutionCve20121823ScanRule in 0.012s with 10 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:55,280 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | ExternalRedirectScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:55,322 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | ExternalRedirectScanRule in 0.042s with 18 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:55,322 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | ServerSideIncludeScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:55,346 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | ServerSideIncludeScanRule in 0.024s with 8 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:55,346 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | CrossSiteScriptingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:55,373 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | CrossSiteScriptingScanRule in 0.027s with 10 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:55,374 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | PersistentXssPrimeScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:55,385 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | PersistentXssPrimeScanRule in 0.011s with 2 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:55,385 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | PersistentXssSpiderScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:55,395 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | PersistentXssSpiderScanRule in 0.01s with 5 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:55,395 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | PersistentXssScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:55,401 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | PersistentXssScanRule in 0.006s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:55,401 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | SqlInjectionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:55,488 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | SqlInjectionScanRule in 0.086s with 44 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:55,488 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | SqlInjectionMySqlTimingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:55,530 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | SqlInjectionMySqlTimingScanRule in 0.042s with 20 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:55,531 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | SqlInjectionHypersonicTimingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:55,573 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | SqlInjectionHypersonicTimingScanRule in 0.042s with 20 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:55,573 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | SqlInjectionOracleTimingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:55,598 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | SqlInjectionOracleTimingScanRule in 0.025s with 10 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:55,598 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | SqlInjectionPostgreSqlTimingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:55,623 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | SqlInjectionPostgreSqlTimingScanRule in 0.025s with 10 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:55,623 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | SqlInjectionMsSqlTimingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:55,668 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | SqlInjectionMsSqlTimingScanRule in 0.045s with 20 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:55,669 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | Log4ShellScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:55,670 [ZAP-Scanner-0] INFO  HostProcess - skipped plugin [no Active Scan OAST service is selected] http://localhost:8089 | Log4ShellScanRule in 0.002s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:55,670 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | Spring4ShellScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:55,685 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | Spring4ShellScanRule in 0.015s with 11 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:55,685 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | React2ShellScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:55,686 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | CodeInjectionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:55,707 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | React2ShellScanRule in 0.022s with 1 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:55,726 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | CodeInjectionScanRule in 0.04s with 16 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:55,726 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | CommandInjectionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:55,807 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | CommandInjectionScanRule in 0.081s with 38 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:55,808 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | XpathInjectionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:55,839 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | XpathInjectionScanRule in 0.031s with 6 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:55,840 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | XxeScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:55,862 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | XxeScanRule in 0.022s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:55,863 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | PaddingOracleScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:55,888 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | PaddingOracleScanRule in 0.026s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:55,888 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | CloudMetadataScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:55,897 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | SstiScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:55,948 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | CloudMetadataScanRule in 0.06s with 13 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:55,981 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | SstiScanRule in 0.083s with 28 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:55,981 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | SstiBlindScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:56,041 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | SstiBlindScanRule in 0.06s with 24 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:56,042 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | CommandInjectionTimingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:56,111 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | CommandInjectionTimingScanRule in 0.069s with 32 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:56,111 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | DirectoryBrowsingScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:56,123 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | DirectoryBrowsingScanRule in 0.011s with 5 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:56,123 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | HttpOnlySiteScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:56,124 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | BufferOverflowScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:56,130 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | HttpOnlySiteScanRule in 0.007s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:56,142 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | BufferOverflowScanRule in 0.017s with 2 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:56,142 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | FormatStringScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:56,164 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | FormatStringScanRule in 0.022s with 6 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:56,164 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | CrlfInjectionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:56,201 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | CrlfInjectionScanRule in 0.037s with 14 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:56,202 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | ParameterTamperScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:56,244 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | ParameterTamperScanRule in 0.042s with 14 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:56,245 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | ElmahScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:56,246 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | TraceAxdScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:56,249 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | ElmahScanRule in 0.004s with 1 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:56,258 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | TraceAxdScanRule in 0.012s with 4 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:56,258 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | HtAccessScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:56,270 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | HtAccessScanRule in 0.012s with 4 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:56,270 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | EnvFileScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:56,280 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | EnvFileScanRule in 0.01s with 4 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:56,281 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | HiddenFilesScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:56,283 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | SpringActuatorScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:56,287 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | ExponentialEntityExpansionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:56,295 [ZAP-ActiveScanner-1] INFO  HostProcess - completed host/plugin http://localhost:8089 | SpringActuatorScanRule in 0.012s with 2 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:56,433 [ZAP-ActiveScanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | HiddenFilesScanRule in 0.152s with 52 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:56,433 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | ExponentialEntityExpansionScanRule in 0.146s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:56,433 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | XsltInjectionScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:56,466 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | XsltInjectionScanRule in 0.033s with 12 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:56,466 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | HttpsAsHttpScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:56,473 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | HttpsAsHttpScanRule in 0.007s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:56,473 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | GetForPostScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:56,482 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | GetForPostScanRule in 0.009s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:56,482 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | UserAgentScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:56,543 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | UserAgentScanRule in 0.06s with 60 message(s) sent and 60 alert(s) raised.
+2026-11-04 07:35:56,543 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | ScriptsActiveScanner strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:56,590 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | ScriptsActiveScanner in 0.047s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:56,591 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | SOAPActionSpoofingActiveScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:56,603 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | SOAPActionSpoofingActiveScanRule in 0.012s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:56,604 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | SOAPXMLInjectionActiveScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:56,615 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | SOAPXMLInjectionActiveScanRule in 0.011s with 0 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:56,615 [ZAP-Scanner-0] INFO  HostProcess - start host http://localhost:8089 | ActiveScriptScanRule strength MEDIUM threshold MEDIUM
+2026-11-04 07:35:57,084 [ZAP-Scanner-0] INFO  HostProcess - completed host/plugin http://localhost:8089 | ActiveScriptScanRule in 0.469s with 12 message(s) sent and 0 alert(s) raised.
+2026-11-04 07:35:57,085 [ZAP-Scanner-0] INFO  HostProcess - completed host http://localhost:8089 in 1.984s with 60 alert(s) raised.
+2026-11-04 07:35:57,085 [Thread-7774] INFO  Scanner - scanner with ID 4 completed in 1.987s
+2026-11-04 07:35:57,102 [ZAP-Automation] INFO  CommandLine - Job activeScan finished, time taken: 00:00:02
+2026-11-04 07:35:57,102 [ZAP-Automation] INFO  CommandLine - Job report started
+2026-11-04 07:35:57,539 [ZAP-Automation] INFO  CommandLine - Job report generated report /zap/wrk/zap-report/security-scan.json
+2026-11-04 07:35:57,540 [ZAP-Automation] INFO  CommandLine - Job report finished, time taken: 00:00:00
+2026-11-04 07:35:57,540 [ZAP-Automation] INFO  CommandLine - Job report started
+2026-11-04 07:35:57,744 [ZAP-Automation] INFO  CommandLine - Job report generated report /zap/wrk/zap-report/security-scan.html
+2026-11-04 07:35:57,745 [ZAP-Automation] INFO  CommandLine - Job report finished, time taken: 00:00:00
+</pre>
