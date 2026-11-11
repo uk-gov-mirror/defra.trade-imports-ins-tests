@@ -3,6 +3,7 @@ import { MongoDbClient } from '@adapters/db/mongodb-client';
 import { MANDATORY_ANSWERS } from '@domain/animals/constants/journey-options';
 import { type AggregatedNotificationDocument } from '@domain/ins/models/db/aggregated-notification-document';
 import { timeouts } from '@config/timeouts';
+import { E2E_ORGANISATION_ID } from '@adapters/http/organisation';
 import { getMongoDbUri } from '@config/service-base-urls';
 import { skipUnlessComposeEnvironment } from '@utils/playwright/environment';
 import { parseAppDateText, toIsoDate } from '@utils/date-utils';
@@ -61,6 +62,7 @@ test.describe('Aggregated notification store', { tag: ['@compose', '@mongodb', '
       expect(draftDoc.arrivalDate).toBe(arrivalIsoDate);
       expect(draftDoc.lastUpdated).toBeInstanceOf(Date);
       expect(draftDoc.aggregateVersion).toBeGreaterThan(0);
+      expect(draftDoc.organisationId).toBe(E2E_ORGANISATION_ID);
 
       const draftVersion = draftDoc.aggregateVersion;
 
