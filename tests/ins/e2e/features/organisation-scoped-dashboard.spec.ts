@@ -4,7 +4,7 @@ import { timeouts } from '@config/timeouts';
 test.describe(
   'Organisation-scoped INS dashboard',
   {
-    tag: ['@ins-frontend', '@ins-backend', '@animals-backend', '@animals-frontend'],
+    tag: ['@animals-backend', '@animals-frontend'],
   },
   () => {
     test('the owning organisation sees its submitted notification on the INS dashboard', async ({
