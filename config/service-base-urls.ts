@@ -16,6 +16,8 @@ export const getPlantsBackendBaseUrl = (): string => getServiceBaseUrl('TRADE_IM
 
 export const getAddressBookBaseUrl = (): string => getServiceBaseUrl('TRADE_IMPORTS_ADDRESS_BOOK_URL');
 
+export const getInsBackendBaseUrl = (): string => getServiceBaseUrl('TRADE_IMPORTS_INS_BACKEND_URL');
+
 export const getReferenceDataBaseUrl = (): string => getServiceBaseUrl('TRADE_IMPORTS_REFERENCE_DATA_URL');
 
 export const getMongoDbUri = (): string => getServiceBaseUrl('MONGODB_URI');

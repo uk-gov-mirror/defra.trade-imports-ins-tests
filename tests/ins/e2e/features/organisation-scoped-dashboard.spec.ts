@@ -4,7 +4,7 @@ import { timeouts } from '@config/timeouts';
 test.describe(
   'Organisation-scoped INS dashboard',
   {
-    tag: ['@animals-backend', '@animals-frontend'],
+    tag: ['@animals-backend', '@animals-frontend', '@ins-backend'],
   },
   () => {
     test('the owning organisation sees its submitted notification on the INS dashboard', async ({
@@ -32,6 +32,28 @@ test.describe(
           { timeout: timeouts.long },
         )
         .toBe(1);
+    });
+
+    test('another organisation gets no rows when searching by reference', async ({
+      animalsJourney,
+      journeyContext,
+      animalsPages,
+      pages,
+      otherOrganisationInsNotificationsApi,
+    }) => {
+      test.slow();
+
+      await animalsJourney.toDeclaration();
+      const referenceNumber = journeyContext.referenceNumber;
+      await animalsPages.declaration.confirmation.check();
+      await animalsPages.declaration.continueButton.click();
+      await pages.page.getByRole('heading', { name: 'Import notification submitted' }).waitFor();
+
+      await expect
+        .poll(() => otherOrganisationInsNotificationsApi.countByReference(referenceNumber), {
+          timeout: timeouts.long,
+        })
+        .toBe(0);
     });
   },
 );

@@ -24,6 +24,7 @@ import { NotificationApiClient } from '@adapters/http/notification-api-client';
 import { OTHER_ORGANISATION_ID } from '@adapters/http/organisation';
 import { getPlantsBackendBaseUrl } from '@config/service-base-urls';
 import { AddressBookApiClient } from '@adapters/http/address-book-api-client';
+import { InsAggregatedNotificationsApiClient } from '@adapters/http/ins-aggregated-notifications-api-client';
 import { ReferenceDataApiClient } from '@adapters/http/reference-data-api-client';
 import { FrontendFormClient } from '@adapters/http/frontend-form-client';
 import { authCookieNameFor, createWorkerAuthStates, stripToAuthCookie, type AuthStateFor } from '@fixtures/auth-state';
@@ -68,6 +69,7 @@ export interface PageFixtures {
   plantsNotificationActions: PlantsNotificationActions;
   notificationApi: NotificationApiClient;
   otherOrganisationNotificationApi: NotificationApiClient;
+  otherOrganisationInsNotificationsApi: InsAggregatedNotificationsApiClient;
   plantsNotificationApi: NotificationApiClient;
   otherOrganisationPlantsNotificationApi: NotificationApiClient;
   addressBookApi: AddressBookApiClient;
@@ -155,6 +157,9 @@ export const test = base.extend<PageFixtures, AuthWorkerFixtures>({
   },
   otherOrganisationNotificationApi: async ({ request }, use) => {
     await use(new NotificationApiClient(request, { organisationId: OTHER_ORGANISATION_ID }));
+  },
+  otherOrganisationInsNotificationsApi: async ({ request }, use) => {
+    await use(new InsAggregatedNotificationsApiClient(request, { organisationId: OTHER_ORGANISATION_ID }));
   },
   plantsNotificationApi: async ({ request }, use) => {
     await use(new NotificationApiClient(request, { baseUrl: getPlantsBackendBaseUrl() }));
